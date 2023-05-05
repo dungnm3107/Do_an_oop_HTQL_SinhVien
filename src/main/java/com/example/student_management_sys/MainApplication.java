@@ -20,16 +20,16 @@ public class MainApplication extends Application {
         primaryStage.setTitle("Đăng nhập hệ thống");
         primaryStage.setScene(scene);
 
-
         primaryStage.setMinWidth(600);
         primaryStage.setMinHeight(400);
         primaryStage.setMaxWidth(600);
         primaryStage.setMaxHeight(400);
-
+// go bruh bruh
         primaryStage.show();
     }
 
     public static void main(String[] args) {
         launch(args);
+
     }
 }

@@ -10,12 +10,8 @@ public class LoginController {
     private TextField usernameTextField;
     @FXML
     private PasswordField passwordPasswordField;
-
-
-
     @FXML
     private void loginButtonClicked() {
-
         String username = usernameTextField.getText();
         String password = passwordPasswordField.getText();
         if (username.equals("admin") && password.equals("admin")) {
