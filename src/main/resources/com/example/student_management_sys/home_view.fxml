@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="673.0" prefWidth="889.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.HomeView">
+   <children>
+      <AnchorPane prefHeight="56.0" prefWidth="958.0" style="-fx-background-color: #a4dbd7;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="829.4303779602051" AnchorPane.topAnchor="6.0">
+               <image>
+                  <Image url="@logo_huce.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="73.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HỆ THỐNG QUẢN LÝ SINH VIÊN">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <TextField layoutX="389.0" layoutY="14.0" prefHeight="32.0" prefWidth="319.0" promptText="Tìm kiếm..." style="-fx-background-radius: 9 9 9 9;" AnchorPane.leftAnchor="389.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <MenuButton layoutX="760.0" layoutY="14.0" mnemonicParsing="false" text="Tài khoản" AnchorPane.rightAnchor="25.0303779602051">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Action 2" />
+              </items>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </MenuButton>
+         </children>
+      </AnchorPane>
+      <TabPane layoutY="71.0" prefHeight="602.0" prefWidth="891.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="64.0">
+        <tabs>
+            <Tab>
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #FFF;">
+                     <children>
+                        <Button layoutX="125.0" layoutY="127.0" mnemonicParsing="false" text="Button" />
+                     </children>
+                  </AnchorPane>
+              </content>
+               <graphic>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Trang chủ   ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </graphic>
+            </Tab>
+            <Tab>
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fff;" />
+              </content>
+               <graphic>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  Thông tin sinh viên  ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </graphic>
+            </Tab>
+            <Tab closable="false">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fff;">
+                     <effect>
+                        <DropShadow radius="9.415" width="18.66" />
+                     </effect>
+                  </AnchorPane>
+              </content>
+               <graphic>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  Kết quả học tập  ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </graphic>
+            </Tab>
+            <Tab>
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fff;" />
+              </content>
+               <graphic>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  Đăng kí học phần  ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </graphic>
+            </Tab>
+            <Tab>
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fff;" />
+              </content>
+               <graphic>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  Phúc khảo  ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </graphic>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
