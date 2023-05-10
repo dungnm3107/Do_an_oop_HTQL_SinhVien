@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
@@ -36,8 +37,9 @@
             </TextField>
             <MenuButton layoutX="760.0" layoutY="14.0" mnemonicParsing="false" text="Tài khoản" AnchorPane.rightAnchor="25.0303779602051">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
+                <MenuItem mnemonicParsing="false" text="Thông tin cá nhân" />
+                <MenuItem mnemonicParsing="false" text="Đổi mật khẩu" />
+                  <MenuItem mnemonicParsing="false" text="Đăng xuất" />
               </items>
                <font>
                   <Font size="15.0" />
@@ -61,7 +63,10 @@
             </Tab>
             <Tab>
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fff;" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fff;">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="31.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
+                     </children></AnchorPane>
               </content>
                <graphic>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  Thông tin sinh viên  ">
@@ -77,6 +82,47 @@
                      <effect>
                         <DropShadow radius="9.415" width="18.66" />
                      </effect>
+                     <children>
+                        <ScrollPane layoutX="9.0" layoutY="9.0" prefHeight="562.0" prefWidth="583.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="561.0" prefWidth="582.0">
+                                 <children>
+                                    <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Điểm các kỳ">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                        <ScrollPane layoutX="603.0" layoutY="9.0" prefHeight="371.0" prefWidth="277.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="274.0">
+                                 <children>
+                                    <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chứng chỉ đạt được">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                        <ScrollPane layoutX="603.0" layoutY="392.0" prefHeight="179.0" prefWidth="279.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="177.0" prefWidth="279.0">
+                                 <children>
+                                    <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thành tích trong học tập">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                     </children>
                   </AnchorPane>
               </content>
                <graphic>
