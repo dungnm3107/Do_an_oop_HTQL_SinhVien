@@ -65,7 +65,11 @@
                </graphic>
             </Tab>
             <Tab style="-fx-padding: 7; -fx-background-color: #00876c;">
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #d2fcf4;" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #d2fcf4;">
+                  <children>
+                     <ImageView fitHeight="199.0" fitWidth="210.0" layoutX="44.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: ffff;" />
+                     <TextField layoutX="365.0" layoutY="39.0" style="-fx-background-color: ffff;" />
+                  </children></AnchorPane>
                 <graphic>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="  Thông tin sinh viên  " wrappingWidth="172.6614990234375">
                      <font>
@@ -133,7 +137,7 @@
             </Tab>
             <Tab style="-fx-padding: 7; -fx-background-color: #00876c;">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fff;" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="892.0" style="-fx-background-color: #fff;" />
                </content>
                <graphic>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="  Lịch học  ">
