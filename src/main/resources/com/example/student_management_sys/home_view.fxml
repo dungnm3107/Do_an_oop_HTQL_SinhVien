@@ -3,7 +3,6 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -40,9 +39,8 @@
             </TextField>
             <MenuButton layoutX="760.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="130.0" text="Tài khoản" AnchorPane.rightAnchor="25.0">
               <items>
-                <MenuItem mnemonicParsing="false" text="Thông tin cá nhân" />
-                <MenuItem mnemonicParsing="false" text="Đổi mật khẩu" />
-                  <MenuItem mnemonicParsing="false" text="Đăng xuất" />
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Action 2" />
               </items>
                <font>
                   <Font size="15.0" />
@@ -154,6 +152,7 @@
                      <effect>
                         <DropShadow radius="9.415" width="18.66" />
                      </effect>
+
                      <children>
                         <ScrollPane layoutX="599.0" layoutY="10.0" prefHeight="179.0" prefWidth="279.0" AnchorPane.bottomAnchor="372.0" AnchorPane.leftAnchor="599.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="10.0">
                            <content>
@@ -195,6 +194,8 @@
                            </content>
                         </ScrollPane>
                      </children>
+
+
                   </AnchorPane>
               </content>
                <graphic>
@@ -207,6 +208,7 @@
             </Tab>
             <Tab style="-fx-padding: 7; -fx-background-color: #00876c;">
                <content>
+
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="892.0" style="-fx-background-color: #d2fcf4;">
                      <children>
                         <TableView layoutX="27.0" layoutY="16.0" prefHeight="523.0" prefWidth="839.0">
@@ -221,6 +223,9 @@
                           </columns>
                         </TableView>
                      </children></AnchorPane>
+
+                  
+
                </content>
                <graphic>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="  Lịch học  ">
