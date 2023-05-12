@@ -52,7 +52,10 @@
         <tabs>
             <Tab style="-fx-padding: 7; -fx-background-color: #00876c;">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #d2fcf4;" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #d2fcf4;">
+                     <children>
+                        <AnchorPane layoutX="25.0" layoutY="22.0" prefHeight="200.0" prefWidth="522.0" style="-fx-background-color: #fff;" />
+                     </children></AnchorPane>
               </content>
                <graphic>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="   Trang chủ   ">
@@ -64,7 +67,10 @@
             </Tab>
             <Tab style="-fx-padding: 7; -fx-background-color: #00876c;">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #d2fcf4;" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #d2fcf4;">
+                     <children>
+                        <TextField layoutX="210.0" layoutY="50.0" />
+                     </children></AnchorPane>
               </content>
                <graphic>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="  Thông tin sinh viên  " wrappingWidth="172.6614990234375">
