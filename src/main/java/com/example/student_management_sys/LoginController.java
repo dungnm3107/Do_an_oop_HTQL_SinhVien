@@ -1,15 +1,15 @@
 package com.example.student_management_sys;
 
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.*;
 
 
 public class LoginController {
@@ -17,38 +17,65 @@ public class LoginController {
     private TextField usernameTextField;
     @FXML
     private PasswordField passwordPasswordField;
+    @FXML
+    private Button homeButton;
+    @FXML
+    private MenuButton buttonAccount;
     private Stage primaryStage;
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
-
-
     @FXML
     private void loginButtonClicked() {
-        String username = usernameTextField.getText();
-        String password = passwordPasswordField.getText();
-        if (username.equals("admin") && password.equals("admin")) {
-            System.out.println("Đăng nhập thành công!");
-            setPrimaryStage(primaryStage);
+        try {
+            String username = usernameTextField.getText();
+            String password = passwordPasswordField.getText();
 
-            try {
-                // Load home_view.fxml
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("home_view.fxml"));
+            Connection databaseConnection = ConnectionDatabase.getConnection();
+
+            String query = "SELECT Login_Name, pass FROM admin_Login WHERE admin_Login.Login_Name = '" + username + "' AND admin_Login.pass = '" + password + "'";
+
+            Statement statement = databaseConnection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            if (resultSet.next()) {
+
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("home_view.fxml"));
                 Parent root = loader.load();
-                HomeController controller = loader.getController();
 
+                Scene scene = new Scene(root, 1424, 750);
 
-                // close login
-                Stage loginStage = (Stage) usernameTextField.getScene().getWindow();
+                Stage homeStage = new Stage();
+                homeStage.setScene(scene);
+                homeStage.setTitle("Home View");
+
+                Stage loginStage = (Stage) homeButton.getScene().getWindow();
                 loginStage.close();
+                homeStage.show();
 
-            } catch (IOException e) {
-                System.out.println("Lỗi khi load file fxml: " + e.getMessage());
+
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Lỗi đăng nhập");
+                alert.setHeaderText(null);
+                alert.setContentText("Sai tên đăng nhập hoặc mật khẩu. Vui lòng thử lại!");
+                alert.showAndWait();
             }
 
-        } else {
-            System.out.println("Tên người dùng hoặc mật khẩu không đúng!");
+            resultSet.close();
+            statement.close();
+            databaseConnection.close();
+
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi");
+            alert.setHeaderText(null);
+            alert.setContentText("Đã xảy ra lỗi. Vui lòng thử lại!");
+            alert.showAndWait();
         }
     }
+
 }

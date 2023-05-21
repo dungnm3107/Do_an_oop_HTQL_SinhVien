@@ -22,9 +22,9 @@
          <font>
             <Font size="18.0" />
          </font></Text>
-      <TextField fx:id="usernameTextField" layoutX="241.0" layoutY="132.0" prefHeight="40.0" prefWidth="255.0" style="-fx-background-radius: 9 9 9 9;" />
-      <PasswordField fx:id="passwordPasswordField" layoutX="241.0" layoutY="197.0" prefHeight="40.0" prefWidth="255.0" style="-fx-background-radius: 9 9 9 9;" />
-      <Button layoutX="209.0" layoutY="287.0" mnemonicParsing="false" onAction="#loginButtonClicked" prefHeight="38.0" prefWidth="182.0" style="-fx-background-color: linear-gradient(to bottom, #8A2BE2, #C6DFF7); -fx-background-radius: 6 6 6 6;" text="Đăng nhập" textFill="#15592a">
+      <TextField fx:id="usernameTextField" layoutX="241.0" layoutY="132.0" prefHeight="40.0" prefWidth="255.0" promptText="Nhập tên tài khoản" style="-fx-background-radius: 9 9 9 9;" />
+      <PasswordField fx:id="passwordPasswordField" layoutX="241.0" layoutY="197.0" prefHeight="40.0" prefWidth="255.0" promptText="Nhập mật khẩu" style="-fx-background-radius: 9 9 9 9;" />
+      <Button fx:id="homeButton" layoutX="209.0" layoutY="287.0" mnemonicParsing="false" onAction="#loginButtonClicked" prefHeight="38.0" prefWidth="182.0" style="-fx-background-color: linear-gradient(to bottom, #8A2BE2, #C6DFF7); -fx-background-radius: 6 6 6 6;" text="Đăng nhập" textFill="#1a252e">
          <font>
             <Font size="18.0" />
          </font></Button>

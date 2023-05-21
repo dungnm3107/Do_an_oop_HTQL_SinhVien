@@ -4,19 +4,17 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class MainApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login-view.fxml"));
         Parent root = loader.load();
 
-        LoginController controller = loader.getController();
-        controller.setPrimaryStage(primaryStage);
+        LoginController loginController = loader.getController();
+        loginController.setPrimaryStage(primaryStage);
 
         Scene scene = new Scene(root, 600, 400);
         primaryStage.setTitle("Đăng nhập hệ thống");
