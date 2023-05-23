@@ -12,7 +12,7 @@ public class ConnectionDatabase {
 
             String user = "tool";
             String pass = "2003";
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=HeThongQuanLySinhVien;encrypt=true;trustServerCertificate=true", user, pass);
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=SinhVienHucer;encrypt=true;trustServerCertificate=true", user, pass);
             if (conn == null) {
                 System.out.println("fall connect");
             } else {

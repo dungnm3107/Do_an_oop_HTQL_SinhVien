@@ -1,12 +1,15 @@
 package com.example.student_management_sys;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+
 
 import java.io.IOException;
 import java.sql.*;
@@ -20,12 +23,17 @@ public class LoginController {
     @FXML
     private Button homeButton;
     @FXML
+    private MenuItem exitButton;
+    @FXML
     private MenuButton buttonAccount;
+    public void setAccountName(String accountName) {
+        buttonAccount.setText(accountName);
+    }
     private Stage primaryStage;
-
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
+
     @FXML
     private void loginButtonClicked() {
         try {
@@ -34,27 +42,36 @@ public class LoginController {
 
             Connection databaseConnection = ConnectionDatabase.getConnection();
 
-            String query = "SELECT Login_Name, pass FROM admin_Login WHERE admin_Login.Login_Name = '" + username + "' AND admin_Login.pass = '" + password + "'";
+            String query = "SELECT Ma_SV, Pass_SV FROM sinhVien WHERE Ma_SV = '" + username + "' AND Pass_SV = '" + password + "'";
 
             Statement statement = databaseConnection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
 
             if (resultSet.next()) {
 
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("home_view.fxml"));
+                String nameQuery = "SELECT Name_CN FROM caNhan,sinhVien WHERE sinhVien.CCCD = caNhan.CCCD AND sinhVien.Ma_SV='" + username + "'";
+                ResultSet nameResultSet = statement.executeQuery(nameQuery);
+                String nameAccount = "";
+                if (nameResultSet.next()) {
+                    nameAccount = nameResultSet.getString("Name_CN");
+                }
+                nameResultSet.close();
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("home_view.fxml"));
                 Parent root = loader.load();
+
+                LoginController homeController = loader.getController();
+                homeController.setAccountName(nameAccount);
 
                 Scene scene = new Scene(root, 1424, 750);
 
                 Stage homeStage = new Stage();
                 homeStage.setScene(scene);
-                homeStage.setTitle("Home View");
+                homeStage.setTitle("Hệ thống quản lý sinh viên");
 
                 Stage loginStage = (Stage) homeButton.getScene().getWindow();
                 loginStage.close();
                 homeStage.show();
-
 
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -69,6 +86,30 @@ public class LoginController {
             databaseConnection.close();
 
         } catch (SQLException | IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi");
+            alert.setHeaderText(null);
+            alert.setContentText("Đã xảy ra lỗi. Vui lòng thử lại!");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    private void exitButtonClicked() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+            Parent root = loader.load();
+
+            Stage loginStage = new Stage();
+            loginStage.setTitle("Đăng nhập hệ thống");
+            loginStage.setScene(new Scene(root, 600, 400));
+            loginStage.show();
+
+            Stage currentStage = (Stage) exitButton.getParentPopup().getOwnerWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Lỗi");
