@@ -1,21 +1,18 @@
 package com.example.student_management_sys;
 
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
-
 import java.io.IOException;
 import java.sql.*;
 
-
 public class LoginController {
+
+
     @FXML
     private TextField usernameTextField;
     @FXML
@@ -33,9 +30,15 @@ public class LoginController {
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
+    public TableController tableController;
+    public void setTableController(TableController tableController) {
+        this.tableController = tableController;
+    }
+
+
 
     @FXML
-    private void loginButtonClicked() {
+    public void loginButtonClicked() {
         try {
             String username = usernameTextField.getText();
             String password = passwordPasswordField.getText();
@@ -73,6 +76,12 @@ public class LoginController {
                 loginStage.close();
                 homeStage.show();
 
+                LoginController loginController = loader.getController();
+                loginController.setTableController(tableController);
+
+                loginController.tableController.getCoursesFromDatabase();
+                loginController.tableController.initialize();
+
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Lỗi đăng nhập");
@@ -96,7 +105,7 @@ public class LoginController {
     }
 
     @FXML
-    private void exitButtonClicked() {
+    public void exitButtonClicked() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("login-view.fxml"));
             Parent root = loader.load();
