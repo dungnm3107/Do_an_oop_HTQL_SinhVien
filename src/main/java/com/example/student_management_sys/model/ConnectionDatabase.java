@@ -25,6 +25,6 @@ public class ConnectionDatabase {
     }
 
     public static void main(String[] args) {
-          getConnection();
+        getConnection();
     }
 }
