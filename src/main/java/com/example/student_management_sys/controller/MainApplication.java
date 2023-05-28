@@ -23,11 +23,12 @@ public class MainApplication extends Application {
         primaryStage.setMinHeight(400);
         primaryStage.setMaxWidth(600);
         primaryStage.setMaxHeight(400);
-
+// go bruh bruh
         primaryStage.show();
     }
 
     public static void main(String[] args) {
         launch(args);
+
     }
 }
