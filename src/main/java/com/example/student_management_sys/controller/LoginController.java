@@ -1,7 +1,6 @@
-package com.example.student_management_sys.controller;
+package com.example.student_management_sys;
 
 
-import com.example.student_management_sys.model.ConnectionDatabase;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,6 +29,10 @@ public class LoginController {
     private Stage primaryStage;
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
+    }
+    public TableController tableController;
+    public void setTableController(TableController tableController) {
+        this.tableController = tableController;
     }
 
 
@@ -74,7 +77,10 @@ public class LoginController {
                 homeStage.show();
 
                 LoginController loginController = loader.getController();
+                loginController.setTableController(tableController);
 
+                loginController.tableController.getCoursesFromDatabase();
+                loginController.tableController.initialize();
 
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);

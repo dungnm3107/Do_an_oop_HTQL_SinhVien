@@ -10,11 +10,14 @@ public class MainApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/login-view.fxml"));
+
         Parent root = loader.load();
 
         LoginController loginController = loader.getController();
         loginController.setPrimaryStage(primaryStage);
+
         Scene scene = new Scene(root, 600, 400);
         primaryStage.setTitle("Đăng nhập hệ thống");
         primaryStage.setScene(scene);
@@ -23,12 +26,12 @@ public class MainApplication extends Application {
         primaryStage.setMinHeight(400);
         primaryStage.setMaxWidth(600);
         primaryStage.setMaxHeight(400);
-// go bruh bruh
+
         primaryStage.show();
+
     }
 
     public static void main(String[] args) {
         launch(args);
-
     }
 }
