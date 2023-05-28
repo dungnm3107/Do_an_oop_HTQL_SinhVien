@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="1424.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" >
+    <TabPane layoutY="71.0" prefHeight="602.0" prefWidth="891.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="64.0">
+
+        <Tab  style="-fx-padding: 7; -fx-background-color: #3f998d;">
+            <graphic>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="  Đăng kí học phần  ">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Text>
+            </graphic>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #B0D7EB;">
+                <MenuButton layoutX="113.0" layoutY="56.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="307.0" text="Học kì" textAlignment="CENTER" textOverrun="CLIP" AnchorPane.leftAnchor="113.0" AnchorPane.topAnchor="56.0">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Năm học 2022-2023" />
+                        <MenuItem mnemonicParsing="false" text="Năm học 2023-2024" />
+                    </items>
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </MenuButton>
+                <TableView  layoutY="155.0" prefHeight="342.0" prefWidth="892.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="155.0">
+                    <columns>
+                        <TableColumn  prefWidth="111.20000839233398" text="Mã môn học" />
+                        <TableColumn  prefWidth="108.00001525878906" text="Tên môn học" />
+                        <TableColumn  prefWidth="69.60003662109375" text="Lớp" />
+                        <TableColumn  prefWidth="48.79998779296875" text="Số tín" />
+                        <TableColumn  prefWidth="145.60003662109375" text="Loại học phần" />
+                    </columns>
+                </TableView>
+            </AnchorPane>
+        </Tab>
+
+    </TabPane>
+</AnchorPane>

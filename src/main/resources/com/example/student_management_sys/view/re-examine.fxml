@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="750.0" prefWidth="1424.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" >
+    <TabPane layoutY="71.0" prefHeight="602.0" prefWidth="891.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="64.0">
+        <Tab style="-fx-padding: 7; -fx-background-color: #3f998d;">
+            <graphic>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="  Phúc khảo  ">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Text>
+            </graphic>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #B0D7EB;">
+                <TableView layoutY="81.0" prefHeight="133.0" prefWidth="892.0" AnchorPane.bottomAnchor="347.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="81.0">
+                    <columns>
+                        <TableColumn prefWidth="186.3999908566475" text="Mã môn học" />
+                        <TableColumn prefWidth="165.59999084472656" text="Mã lớp học phần" />
+                        <TableColumn prefWidth="195.20001220703125" text="Tên môn học" />
+                        <TableColumn prefWidth="160.79998779296875" text="Điểm thi" />
+                        <TableColumn prefWidth="186.4000244140625" text="Thời hạn phúc khảo" />
+                    </columns>
+                </TableView>
+                <TableView layoutY="317.0" prefHeight="150.0" prefWidth="892.0" AnchorPane.bottomAnchor="94.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <columns>
+                        <TableColumn prefWidth="110.39999085664749" text="Mã môn học" />
+                        <TableColumn prefWidth="148.8000030517578" text="MÃ lớp học phần" />
+                        <TableColumn prefWidth="82.4000244140625" text="Tên môn học" />
+                        <TableColumn prefWidth="82.4000244140625" text="ĐIểm thi" />
+                        <TableColumn prefWidth="64.0" text="Lệ phí" />
+                        <TableColumn prefWidth="69.5999755859375" text="Đã Nộp " />
+                        <TableColumn prefWidth="113.5999755859375" text="Điểm phúc khảo" />
+                        <TableColumn prefWidth="135.2000732421875" text="Phản hồi phúc khảo" />
+                        <TableColumn prefWidth="96.800048828125" text="Trạng thái" />
+                    </columns>
+                </TableView>
+                <Text fill="#2600ff" layoutX="42.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DANH SÁCH ĐĂNG KÍ PHÚC KHẢO" AnchorPane.bottomAnchor="269.482421875" AnchorPane.leftAnchor="42.0">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Text>
+                <Text fill="#2600ff" layoutX="42.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ĐĂNG KÍ PHÚC KHẢO">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Text>
+            </AnchorPane>
+        </Tab>
+    </TabPane>
+</AnchorPane>
