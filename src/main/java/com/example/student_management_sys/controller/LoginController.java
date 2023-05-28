@@ -1,6 +1,7 @@
-package com.example.student_management_sys;
+package com.example.student_management_sys.controller;
 
 
+import com.example.student_management_sys.model.ConnectionDatabase;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +13,7 @@ import java.sql.*;
 
 public class LoginController {
 
-
+    private  String username;
     @FXML
     private TextField usernameTextField;
     @FXML
@@ -30,17 +31,20 @@ public class LoginController {
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
-    public TableController tableController;
-    public void setTableController(TableController tableController) {
-        this.tableController = tableController;
-    }
+//    public TableController tableController;
+//    public void setTableController(TableController tableController) {
+//        this.tableController = tableController;
+//    }
 
+    public String getUsername() {
+        return username;
+    }
 
 
     @FXML
     public void loginButtonClicked() {
         try {
-            String username = usernameTextField.getText();
+            username = usernameTextField.getText();
             String password = passwordPasswordField.getText();
 
             Connection databaseConnection = ConnectionDatabase.getConnection();
@@ -60,7 +64,8 @@ public class LoginController {
                 }
                 nameResultSet.close();
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("home_view.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/home_view.fxml"));
+
                 Parent root = loader.load();
 
                 LoginController homeController = loader.getController();
@@ -76,11 +81,7 @@ public class LoginController {
                 loginStage.close();
                 homeStage.show();
 
-                LoginController loginController = loader.getController();
-                loginController.setTableController(tableController);
 
-                loginController.tableController.getCoursesFromDatabase();
-                loginController.tableController.initialize();
 
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);

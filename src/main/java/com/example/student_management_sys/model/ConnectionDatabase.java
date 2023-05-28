@@ -1,4 +1,4 @@
-package com.example.student_management_sys;
+package com.example.student_management_sys.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

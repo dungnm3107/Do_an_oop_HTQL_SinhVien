@@ -1,4 +1,4 @@
-package com.example.student_management_sys;
+package com.example.student_management_sys.controller;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,13 +10,14 @@ public class MainApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        TableController tableController = new TableController();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/login-view.fxml"));
+
         Parent root = loader.load();
 
         LoginController loginController = loader.getController();
         loginController.setPrimaryStage(primaryStage);
-        loginController.setTableController(tableController);
+
         Scene scene = new Scene(root, 600, 400);
         primaryStage.setTitle("Đăng nhập hệ thống");
         primaryStage.setScene(scene);
@@ -27,6 +28,7 @@ public class MainApplication extends Application {
         primaryStage.setMaxHeight(400);
 
         primaryStage.show();
+
     }
 
     public static void main(String[] args) {

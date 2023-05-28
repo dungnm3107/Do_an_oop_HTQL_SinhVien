@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1424.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.LoginController">
+<AnchorPane prefHeight="750.0" prefWidth="1424.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.controller.LoginController">
     <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="56.0" prefWidth="958.0" style="-fx-background-color: #3f998d;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <effect>
             <DropShadow />
@@ -54,7 +54,7 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="645.0" prefWidth="1402.0" style="-fx-background-color: #B0D7EB;">
                 <AnchorPane layoutX="38.0" layoutY="3.0" prefHeight="638.0" prefWidth="1381.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="3.0">
                     <ScrollPane layoutX="744.0" layoutY="280.0" prefHeight="334.0" prefWidth="596.0">
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="598.0" style="-fx-background-color: CC99FF;">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="598.0" style="-fx-background-color: fff;">
                             <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lịch theo tuần">
                                 <font>
                                     <Font size="18.0" />
@@ -63,7 +63,7 @@
                         </AnchorPane>
                     </ScrollPane>
                     <ScrollPane layoutX="10.0" layoutY="278.0" prefHeight="336.0" prefWidth="683.0" style="-fx-background-color: #bf27f2;">
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="323.0" prefWidth="684.0" style="-fx-background-color: CC99FF;">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="323.0" prefWidth="684.0" style="-fx-background-color: fff;">
                             <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kết quả học tập">
                                 <font>
                                     <Font size="18.0" />
@@ -72,7 +72,7 @@
                         </AnchorPane>
                     </ScrollPane>
                     <ScrollPane layoutX="745.0" layoutY="22.0" prefHeight="234.0" prefWidth="595.0">
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="597.0" style="-fx-background-color: CC99FF;">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="597.0" style="-fx-background-color: fff;">
                             <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông báo">
                                 <font>
                                     <Font size="18.0" />
@@ -80,7 +80,7 @@
                             </Text>
                         </AnchorPane>
                     </ScrollPane>
-                    <AnchorPane layoutX="11.0" layoutY="22.0" minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="682.0" style="-fx-background-color: CC99FF;">
+                    <AnchorPane layoutX="11.0" layoutY="22.0" minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="682.0" style="-fx-background-color: #B0D7EB;">
                         <TextField layoutX="434.0" layoutY="21.0" promptText="Mã sinh viên" />
                         <TextField layoutX="434.0" layoutY="65.0" promptText="Họ tên" />
                         <TextField layoutX="434.0" layoutY="107.0" promptText="Giới tính" />
@@ -120,7 +120,10 @@
         </Tab>
         <Tab style="-fx-padding: 7; -fx-background-color: #3f998d;">
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #B0D7EB;">
-                <ImageView fitHeight="222.0" fitWidth="242.0" layoutX="74.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: ffff;" />
+                <ImageView fitHeight="211.0" fitWidth="213.0" layoutX="318.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: ffff;">
+               <image>
+                  <Image url="@avata_pro.jpg" />
+               </image></ImageView>
                 <TextField layoutX="289.0" layoutY="564.0" prefHeight="50.0" prefWidth="350.0" promptText="Trạng thái" style="-fx-background-color: #f5f5f5;" />
                 <TextField layoutX="942.0" layoutY="312.0" prefHeight="50.0" prefWidth="350.0" promptText="Bậc đào tạo" style="-fx-background-color: #f5f5f5;" />
                 <TextField layoutX="943.0" layoutY="55.0" prefHeight="50.0" prefWidth="350.0" promptText="Lớp quản lí" style="-fx-background-color: #f5f5f5;" AnchorPane.leftAnchor="943.0" AnchorPane.topAnchor="55.0" />
