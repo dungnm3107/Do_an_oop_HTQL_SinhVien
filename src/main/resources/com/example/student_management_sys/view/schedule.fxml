@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="750.0" prefWidth="1424.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <TabPane layoutY="71.0" prefHeight="602.0" prefWidth="891.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="64.0">
+
+        <Tab style="-fx-padding: 7; -fx-background-color: #3f998d;">
+            <graphic>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="  Lịch học  ">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Text>
+            </graphic>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="652.0" prefWidth="1170.0" style="-fx-background-color: #B0D7EB;">
+                <TableView layoutX="-7.0" layoutY="44.0" prefHeight="523.0" prefWidth="839.0" AnchorPane.topAnchor="44.0">
+                    <columns>
+                        <TableColumn prefWidth="120.0" text="             Thứ 2" />
+                        <TableColumn minWidth="0.0" prefWidth="120.0" text="             Thứ 3" />
+                        <TableColumn minWidth="0.0" prefWidth="120.0" text="             Thứ 4" />
+                        <TableColumn minWidth="0.0" prefWidth="120.0" text="             Thứ 5" />
+                        <TableColumn minWidth="0.0" prefWidth="120.0" text="             Thứ 6" />
+                        <TableColumn minWidth="0.0" prefWidth="120.0" text="             Thứ 7" />
+                        <TableColumn minWidth="0.0" prefWidth="120.0" text="          Chủ Nhật" />
+                    </columns>
+                </TableView>
+            </AnchorPane>
+        </Tab>
+
+    </TabPane>
+</AnchorPane>

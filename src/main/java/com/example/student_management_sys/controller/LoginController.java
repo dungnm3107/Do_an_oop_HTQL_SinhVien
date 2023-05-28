@@ -108,7 +108,7 @@ public class LoginController {
     @FXML
     public void exitButtonClicked() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("login_view.fxml"));
             Parent root = loader.load();
 
             Stage loginStage = new Stage();
