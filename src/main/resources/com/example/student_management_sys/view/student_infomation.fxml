@@ -1,38 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="750.0" prefWidth="1424.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane prefHeight="750.0" prefWidth="1424.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.controller.StudentInfomationController">
     <TabPane layoutY="71.0" prefHeight="602.0" prefWidth="891.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="64.0">
 
         <Tab style="-fx-padding: 7; -fx-background-color: #3f998d;">
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #B0D7EB;">
                 <ImageView fitHeight="222.0" fitWidth="242.0" layoutX="74.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: ffff;" />
-                <TextField layoutX="289.0" layoutY="564.0" prefHeight="50.0" prefWidth="350.0" promptText="Trạng thái" style="-fx-background-color: #f5f5f5;" />
-                <TextField layoutX="942.0" layoutY="312.0" prefHeight="50.0" prefWidth="350.0" promptText="Bậc đào tạo" style="-fx-background-color: #f5f5f5;" />
-                <TextField layoutX="943.0" layoutY="55.0" prefHeight="50.0" prefWidth="350.0" promptText="Lớp quản lí" style="-fx-background-color: #f5f5f5;" AnchorPane.leftAnchor="943.0" AnchorPane.topAnchor="55.0" />
-                <TextField layoutX="942.0" layoutY="227.0" prefHeight="50.0" prefWidth="350.0" promptText="Loại hình đào tạo" style="-fx-background-color: #f5f5f5;" />
-                <TextField layoutX="942.0" layoutY="141.0" prefHeight="50.0" prefWidth="350.0" promptText="Khóa" style="-fx-background-color: #f5f5f5;" />
+                <TextField fx:id="TrangThai" layoutX="289.0" layoutY="564.0" prefHeight="50.0" prefWidth="350.0" promptText="Trạng thái" style="-fx-background-color: #f5f5f5;" />
+                <TextField fx:id="BAC" layoutX="942.0" layoutY="312.0" prefHeight="50.0" prefWidth="350.0" promptText="Bậc đào tạo" style="-fx-background-color: #f5f5f5;" />
+                <TextField layoutX="943.0" layoutY="56.0" prefHeight="50.0" prefWidth="350.0" promptText="Lớp quản lí" style="-fx-background-color: #f5f5f5;" AnchorPane.leftAnchor="943.0" AnchorPane.topAnchor="56.0" />
+                <TextField fx:id="LOAIDAOTAO" layoutX="942.0" layoutY="227.0" prefHeight="50.0" prefWidth="350.0" promptText="Loại hình đào tạo" style="-fx-background-color: #f5f5f5;" />
+                <TextField fx:id="SDT" layoutX="942.0" layoutY="141.0" prefHeight="50.0" prefWidth="350.0" promptText="Số điện thoại" style="-fx-background-color: #f5f5f5;" />
                 <TextField layoutX="943.0" layoutY="565.0" prefHeight="50.0" prefWidth="350.0" promptText="Ngày vào trường" style="-fx-background-color: #f5f5f5;" />
                 <TextField layoutX="942.0" layoutY="483.0" prefHeight="50.0" prefWidth="350.0" promptText="Khoa" style="-fx-background-color: #f5f5f5;" />
-                <TextField layoutX="943.0" layoutY="397.0" prefHeight="50.0" prefWidth="350.0" promptText="Chuyên ngành" style="-fx-background-color: #f5f5f5;" />
-                <TextField layoutX="289.0" layoutY="312.0" prefHeight="50.0" prefWidth="350.0" promptText="Mã sinh viên" style="-fx-background-color: #f5f5f5;" />
-                <TextField layoutX="289.0" layoutY="396.0" prefHeight="50.0" prefWidth="350.0" promptText="Họ tên" style="-fx-background-color: #f5f5f5;" />
-                <TextField layoutX="289.0" layoutY="482.0" prefHeight="50.0" prefWidth="350.0" promptText="Giới tính" style="-fx-background-color: #f5f5f5;" />
+                <TextField fx:id="ChuyenNganh" layoutX="943.0" layoutY="397.0" prefHeight="50.0" prefWidth="350.0" promptText="Ngày sinh" style="-fx-background-color: #f5f5f5;" />
+                <TextField fx:id="MSSV" layoutX="289.0" layoutY="312.0" prefHeight="50.0" prefWidth="350.0" promptText="Mã sinh viên" style="-fx-background-color: #f5f5f5;" />
+                <TextField fx:id="HoTen" layoutX="289.0" layoutY="396.0" prefHeight="50.0" prefWidth="350.0" promptText="Họ tên" style="-fx-background-color: #f5f5f5;" />
+                <TextField fx:id="GioiTinh" layoutX="289.0" layoutY="482.0" prefHeight="50.0" prefWidth="350.0" promptText="Giới tính" style="-fx-background-color: #f5f5f5;" />
                 <Text layoutX="145.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MSSV:" wrappingWidth="76.39999389648438">
                     <font>
                         <Font size="18.0" />
@@ -58,7 +50,7 @@
                         <Font size="18.0" />
                     </font>
                 </Text>
-                <Text layoutX="755.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khóa: ">
+                <Text layoutX="755.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại:">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -73,12 +65,12 @@
                         <Font size="18.0" />
                     </font>
                 </Text>
-                <Text layoutX="758.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chuyên ngành: ">
+                <Text layoutX="760.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chuyên ngành: ">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Text>
-                <Text layoutX="758.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khoa: ">
+                <Text layoutX="761.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày sinh">
                     <font>
                         <Font size="18.0" />
                     </font>

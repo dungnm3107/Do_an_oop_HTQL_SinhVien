@@ -1,11 +1,7 @@
 package com.example.student_management_sys.model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class DatabaseModel {
 
@@ -15,7 +11,7 @@ public class DatabaseModel {
     connection = ConnectionDatabase.getConnection();
   }
 
-  public ResultSet getLichHoc(
+  public ArrayList<LichHoc> getLichHoc(
     String maSV,
     String maHK,
     String ngayBatDau,
@@ -45,8 +41,28 @@ public class DatabaseModel {
       stmt.setString(4, ngayKetThuc);
 
       rs = stmt.executeQuery();
-
-      return rs;
+      ArrayList<LichHoc> listLichHoc = new ArrayList<LichHoc>();
+      while (rs.next()) {
+        LichHoc lh = new LichHoc(
+          rs.getString(1),
+          rs.getString(2),
+          rs.getString(3),
+          rs.getString(4),
+          rs.getString(5),
+          rs.getString(6),
+          rs.getString(7),
+          rs.getString(8),
+          rs.getDate(9),
+          rs.getDate(10),
+          rs.getString(11),
+          rs.getString(12),
+          rs.getString(13),
+          rs.getString(14),
+          rs.getString(15)
+        );
+        listLichHoc.add(lh);
+      }
+      return listLichHoc;
     } finally {
       if (rs != null) {
         rs.close();
@@ -57,7 +73,7 @@ public class DatabaseModel {
     }
   }
 
-  public ResultSet getKetQuaHocTap(String maSV) throws SQLException {
+  public ArrayList<KetQuaHocTap> getKetQuaHocTap(String maSV) throws SQLException {
     PreparedStatement stmt = null;
     ResultSet rs = null;
 
@@ -75,9 +91,23 @@ public class DatabaseModel {
       stmt.setString(1, maSV);
 
       rs = stmt.executeQuery();
-
-      displayResultSet(rs);
-      return rs;
+      ArrayList<KetQuaHocTap> listKetQuaHocTap = new ArrayList<KetQuaHocTap>();
+      while(rs.next()) {
+        KetQuaHocTap kqht = new KetQuaHocTap(
+          rs.getString(1),
+          rs.getString(2),
+          rs.getString(3),
+          rs.getInt(4),
+          rs.getString(5),
+          rs.getFloat(6),
+          rs.getFloat(7),
+          rs.getFloat(8),
+          rs.getFloat(9),
+          rs.getInt(10)
+        );
+        listKetQuaHocTap.add(kqht);
+      }
+      return listKetQuaHocTap;
     } finally {
       if (rs != null) {
         rs.close();
@@ -188,6 +218,20 @@ public class DatabaseModel {
     DatabaseModel databaseModel = new DatabaseModel();
     Student std = databaseModel.getInformation("010041");
     std.DisplayStudent();
-
+    databaseModel.getKetQuaHocTap("010041");
+    ArrayList<LichHoc> lh = databaseModel.getLichHoc(
+      "016951",
+      "HK01-2023",
+      "2023-04-05",
+      "2023-04-12"
+    );
+    for (LichHoc lichHoc : lh) {
+      lichHoc.displayLichHoc();
+    }
+    ArrayList<KetQuaHocTap> kqht = databaseModel.getKetQuaHocTap("010041");
+    for (KetQuaHocTap ketQuaHocTap : kqht) {
+      ketQuaHocTap.displayKQHT();
+    }
+    databaseModel.closeConnection();
   }
 }
