@@ -31,10 +31,6 @@ public class LoginController {
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
-//    public TableController tableController;
-//    public void setTableController(TableController tableController) {
-//        this.tableController = tableController;
-//    }
 
     public String getUsername() {
         return username;
@@ -108,7 +104,7 @@ public class LoginController {
     @FXML
     public void exitButtonClicked() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("login_view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/login_view.fxml"));
             Parent root = loader.load();
 
             Stage loginStage = new Stage();
