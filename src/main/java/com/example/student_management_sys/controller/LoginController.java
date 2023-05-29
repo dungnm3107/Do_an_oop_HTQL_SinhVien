@@ -12,7 +12,20 @@ import java.io.IOException;
 import java.sql.*;
 
 public class LoginController {
+    @FXML
+    private TextField tfclass;
 
+    @FXML
+    private TextField tfgender;
+
+    @FXML
+    private TextField tfmssv;
+
+    @FXML
+    private TextField tfname;
+
+    @FXML
+    private TextField tfnganh;
     private  String username;
     @FXML
     private TextField usernameTextField;
@@ -31,15 +44,42 @@ public class LoginController {
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
-//    public TableController tableController;
-//    public void setTableController(TableController tableController) {
-//        this.tableController = tableController;
-//    }
 
     public String getUsername() {
         return username;
     }
+    public void inforStudent(String maSV){
+        try {
+            Connection databaseConnection = ConnectionDatabase.getConnection();
+            String query = "SELECT sv.Ma_SV, cn.Name_CN, cn.Gender, sv.Name_Lop, nh.Name_Nganh AS Nganh " +
+                    "FROM sinhVien AS sv " +
+                    "INNER JOIN caNhan AS cn ON sv.CCCD = cn.CCCD " +
+                    "INNER JOIN chuyenNganh AS cnn ON sv.Ma_ChuyenNganh = cnn.Ma_ChuyenNganh " +
+                    "INNER JOIN nganhHoc AS nh ON cnn.Ma_Nganh = nh.Ma_Nganh " +
+                    "WHERE sv.Ma_SV ='" + maSV +"'";
+            Statement statement = databaseConnection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            if (resultSet.next()){
+                String mssv = resultSet.getString("Ma_SV");
+                String name = resultSet.getString("Name_CN");
+                String gender = resultSet.getString("Gender");
+                String lop = resultSet.getString("Name_Lop");
+                String nganh = resultSet.getString("Nganh");
 
+                tfmssv.setText(mssv);
+                tfname.setText(name);
+                tfgender.setText(gender);
+                tfclass.setText(lop);
+                tfnganh.setText(nganh);
+            } else {
+                System.out.println("Not Found");// Xử lý khi không tìm thấy sinh viên với mã sinh viên đã cho
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error acces");
+            System.out.println(e.getMessage());
+        }
+    }
 
     @FXML
     public void loginButtonClicked() {
@@ -70,7 +110,7 @@ public class LoginController {
 
                 LoginController homeController = loader.getController();
                 homeController.setAccountName(nameAccount);
-
+                homeController.inforStudent(username);
                 Scene scene = new Scene(root, 1424, 750);
 
                 Stage homeStage = new Stage();
