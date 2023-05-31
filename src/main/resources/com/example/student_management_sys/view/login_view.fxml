@@ -10,7 +10,7 @@
 <AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0"
             style="-fx-background-color: linear-gradient(to bottom, #C6DFF7, #0072C6);"
             xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.student_management_sys.LoginController">
+            fx:controller="com.example.student_management_sys.controller.LoginController">
    <Text layoutX="101.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên tài khoản"
          AnchorPane.topAnchor="139.576171875">
       <font>

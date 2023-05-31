@@ -1,4 +1,4 @@
-package com.example.student_management_sys;
+package com.example.student_management_sys.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,8 +10,10 @@ public class ConnectionDatabase {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
+
             String user = "tool";
             String pass = "2003";
+
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=SinhVienHucer;encrypt=true;trustServerCertificate=true", user, pass);
             if (conn == null) {
                 System.out.println("fall connect");
