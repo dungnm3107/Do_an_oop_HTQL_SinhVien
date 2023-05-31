@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="1133.0" prefWidth="1334.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="68.0" prefWidth="1427.0" style="-fx-background-color: #3f998d;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <effect>
+            <DropShadow />
+        </effect>
+        <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.599998474121094" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1342.2" AnchorPane.topAnchor="10.0">
+            <Image url="@logo_huce.png" />
+        </ImageView>
+        <Text fill="WHITE" layoutX="75.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HỆ THỐNG QUẢN LÝ SINH VIÊN">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <TextField layoutX="370.0" layoutY="14.0" prefHeight="39.0" prefWidth="350.0" promptText="Tìm kiếm..." style="-fx-background-color: white; -fx-background-radius: 9 9 9 9;" AnchorPane.leftAnchor="370.0">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </TextField>
+        <MenuButton fx:id="buttonAccount" layoutX="1186.0" layoutY="14.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="194.0" style="-fx-background-color: #3f998d;" text="user" textFill="WHITE" AnchorPane.rightAnchor="23.799999999999955">
+            <items>
+                <MenuItem id="exitButton" fx:id="exitButton" mnemonicParsing="false" text="           Đăng xuất           " />
+            </items>
+            <font>
+                <Font size="16.0" />
+            </font>
+        </MenuButton>
+    </AnchorPane>
+    <AnchorPane layoutY="124.0" prefHeight="1009.0" prefWidth="1404.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="124.0">
+        <children>
+            <AnchorPane layoutX="33.0" layoutY="88.0" minHeight="0.0" minWidth="0.0" prefHeight="675.0" prefWidth="1371.0">
+                <children>
+                    <ImageView fitHeight="222.0" fitWidth="242.0" layoutX="72.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: ffff;" />
+                    <TextField fx:id="tfStatus" layoutX="289.0" layoutY="564.0" prefHeight="50.0" prefWidth="350.0" promptText="Trạng thái" style="-fx-background-color: #f5f5f5;" />
+                    <TextField fx:id="tfSDT" layoutX="942.0" layoutY="312.0" prefHeight="50.0" prefWidth="350.0" promptText="Số điện thoại" style="-fx-background-color: #f5f5f5;" />
+                    <TextField fx:id="tfClassQL" layoutX="943.0" layoutY="56.0" prefHeight="50.0" prefWidth="350.0" promptText="Lớp quản lí" style="-fx-background-color: #f5f5f5;" AnchorPane.leftAnchor="943.0" AnchorPane.topAnchor="56.0" />
+                    <TextField fx:id="tfLoaiDT" layoutX="942.0" layoutY="227.0" prefHeight="50.0" prefWidth="350.0" promptText="Loại hình đào tạo" style="-fx-background-color: #f5f5f5;" />
+                    <TextField fx:id="tfAdress" layoutX="942.0" layoutY="141.0" prefHeight="50.0" prefWidth="350.0" promptText="Quê quán" style="-fx-background-color: #f5f5f5;" />
+                    <TextField fx:id="tfVaoTruong" layoutX="943.0" layoutY="565.0" prefHeight="50.0" prefWidth="350.0" promptText="Ngày vào trường" style="-fx-background-color: #f5f5f5;" />
+                    <TextField fx:id="tfChuyenNganh" layoutX="942.0" layoutY="483.0" prefHeight="50.0" prefWidth="350.0" promptText="Khoa" style="-fx-background-color: #f5f5f5;" />
+                    <TextField fx:id="tfBirthDay" layoutX="943.0" layoutY="397.0" prefHeight="50.0" prefWidth="350.0" promptText="Ngày sinh" style="-fx-background-color: #f5f5f5;" />
+                    <TextField fx:id="tfMaSV" layoutX="289.0" layoutY="312.0" prefHeight="50.0" prefWidth="350.0" promptText="Mã sinh viên" style="-fx-background-color: #f5f5f5;" />
+                    <TextField fx:id="tfHoTen" layoutX="289.0" layoutY="396.0" prefHeight="50.0" prefWidth="350.0" promptText="Họ tên" style="-fx-background-color: #f5f5f5;" />
+                    <TextField fx:id="tfGioiTinh" layoutX="289.0" layoutY="482.0" prefHeight="50.0" prefWidth="350.0" promptText="Giới tính" style="-fx-background-color: #f5f5f5;" />
+                    <Text layoutX="145.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MSSV:" wrappingWidth="76.39999389648438">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Text>
+                    <Text layoutX="138.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Họ tên:" wrappingWidth="118.4000244140625">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Text>
+                    <Text layoutX="138.0" layoutY="563.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính:" wrappingWidth="110.45077514648438">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Text>
+                    <Text layoutX="138.0" layoutY="644.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trạng thái:" wrappingWidth="106.44556427001953">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Text>
+                    <Text layoutX="748.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lớp quản lí:" wrappingWidth="109.37052154541016">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Text>
+                    <Text layoutX="748.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại:">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Text>
+                    <Text layoutX="750.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loại hình đào tạo: ">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Text>
+                    <Text layoutX="751.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bậc đào tạo: ">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Text>
+                    <Text layoutX="753.0" layoutY="563.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chuyên ngành: ">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Text>
+                    <Text layoutX="754.0" layoutY="487.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày sinh">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Text>
+                    <Text layoutX="752.0" layoutY="647.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày vào trường: ">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Text>
+                </children>
+            </AnchorPane>
+        </children>
+    </AnchorPane>
+    <ButtonBar layoutX="-19.0" layoutY="77.0" prefHeight="32.0" prefWidth="1011.0">
+        <buttons>
+            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Trang chủ" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: #3f998d;" text="Thông tin sinh viên" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Kết quả học tập" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Lịch học " textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Đăng kí môn học" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" style="-fx-background-color: #3f998d;" text="Phúc khảo" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+        </buttons>
+    </ButtonBar>
+</AnchorPane>

@@ -10,7 +10,6 @@ public class InformationTabs {
 
     @FXML
     private TextField NgaySinh_TT;
-
     @FXML
     private TextField Lop_TT;
 
