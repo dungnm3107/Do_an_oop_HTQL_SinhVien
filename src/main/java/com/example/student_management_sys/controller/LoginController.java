@@ -2,20 +2,27 @@ package com.example.student_management_sys.controller;
 
 
 import com.example.student_management_sys.model.ConnectionDatabase;
+
 import com.example.student_management_sys.model.DatabaseModel;
 import com.example.student_management_sys.model.Student;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.sql.*;
 
 public class LoginController {
+
     //Chức năng đăng nhập và đăng xuất
     private  String username;
+
     @FXML
     private TextField usernameTextField;
     @FXML
@@ -26,30 +33,43 @@ public class LoginController {
     private MenuItem exitButton;
     @FXML
     private MenuButton buttonAccount;
+    @FXML
+    private MenuButton menuButton;
+    private String strMAHK;
+
+    @FXML
+    private TableView tableView;
+
     public void setAccountName(String accountName) {
         buttonAccount.setText(accountName);
     }
+
     private Stage primaryStage;
+
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
+
     public String getUsername() {
         return username;
     }
     @FXML
     public void loginButtonClicked() {
+
         try {
-            username = usernameTextField.getText();
-            String password = passwordPasswordField.getText();
-
             Connection databaseConnection = ConnectionDatabase.getConnection();
-
-            String query = "SELECT Ma_SV, Pass_SV FROM sinhVien WHERE Ma_SV = '" + username + "' AND Pass_SV = '" + password + "'";
-
+            String dataQuery = "SELECT mh.Ma_MH, mh.Name_MH, lh.Name_Lop, mh.So_Tin, mh.Loai_HP\n" +
+                    "FROM monHoc mh\n" +
+                    "JOIN dangKyMonHoc dkmh ON mh.Ma_MH = dkmh.Ma_MH\n" +
+                    "JOIN sinhVien sv ON sv.Ma_SV = dkmh.Ma_SV\n" +
+                    "JOIN hocKy hk ON hk.Ma_HK = dkmh.Ma_HK\n" +
+                    "JOIN lopHoc lh ON sv.Name_Lop = lh.Name_Lop\n" +
+                    "WHERE sv.Ma_SV = '" + username + "' AND hk.Ma_HK = '"+strMAHK+"';";
             Statement statement = databaseConnection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
-
+            ResultSet resultSet = statement.executeQuery(dataQuery);
+            tableView.getItems().clear();
             if (resultSet.next()) {
+
 
                 String nameQuery = "SELECT Name_CN FROM caNhan,sinhVien WHERE sinhVien.CCCD = caNhan.CCCD AND sinhVien.Ma_SV='" + username + "'";
                 ResultSet nameResultSet = statement.executeQuery(nameQuery);
@@ -77,49 +97,40 @@ public class LoginController {
                 homeStage.show();
 
             } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Lỗi đăng nhập");
-                alert.setHeaderText(null);
-                alert.setContentText("Sai tên đăng nhập hoặc mật khẩu. Vui lòng thử lại!");
-                alert.showAndWait();
+                System.out.println("Not Found");
             }
-
             resultSet.close();
             statement.close();
             databaseConnection.close();
-
-        } catch (SQLException | IOException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lỗi");
-            alert.setHeaderText(null);
-            alert.setContentText("Đã xảy ra lỗi. Vui lòng thử lại!");
-            alert.showAndWait();
-        }
-    }
-
-    @FXML
-    public void exitButtonClicked() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("login_view.fxml"));
-            Parent root = loader.load();
-
-            Stage loginStage = new Stage();
-            loginStage.setTitle("Đăng nhập hệ thống");
-            loginStage.setScene(new Scene(root, 600, 400));
-            loginStage.show();
-
-            Stage currentStage = (Stage) exitButton.getParentPopup().getOwnerWindow();
-            currentStage.close();
-
+            System.out.println("Error access");
+            System.out.println(e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lỗi");
-            alert.setHeaderText(null);
-            alert.setContentText("Đã xảy ra lỗi. Vui lòng thử lại!");
-            alert.showAndWait();
+            throw new RuntimeException(e);
         }
     }
+        @FXML
+        public void exitButtonClicked () {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/login_view.fxml"));
+                Parent root = loader.load();
 
-}
+                Stage loginStage = new Stage();
+                loginStage.setTitle("Đăng nhập hệ thống");
+                loginStage.setScene(new Scene(root, 600, 400));
+                loginStage.show();
+
+                Stage currentStage = (Stage) exitButton.getParentPopup().getOwnerWindow();
+                currentStage.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Lỗi");
+                alert.setHeaderText(null);
+                alert.setContentText("Đã xảy ra lỗi. Vui lòng thử lại!");
+                alert.showAndWait();
+            }
+        }
+    }

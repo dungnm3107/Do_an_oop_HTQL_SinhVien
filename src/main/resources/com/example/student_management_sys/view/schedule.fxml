@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -15,32 +12,65 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="750.0" prefWidth="1424.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-    <TabPane layoutY="71.0" prefHeight="602.0" prefWidth="891.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="64.0">
-
-        <Tab style="-fx-padding: 7; -fx-background-color: #3f998d;">
-            <graphic>
-                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="  Lịch học  ">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Text>
-            </graphic>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="652.0" prefWidth="1170.0" style="-fx-background-color: #B0D7EB;">
-                <TableView layoutX="-7.0" layoutY="44.0" prefHeight="523.0" prefWidth="839.0" AnchorPane.topAnchor="44.0">
-                    <columns>
-                        <TableColumn prefWidth="120.0" text="             Thứ 2" />
-                        <TableColumn minWidth="0.0" prefWidth="120.0" text="             Thứ 3" />
-                        <TableColumn minWidth="0.0" prefWidth="120.0" text="             Thứ 4" />
-                        <TableColumn minWidth="0.0" prefWidth="120.0" text="             Thứ 5" />
-                        <TableColumn minWidth="0.0" prefWidth="120.0" text="             Thứ 6" />
-                        <TableColumn minWidth="0.0" prefWidth="120.0" text="             Thứ 7" />
-                        <TableColumn minWidth="0.0" prefWidth="120.0" text="          Chủ Nhật" />
-                    </columns>
-                </TableView>
-            </AnchorPane>
-        </Tab>
-
-    </TabPane>
+<AnchorPane prefHeight="750.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="68.0" prefWidth="1427.0" style="-fx-background-color: #3f998d;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <effect>
+            <DropShadow />
+        </effect>
+        <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.599998474121094" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1342.2" AnchorPane.topAnchor="10.0">
+            <Image url="@logo_huce.png" />
+        </ImageView>
+        <Text fill="WHITE" layoutX="75.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HỆ THỐNG QUẢN LÝ SINH VIÊN">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <TextField layoutX="370.0" layoutY="14.0" prefHeight="39.0" prefWidth="350.0" promptText="Tìm kiếm..." style="-fx-background-color: white; -fx-background-radius: 9 9 9 9;" AnchorPane.leftAnchor="370.0">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </TextField>
+        <MenuButton fx:id="buttonAccount" layoutX="1186.0" layoutY="14.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="194.0" style="-fx-background-color: #3f998d;" text="user" textFill="WHITE" AnchorPane.rightAnchor="23.799999999999955">
+            <items>
+                <MenuItem id="exitButton" fx:id="exitButton" mnemonicParsing="false" text="           Đăng xuất           " />
+            </items>
+            <font>
+                <Font size="16.0" />
+            </font>
+        </MenuButton>
+    </AnchorPane>
+    <ButtonBar layoutX="-19.0" layoutY="77.0" prefHeight="32.0" prefWidth="1011.0">
+        <buttons>
+            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Trang chủ" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: #3f998d;" text="Thông tin sinh viên" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Kết quả học tập" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Lịch học " textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Đăng kí môn học" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" style="-fx-background-color: #3f998d;" text="Phúc khảo" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+        </buttons>
+    </ButtonBar>
 </AnchorPane>

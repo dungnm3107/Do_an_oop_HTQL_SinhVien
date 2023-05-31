@@ -26,7 +26,10 @@
                 <Font size="18.0" />
             </font>
         </Text>
+
         <TextField layoutX="370.0" layoutY="14.0" prefHeight="39.0" prefWidth="350.0" promptText="Tìm kiếm..." style="-fx-background-color: white; -fx-background-radius: 9 9 9 9;" AnchorPane.leftAnchor="370.0">
+
+
             <font>
                 <Font size="14.0" />
             </font>
@@ -106,11 +109,13 @@
                     </ScrollPane>
                     <AnchorPane layoutX="11.0" layoutY="22.0" minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="682.0" style="-fx-background-color: #B0D7EB;">
                         <children>
+
                             <TextField fx:id="tfmssv" layoutX="434.0" layoutY="21.0" promptText="Mã sinh viên" />
                             <TextField fx:id="tfname" layoutX="434.0" layoutY="65.0" promptText="Họ tên" />
                             <TextField fx:id="tfgender" layoutX="434.0" layoutY="107.0" promptText="Giới tính" />
                             <TextField fx:id="tfclass" layoutX="434.0" layoutY="150.0" promptText="Lớp" />
                             <TextField fx:id="tfnganh" layoutX="434.0" layoutY="194.0" promptText="Khoa" />
+
                             <ImageView fitHeight="166.0" fitWidth="148.0" layoutX="95.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@avata_pro.jpg" />
