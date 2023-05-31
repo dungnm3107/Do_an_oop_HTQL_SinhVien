@@ -66,6 +66,22 @@ public class LoginController {
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
+//    public void reExamine(String MSSV){
+//        try{
+//            Connection databaseConnection = ConnectionDatabase.getConnection();
+//            String queryDKMH = "SELECT mh.Ma_MH, mh.Name_MH, lh.Name_Lop, mh.So_Tin, mh.Loai_HP\n" +
+//                    "FROM monHoc mh\n" +
+//                    "JOIN dangKyMonHoc dkmh ON mh.Ma_MH = dkmh.Ma_MH\n" +
+//                    "JOIN sinhVien sv ON sv.Ma_SV = dkmh.Ma_SV\n" +
+//                    "JOIN hocKy hk ON hk.Ma_HK = dkmh.Ma_HK\n" +
+//                    "JOIN lopHoc lh ON sv.Name_Lop = lh.Name_Lop\n" +
+//                    "WHERE sv.Ma_SV = '" + MSSV + "' AND hk.Ma_HK = '"+strMAHK+"';";
+//            Statement statement2 = databaseConnection.createStatement();
+//            ResultSet resultSet2 = statement2.executeQuery(queryDKMH);
+//
+//    }catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        } ;
 
     public void registerForTheCourse(String MSSV) {
         MenuItem hk1 = new MenuItem("Học kì 1 năm 2021");
