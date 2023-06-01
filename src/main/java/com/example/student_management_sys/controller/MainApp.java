@@ -1,5 +1,6 @@
 package com.example.student_management_sys.controller;
 
+import com.example.student_management_sys.model.DatabaseModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -23,11 +24,12 @@ public class MainApp extends Application {
 //            primaryStage.setTitle("Student Information");
 //            primaryStage.show();
 //            read file schedule
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/schedule.fxml"));
             AnchorPane root = loader.load();
             ScheduleController scheduleController = loader.getController();
             scheduleController.setText();
-            String maSV = "010041";
+            String maSV = "012133";
             Preferences preferences = Preferences.userNodeForPackage(MainApp.class);
             preferences.put("MSSV", maSV);
 String MSSV = preferences.get("MSSV", maSV);
@@ -36,7 +38,6 @@ String MSSV = preferences.get("MSSV", maSV);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Schedule");
             primaryStage.show();
-
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error loading FXML file");

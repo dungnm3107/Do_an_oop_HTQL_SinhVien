@@ -44,7 +44,6 @@ public class DatabaseModel {
 
       rs = stmt.executeQuery();
       ObservableList<LichHoc> listLichHoc = FXCollections.observableArrayList();
-//      ArrayList<LichHoc> listLichHoc = new ArrayList<LichHoc>();
       while (rs.next()) {
         LichHoc lh = new LichHoc(
           rs.getString(1),

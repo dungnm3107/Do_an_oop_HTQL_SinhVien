@@ -40,10 +40,6 @@ public class LoginController {
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
-//    public TableController tableController;
-//    public void setTableController(TableController tableController) {
-//        this.tableController = tableController;
-//    }
 
     @FXML
     public void loginButtonClicked() {

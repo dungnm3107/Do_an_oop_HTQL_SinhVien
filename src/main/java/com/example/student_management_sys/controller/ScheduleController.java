@@ -73,7 +73,6 @@ public class ScheduleController {
         LocalDate localDate = LocalDate.of(year,month,day);
         LocalDate startOfWeek = localDate.with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
         return startOfWeek.toString();
-
     }
 
     public static String getEndOfWeek(String date) {
