@@ -2,6 +2,7 @@ package com.example.student_management_sys.controller;
 
 import com.example.student_management_sys.model.ConnectionDatabase;
 import com.example.student_management_sys.model.CourseData;
+import com.example.student_management_sys.model.DatabaseModel;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -31,15 +32,19 @@ public class registerForTheCourseController {
     private MenuButton buttonAccount;
     @FXML
     private MenuButton menuButton;
-    private String strMAHK;
 
     @FXML
     private TableView tableView;
     public void registerForTheCourse(String MSSV) {
+        DatabaseModel dt = new DatabaseModel();
         MenuItem hk1 = new MenuItem("Học kì 1 năm 2021");
         hk1.setOnAction(event -> {
             selectedMAHK = "HK01-2021";
-            strMAHK = selectedMAHK.substring(0, 9);
+            try {
+                dt.getRegisterForTheCourse(username,selectedMAHK.substring(0,9));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             loadCourseData(MSSV);
         });
         menuButton.getItems().add(hk1);
@@ -47,7 +52,11 @@ public class registerForTheCourseController {
         MenuItem hk2= new MenuItem("Học kì 1 năm 2022");
         hk2.setOnAction(event -> {
             selectedMAHK = "HK01-2022";
-            strMAHK = selectedMAHK.substring(0, 9);
+            try {
+                dt.getRegisterForTheCourse(username,selectedMAHK.substring(0,9));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             loadCourseData(MSSV);
         });
         menuButton.getItems().add(hk2);
@@ -55,7 +64,11 @@ public class registerForTheCourseController {
         MenuItem hk3= new MenuItem("Học kì 1 năm 2023");
         hk3.setOnAction(event -> {
             selectedMAHK = "HK01-2023";
-            strMAHK = selectedMAHK.substring(0, 9);
+            try {
+                dt.getRegisterForTheCourse(username,selectedMAHK.substring(0,9));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             loadCourseData(MSSV);
         });
         menuButton.getItems().add(hk3);
@@ -63,7 +76,11 @@ public class registerForTheCourseController {
         MenuItem hk4= new MenuItem("Học kì 2 năm 2021");
         hk4.setOnAction(event -> {
             selectedMAHK = "HK02-2021";
-            strMAHK = selectedMAHK.substring(0, 9);
+            try {
+                dt.getRegisterForTheCourse(username,selectedMAHK.substring(0,9));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             loadCourseData(MSSV);
         });
         menuButton.getItems().add(hk4);
@@ -71,7 +88,11 @@ public class registerForTheCourseController {
         MenuItem hk5= new MenuItem("Học kì 2 năm 2022");
         hk5.setOnAction(event -> {
             selectedMAHK = "HK02-2022";
-            strMAHK = selectedMAHK.substring(0, 9);
+            try {
+                dt.getRegisterForTheCourse(username,selectedMAHK.substring(0,9));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             loadCourseData(MSSV);
         });
         menuButton.getItems().add(hk5);
@@ -79,7 +100,11 @@ public class registerForTheCourseController {
         MenuItem hk6= new MenuItem("Học kì 2 năm 2023");
         hk6.setOnAction(event -> {
             selectedMAHK = "HK02-2023";
-            strMAHK = selectedMAHK.substring(0, 9);
+            try {
+                dt.getRegisterForTheCourse(username,selectedMAHK.substring(0,9));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             loadCourseData(MSSV);
         });
         menuButton.getItems().add(hk6);
@@ -87,7 +112,11 @@ public class registerForTheCourseController {
         MenuItem hk7= new MenuItem("Học kì 3 năm 2021");
         hk7.setOnAction(event -> {
             selectedMAHK = "HK03-2021";
-            strMAHK = selectedMAHK.substring(0, 9);
+            try {
+                dt.getRegisterForTheCourse(username,selectedMAHK.substring(0,9));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             loadCourseData(MSSV);
         });
         menuButton.getItems().add(hk7);
@@ -95,7 +124,11 @@ public class registerForTheCourseController {
         MenuItem hk8= new MenuItem("Học kì 3 năm 2022");
         hk8.setOnAction(event -> {
             selectedMAHK = "HK03-2022";
-            strMAHK = selectedMAHK.substring(0, 9);
+            try {
+                dt.getRegisterForTheCourse(username,selectedMAHK.substring(0,9));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             loadCourseData(MSSV);
         });
         menuButton.getItems().add(hk8);
@@ -103,7 +136,11 @@ public class registerForTheCourseController {
         MenuItem hk9= new MenuItem("Học kì 3 năm 2023");
         hk9.setOnAction(event -> {
             selectedMAHK = "HK03-2023";
-            strMAHK = selectedMAHK.substring(0, 9);
+            try {
+                dt.getRegisterForTheCourse(username,selectedMAHK.substring(0,9));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             loadCourseData(MSSV);
         });
         menuButton.getItems().add(hk9);
@@ -112,33 +149,10 @@ public class registerForTheCourseController {
 
     public void loadCourseData(String MSSV) {
         try {
-            Connection databaseConnection = ConnectionDatabase.getConnection();
-            String dataQuery = "SELECT mh.Ma_MH, mh.Name_MH, lh.Name_Lop, mh.So_Tin, mh.Loai_HP\n" +
-                    "FROM monHoc mh\n" +
-                    "JOIN dangKyMonHoc dkmh ON mh.Ma_MH = dkmh.Ma_MH\n" +
-                    "JOIN sinhVien sv ON sv.Ma_SV = dkmh.Ma_SV\n" +
-                    "JOIN hocKy hk ON hk.Ma_HK = dkmh.Ma_HK\n" +
-                    "JOIN lopHoc lh ON sv.Name_Lop = lh.Name_Lop\n" +
-                    "WHERE sv.Ma_SV = '" + MSSV + "' AND hk.Ma_HK = '"+strMAHK+"';";
-            Statement statement = databaseConnection.createStatement();
-            ResultSet resultSet = statement.executeQuery(dataQuery);
 
-            if (resultSet.next()) {
-                ObservableList<CourseData> courseDataList = FXCollections.observableArrayList();
-                int index = 1;
-                do {
-                    String maMH = resultSet.getString("Ma_MH");
-                    String nameMH = resultSet.getString("Name_MH");
-                    String nameLop = resultSet.getString("Name_Lop");
-                    int soTin = resultSet.getInt("So_Tin");
-                    String loaiHP = resultSet.getString("Loai_HP");
+            DatabaseModel databaseModel = new DatabaseModel();
 
-
-                    CourseData courseData = new CourseData(maMH, nameMH, nameLop, soTin, soTin*325000, loaiHP,false);
-                    courseDataList.add(courseData);
-
-
-                } while (resultSet.next());
+                ObservableList<CourseData> courseDataList = databaseModel.getRegisterForTheCourse(MSSV,selectedMAHK.substring(0,9));
 
                 tableView.getColumns().clear();
 
@@ -187,9 +201,6 @@ public class registerForTheCourseController {
                 tableView.setStyle("-fx-font-size: 14px;");
                 tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-            } else {
-                System.out.println("Not Found");
-            }
 
         } catch (SQLException e) {
             e.printStackTrace();
