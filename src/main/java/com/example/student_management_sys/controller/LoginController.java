@@ -10,9 +10,11 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.*;
+import java.util.prefs.Preferences;
 
 public class LoginController {
 
+    public static String MSSV;
     private  String username;
     @FXML
     private TextField usernameTextField;
@@ -24,6 +26,13 @@ public class LoginController {
     private MenuItem exitButton;
     @FXML
     private MenuButton buttonAccount;
+    public void LoginController(){
+        MSSV = "00141";
+    }
+    public String getMSSV(){
+        System.out.println(MSSV);
+        return MSSV;
+    }
     public void setAccountName(String accountName) {
         buttonAccount.setText(accountName);
     }
@@ -36,15 +45,13 @@ public class LoginController {
 //        this.tableController = tableController;
 //    }
 
-    public String getUsername() {
-        return username;
-    }
-
-
     @FXML
     public void loginButtonClicked() {
         try {
             username = usernameTextField.getText();
+            Preferences preferences = Preferences.userNodeForPackage(MainApp.class);
+            preferences.put("MSSV",username);
+            System.out.println("MaSV la " + preferences.get("MSSV", "00000"));
             String password = passwordPasswordField.getText();
 
             Connection databaseConnection = ConnectionDatabase.getConnection();
@@ -128,5 +135,6 @@ public class LoginController {
             alert.showAndWait();
         }
     }
+
 
 }

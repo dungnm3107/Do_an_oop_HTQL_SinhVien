@@ -4,40 +4,71 @@ import java.sql.Date;
 
 public class LichHoc {
     String MaHK;
-    String MaMH;
     String NameMH;
     String SoTin;
     String NameLop;
     String Thu;
     String Ca;
     String Phong;
-    Date NgayBD;
-    Date NgayKT;
-    String MaGV;
     String NameCN;
-    String TrinhDo;
     String SdtCN;
     String Email;
 
-    public LichHoc(String maHK, String maMH, String nameMH, String soTin, String nameLop, String thu, String ca, String phong, Date ngayBD, Date ngayKT, String maGV, String nameCN, String trinhDo, String sdtCN, String email) {
+    public LichHoc( String maHK,String nameMH, String soTin, String nameLop, String thu, String ca, String phong, String nameCN, String sdtCN, String email) {
         MaHK = maHK;
-        MaMH = maMH;
         NameMH = nameMH;
         SoTin = soTin;
         NameLop = nameLop;
         Thu = thu;
         Ca = ca;
         Phong = phong;
-        NgayBD = ngayBD;
-        NgayKT = ngayKT;
-        MaGV = maGV;
         NameCN = nameCN;
-        TrinhDo = trinhDo;
         SdtCN = sdtCN;
         Email = email;
     }
+
+    public String getMaHK() {
+        return MaHK;
+    }
+
     public void displayLichHoc(){
-        System.out.println(MaHK + " " + MaMH + " " + NameMH + " " + SoTin + " " + NameLop + " " + Thu + " " + Ca + " " + Phong + " " + NgayBD + " " + NgayKT + " " + MaGV + " " + NameCN + " " + TrinhDo + " " + SdtCN + " " + Email);
+        System.out.println(  " " + NameMH + " " + SoTin + " " + NameLop + " " + Thu + " " + Ca + " " + Phong  + NameCN  + " " + SdtCN + " " + Email);
+    }
+
+    public String getNameMH() {
+        return NameMH;
+    }
+
+    public String getSoTin() {
+        return SoTin;
+    }
+
+    public String getNameLop() {
+        return NameLop;
+    }
+
+    public String getThu() {
+        return Thu;
+    }
+
+    public String getCa() {
+        return Ca;
+    }
+
+    public String getPhong() {
+        return Phong;
+    }
+
+    public String getNameCN() {
+        return NameCN;
+    }
+
+    public String getSdtCN() {
+        return SdtCN;
+    }
+
+    public String getEmail() {
+        return Email;
     }
 
 }
