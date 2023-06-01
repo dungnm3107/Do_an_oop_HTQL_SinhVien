@@ -17,10 +17,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.prefs.Preferences;
 
 public class LoginController {
 
-    //Chức năng đăng nhập và đăng xuất
+
+    public static String MSSV;
     private  String username;
 
     @FXML
@@ -33,13 +35,14 @@ public class LoginController {
     private MenuItem exitButton;
     @FXML
     private MenuButton buttonAccount;
-    @FXML
-    private MenuButton menuButton;
 
-
-    @FXML
-    private TableView tableView;
-
+    public void LoginController(){
+        MSSV = "00141";
+    }
+    public String getMSSV(){
+        System.out.println(MSSV);
+        return MSSV;
+    }
     public void setAccountName(String accountName) {
         buttonAccount.setText(accountName);
     }
@@ -50,11 +53,14 @@ public class LoginController {
         this.primaryStage = primaryStage;
     }
 
-    public String getUsername() {
-        return username;
-    }
     @FXML
     public void loginButtonClicked() {
+        try {
+            username = usernameTextField.getText();
+            Preferences preferences = Preferences.userNodeForPackage(MainApp.class);
+            preferences.put("MSSV",username);
+            System.out.println("MaSV la " + preferences.get("MSSV", "00000"));
+            String password = passwordPasswordField.getText();
 
         try {
             Connection databaseConnection = ConnectionDatabase.getConnection();
@@ -134,3 +140,6 @@ public class LoginController {
             }
         }
     }
+
+
+}
