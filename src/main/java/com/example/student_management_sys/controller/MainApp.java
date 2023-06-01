@@ -1,5 +1,6 @@
 package com.example.student_management_sys.controller;
 
+
 import com.example.student_management_sys.model.DatabaseModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -75,6 +75,7 @@
             </Button>
         </buttons>
     </ButtonBar>
+
     <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="68.0" prefWidth="1427.0" style="-fx-background-color: #3f998d;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <effect>
             <DropShadow />
@@ -101,4 +102,5 @@
             </font>
         </MenuButton>
     </AnchorPane>
+
 </AnchorPane>
