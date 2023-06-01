@@ -11,27 +11,28 @@ public class Student {
 
     private String Lop;
     private String LoaiDaoTao;
-
+    private String NgaySinh;
+    private String SoDienThoai;
     private String HeDaoTao;
     private String ChuyenNganh;
     private String NganhHoc;
     private String NgayVao;
 
-public Student(String MSSV, String HoTen, String GioiTinh, String QueQuan,String TrangThai, String Lop, String LoaiDaoTao, String HeDaoTao, String ChuyenNganh, String NganhHoc, String NgayVao) {
+    public Student(String MSSV, String hoTen, String gioiTinh, String trangThai, String queQuan, String lop, String loaiDaoTao, String ngaySinh, String soDienThoai, String heDaoTao, String chuyenNganh, String nganhHoc, String ngayVao) {
         this.MSSV = MSSV;
-        this.HoTen = HoTen;
-        this.GioiTinh = GioiTinh;
-        this.TrangThai = TrangThai;
-        this.QueQuan = QueQuan;
-        this.Lop = Lop;
-        this.LoaiDaoTao = LoaiDaoTao;
-        this.HeDaoTao = HeDaoTao;
-        this.ChuyenNganh = ChuyenNganh;
-        this.NganhHoc = NganhHoc;
-        this.NgayVao = NgayVao;
+        HoTen = hoTen;
+        GioiTinh = gioiTinh;
+        TrangThai = trangThai;
+        QueQuan = queQuan;
+        Lop = lop;
+        LoaiDaoTao = loaiDaoTao;
+        NgaySinh = ngaySinh;
+        SoDienThoai = soDienThoai;
+        HeDaoTao = heDaoTao;
+        ChuyenNganh = chuyenNganh;
+        NganhHoc = nganhHoc;
+        NgayVao = ngayVao;
     }
-
-
 
     public String getMSSV() {
         return MSSV;
@@ -111,6 +112,22 @@ public Student(String MSSV, String HoTen, String GioiTinh, String QueQuan,String
 
     public void setNganhHoc(String nganhHoc) {
         NganhHoc = nganhHoc;
+    }
+
+    public String getNgaySinh() {
+        return NgaySinh;
+    }
+
+    public void setNgaySinh(String ngaySinh) {
+        NgaySinh = ngaySinh;
+    }
+
+    public String getSoDienThoai() {
+        return SoDienThoai;
+    }
+
+    public void setSoDienThoai(String soDienThoai) {
+        SoDienThoai = soDienThoai;
     }
 
     public String getNgayVao() {

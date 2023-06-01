@@ -125,7 +125,7 @@ public class DatabaseModel {
       String query =
         "" +
         "select SV.Ma_SV, caNhan.Name_CN, Gender, TrangThai, caNhan.Que_Quan, Name_Lop,  " +
-        "ldt.Name_Loai, hdt.Name_He, chuyenNganh.Name_ChuyenNganh, nganhHoc.Name_Nganh, " +
+        "ldt.Name_Loai, caNhan.Ngay_Sinh, caNhan.Sdt_CN, hdt.Name_He, chuyenNganh.Name_ChuyenNganh, nganhHoc.Name_Nganh, " +
         "NgayVao from sinhVien SV " +
         "inner join caNhan on SV.CCCD = caNhan.CCCD " +
         "inner join chuyenNganh on chuyenNganh.Ma_ChuyenNganh = SV.Ma_ChuyenNganh " +
@@ -149,7 +149,9 @@ public class DatabaseModel {
           resultSet.getString(8),
           resultSet.getString(9),
           resultSet.getString(10),
-          resultSet.getString(11)
+          resultSet.getString(11),
+          resultSet.getString(12),
+          resultSet.getString(13)
         );
         return student;
       }
