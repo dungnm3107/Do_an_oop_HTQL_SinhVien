@@ -35,7 +35,7 @@ public class LoginController {
     private MenuButton buttonAccount;
     @FXML
     private MenuButton menuButton;
-    private String strMAHK;
+
 
     @FXML
     private TableView tableView;
@@ -64,7 +64,7 @@ public class LoginController {
                     "JOIN sinhVien sv ON sv.Ma_SV = dkmh.Ma_SV\n" +
                     "JOIN hocKy hk ON hk.Ma_HK = dkmh.Ma_HK\n" +
                     "JOIN lopHoc lh ON sv.Name_Lop = lh.Name_Lop\n" +
-                    "WHERE sv.Ma_SV = '" + username + "' AND hk.Ma_HK = '"+strMAHK+"';";
+                    "WHERE sv.Ma_SV = '" + username + "' AND hk.Ma_HK = 'HK01-2023';";
             Statement statement = databaseConnection.createStatement();
             ResultSet resultSet = statement.executeQuery(dataQuery);
             tableView.getItems().clear();

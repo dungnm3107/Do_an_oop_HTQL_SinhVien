@@ -165,6 +165,49 @@ public class DatabaseModel {
       }
     }
   }
+  public Student getregisterForTheCourse(String maSV) throws SQLException {
+    Statement statement = null;
+    ResultSet resultSet = null;
+
+    try {
+      String query = "SELECT mh.Ma_MH, mh.Name_MH, lh.Name_Lop, mh.So_Tin, mh.Loai_HP\n" +
+              "FROM monHoc mh\n" +
+              "JOIN dangKyMonHoc dkmh ON mh.Ma_MH = dkmh.Ma_MH\n" +
+              "JOIN sinhVien sv ON sv.Ma_SV = dkmh.Ma_SV\n" +
+              "JOIN hocKy hk ON hk.Ma_HK = dkmh.Ma_HK\n" +
+              "JOIN lopHoc lh ON sv.Name_Lop = lh.Name_Lop\n" +
+              "WHERE sv.Ma_SV = '" + maSV + "' AND hk.Ma_HK = '"+strMAHK+"';";
+      statement = connection.createStatement();
+      resultSet = statement.executeQuery(query);
+      while (resultSet.next()) {
+        Student student = new Student(
+                resultSet.getString(1),
+                resultSet.getString(2),
+                resultSet.getString(3),
+                resultSet.getString(4),
+                resultSet.getString(5),
+                resultSet.getString(6),
+                resultSet.getString(7),
+                resultSet.getString(8),
+                resultSet.getString(9),
+                resultSet.getString(10),
+                resultSet.getString(11),
+                resultSet.getString(12),
+                resultSet.getString(13)
+        );
+        return student;
+      }
+      return null;
+    } finally {
+      if (resultSet != null) {
+        resultSet.close();
+      }
+      if (statement != null) {
+        statement.close();
+      }
+    }
+  }
+
 
   public String getAccountName(String username) throws SQLException {
     Student std = getInformation(username);
