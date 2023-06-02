@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="750.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.controller.ReViewController">
     <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="68.0" prefWidth="1427.0" style="-fx-background-color: #3f998d;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <effect>
             <DropShadow />
@@ -77,20 +77,19 @@
     </ButtonBar>
    <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="626.0" prefWidth="1420.0" style="-fx-background-color: #B0D7EB;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
       <children>
-         <TableView layoutY="317.0" prefHeight="375.0" prefWidth="1420.0" AnchorPane.bottomAnchor="94.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <TableView fx:id="tableReView" layoutY="317.0" prefHeight="505.0" prefWidth="1400.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
             <columns>
                <TableColumn prefWidth="110.39999085664749" text="Mã môn học" />
-               <TableColumn prefWidth="148.8000030517578" text="MÃ lớp học phần" />
+               <TableColumn prefWidth="148.8000030517578" text="Mã lớp học phần" />
                <TableColumn prefWidth="82.4000244140625" text="Tên môn học" />
                <TableColumn prefWidth="82.4000244140625" text="ĐIểm thi" />
                <TableColumn prefWidth="64.0" text="Lệ phí" />
                <TableColumn prefWidth="69.5999755859375" text="Đã Nộp " />
                <TableColumn prefWidth="113.5999755859375" text="Điểm phúc khảo" />
-               <TableColumn prefWidth="135.2000732421875" text="Phản hồi phúc khảo" />
                <TableColumn prefWidth="96.800048828125" text="Trạng thái" />
             </columns>
          </TableView>
-         <Text fill="#2600ff" layoutX="20.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DANH SÁCH ĐĂNG KÍ PHÚC KHẢO" AnchorPane.bottomAnchor="556.882421875" AnchorPane.leftAnchor="20.0">
+         <Text fill="#2600ff" layoutX="52.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DANH SÁCH ĐĂNG KÍ PHÚC KHẢO" AnchorPane.bottomAnchor="557.882421875" AnchorPane.leftAnchor="52.0">
             <font>
                <Font size="18.0" />
             </font>

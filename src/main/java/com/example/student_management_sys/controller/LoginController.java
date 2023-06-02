@@ -17,12 +17,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.prefs.Preferences;
 
 public class LoginController {
 
-
-    public static String MSSV;
+    //Chức năng đăng nhập và đăng xuất
     private  String username;
 
     @FXML
@@ -35,14 +33,13 @@ public class LoginController {
     private MenuItem exitButton;
     @FXML
     private MenuButton buttonAccount;
+    @FXML
+    private MenuButton menuButton;
 
-    public void LoginController(){
-        MSSV = "00141";
-    }
-    public String getMSSV(){
-        System.out.println(MSSV);
-        return MSSV;
-    }
+
+    @FXML
+    private TableView tableView;
+
     public void setAccountName(String accountName) {
         buttonAccount.setText(accountName);
     }
@@ -55,29 +52,13 @@ public class LoginController {
 
     @FXML
     public void loginButtonClicked() {
-        try {
-            username = usernameTextField.getText();
-            Preferences preferences = Preferences.userNodeForPackage(MainApp.class);
-            preferences.put("MSSV",username);
-            System.out.println("MaSV la " + preferences.get("MSSV", "00000"));
-            String password = passwordPasswordField.getText();
 
         try {
+            username=usernameTextField.getText();
             Connection databaseConnection = ConnectionDatabase.getConnection();
-            String dataQuery = "SELECT mh.Ma_MH, mh.Name_MH, lh.Name_Lop, mh.So_Tin, mh.Loai_HP\n" +
-                    "FROM monHoc mh\n" +
-                    "JOIN dangKyMonHoc dkmh ON mh.Ma_MH = dkmh.Ma_MH\n" +
-                    "JOIN sinhVien sv ON sv.Ma_SV = dkmh.Ma_SV\n" +
-                    "JOIN hocKy hk ON hk.Ma_HK = dkmh.Ma_HK\n" +
-                    "JOIN lopHoc lh ON sv.Name_Lop = lh.Name_Lop\n" +
-                    "WHERE sv.Ma_SV = '" + username + "' AND hk.Ma_HK = 'HK01-2023';";
-            Statement statement = databaseConnection.createStatement();
-            ResultSet resultSet = statement.executeQuery(dataQuery);
-            tableView.getItems().clear();
-            if (resultSet.next()) {
-
 
                 String nameQuery = "SELECT Name_CN FROM caNhan,sinhVien WHERE sinhVien.CCCD = caNhan.CCCD AND sinhVien.Ma_SV='" + username + "'";
+                Statement statement = databaseConnection.createStatement();
                 ResultSet nameResultSet = statement.executeQuery(nameQuery);
                 String nameAccount = "";
                 if (nameResultSet.next()) {
@@ -101,13 +82,6 @@ public class LoginController {
                 Stage loginStage = (Stage) homeButton.getScene().getWindow();
                 loginStage.close();
                 homeStage.show();
-
-            } else {
-                System.out.println("Not Found");
-            }
-            resultSet.close();
-            statement.close();
-            databaseConnection.close();
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Error access");
@@ -140,6 +114,3 @@ public class LoginController {
             }
         }
     }
-
-
-}

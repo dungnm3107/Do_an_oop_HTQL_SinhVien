@@ -15,7 +15,6 @@
 
 <AnchorPane prefHeight="750.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.controller.LoginController">
     <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="68.0" prefWidth="1427.0" style="-fx-background-color: #3f998d;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-
         <effect>
             <DropShadow />
         </effect>
@@ -37,7 +36,7 @@
         </TextField>
         <MenuButton fx:id="buttonAccount" layoutX="1186.0" layoutY="14.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="194.0" style="-fx-background-color: #3f998d;" text="user" textFill="WHITE" AnchorPane.rightAnchor="23.799999999999955">
             <items>
-                <MenuItem id="exitButton" fx:id="exitButton" mnemonicParsing="false" text="           Đăng xuất           " />
+                <MenuItem id="exitButton" fx:id="exitButton" mnemonicParsing="false" onAction="#exitButtonClicked" text="           Đăng xuất           " />
             </items>
             <font>
                 <Font size="16.0" />

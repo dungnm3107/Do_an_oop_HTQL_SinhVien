@@ -1,10 +1,21 @@
 package com.example.student_management_sys.model;
 
-import javafx.beans.Observable;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DatabaseModel {
@@ -194,7 +205,7 @@ public class DatabaseModel {
       }
     }
   }
-  public Student getregisterForTheCourse(String maSV) throws SQLException {
+  public  ObservableList<CourseData> getRegisterForTheCourse(String maSV,String mahk) throws SQLException {
     Statement statement = null;
     ResultSet resultSet = null;
 
@@ -205,26 +216,29 @@ public class DatabaseModel {
               "JOIN sinhVien sv ON sv.Ma_SV = dkmh.Ma_SV\n" +
               "JOIN hocKy hk ON hk.Ma_HK = dkmh.Ma_HK\n" +
               "JOIN lopHoc lh ON sv.Name_Lop = lh.Name_Lop\n" +
-              "WHERE sv.Ma_SV = '" + maSV + "' AND hk.Ma_HK = '"+strMAHK+"';";
+              "WHERE sv.Ma_SV = '" + maSV + "' AND hk.Ma_HK = '"+mahk+"';";
       statement = connection.createStatement();
       resultSet = statement.executeQuery(query);
-      while (resultSet.next()) {
-        Student student = new Student(
-                resultSet.getString(1),
-                resultSet.getString(2),
-                resultSet.getString(3),
-                resultSet.getString(4),
-                resultSet.getString(5),
-                resultSet.getString(6),
-                resultSet.getString(7),
-                resultSet.getString(8),
-                resultSet.getString(9),
-                resultSet.getString(10),
-                resultSet.getString(11),
-                resultSet.getString(12),
-                resultSet.getString(13)
-        );
-        return student;
+
+      if (resultSet.next()) {
+        ObservableList<CourseData> courseDataList = FXCollections.observableArrayList();
+        int index = 1;
+        do {
+          String maMH = resultSet.getString("Ma_MH");
+          String nameMH = resultSet.getString("Name_MH");
+          String nameLop = resultSet.getString("Name_Lop");
+          int soTin = resultSet.getInt("So_Tin");
+          String loaiHP = resultSet.getString("Loai_HP");
+
+
+          CourseData courseData = new CourseData(maMH, nameMH, nameLop, soTin, soTin*325000, loaiHP,false);
+          courseDataList.add(courseData);
+
+
+        } while (resultSet.next());
+        return courseDataList;
+      } else {
+        System.out.println("Not Found");
       }
       return null;
     } finally {
@@ -236,7 +250,49 @@ public class DatabaseModel {
       }
     }
   }
+  public  ObservableList<ReViewData> getReView(String maSV) throws SQLException {
+    Statement statement = null;
+    ResultSet resultSet = null;
 
+    try {
+      String query = "SELECT monHoc.Ma_MH, sinhVien.Name_Lop, monHoc.Name_MH, hocKy.Name_HK, bangDiem.Diem_Thi\n" +
+              "FROM bangDiem\n" +
+              "JOIN dangKyMonHoc ON bangDiem.Ma_SV = dangKyMonHoc.Ma_SV AND bangDiem.Ma_MH = dangKyMonHoc.Ma_MH\n" +
+              "JOIN monHoc ON bangDiem.Ma_MH = monHoc.Ma_MH\n" +
+              "JOIN sinhVien ON bangDiem.Ma_SV = sinhVien.Ma_SV\n" +
+              "JOIN hocKy ON dangKyMonHoc.Ma_HK = hocKy.Ma_HK\n" +
+              "WHERE bangDiem.Diem_Thi < 9\n" +
+              "AND sinhVien.Ma_SV = '"+maSV+"';";
+      statement = connection.createStatement();
+      resultSet = statement.executeQuery(query);
+      if (resultSet.next()) {
+        ObservableList<ReViewData> reViewDataList = FXCollections.observableArrayList();
+        int index = 1;
+        do {
+          String maMH = resultSet.getString("Ma_MH");
+          String nameMH = resultSet.getString("Name_MH");
+          String nameLop = resultSet.getString("Name_Lop");
+          String nameHK = resultSet.getString("Name_HK");
+          double diemThi=resultSet.getDouble("Diem_Thi");
+
+          ReViewData reViewData = new ReViewData(maMH, nameMH,nameLop,nameHK,diemThi,true);
+          reViewDataList.add(reViewData);
+
+        } while (resultSet.next());
+        return reViewDataList;
+      } else {
+        System.out.println("Not Found");
+      }
+      return null;
+    } finally {
+      if (resultSet != null) {
+        resultSet.close();
+      }
+      if (statement != null) {
+        statement.close();
+      }
+    }
+  }
 
 
   public String getAccountName(String username) throws SQLException {
@@ -259,23 +315,13 @@ public class DatabaseModel {
     }
   }
 
+
+
   public static void main(String[] args) throws SQLException {
     DatabaseModel databaseModel = new DatabaseModel();
-    Student std = databaseModel.getInformation("010041");
-    std.DisplayStudent();
-    databaseModel.getKetQuaHocTap("010041");
-    ObservableList<LichHoc> lh = databaseModel.getLichHoc(
-      "016951",
-      "2023-04-05",
-      "2023-04-12"
-    );
-    for (LichHoc lichHoc : lh) {
-      lichHoc.displayLichHoc();
+    ObservableList<ReViewData> list = databaseModel.getReView("010174");
+    for (ReViewData reViewData : list) {
+      reViewData.DisplayCourse();
     }
-    ArrayList<KetQuaHocTap> kqht = databaseModel.getKetQuaHocTap("010041");
-    for (KetQuaHocTap ketQuaHocTap : kqht) {
-      ketQuaHocTap.displayKQHT();
-    }
-    databaseModel.closeConnection();
   }
 }
