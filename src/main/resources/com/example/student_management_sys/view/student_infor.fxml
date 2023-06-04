@@ -142,6 +142,7 @@
                <Font size="18.0" />
             </font>
          </Text>
+         <ImageView fx:id="imageSinhVien" fitHeight="222.0" fitWidth="279.0" layoutX="286.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
       </children>
    </AnchorPane>
 </AnchorPane>

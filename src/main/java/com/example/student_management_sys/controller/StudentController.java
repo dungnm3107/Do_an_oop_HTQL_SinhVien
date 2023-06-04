@@ -5,6 +5,8 @@ import com.example.student_management_sys.model.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.sql.SQLException;
 
@@ -31,6 +33,8 @@ public class StudentController{
     private TextField tfSDT;
     @FXML
     private TextField tfVaoTruong;
+    @FXML
+    private ImageView imageSinhVien;
     public void showInferStudent(String maSV){
         try {
             DatabaseModel databaseModel = new DatabaseModel();
@@ -46,9 +50,13 @@ public class StudentController{
             tfChuyenNganh.setText(std.getChuyenNganh());
             tfSDT.setText(std.getSoDienThoai());
             tfVaoTruong.setText(std.getNgayVao());
+            String gender = std.getGioiTinh();
+            String imageName = gender.equalsIgnoreCase("Nam") ? "nam.jpg" : "nu.jpg";
+            String imagePath = getClass().getResource("/com/example/student_management_sys/view/" + imageName).toExternalForm();
+            Image image = new Image(imagePath);
+            imageSinhVien.setImage(image);
         } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("Error acces");
+            System.out.println(" lỗi truy vấn thông tin sinh viên ở StudentController ");
             System.out.println(e.getMessage());
         }
     }

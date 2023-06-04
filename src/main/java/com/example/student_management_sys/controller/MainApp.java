@@ -14,7 +14,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/student_information.fxml"));
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/student_infor.fxml"));
 //            AnchorPane root = loader.load();
 //
 //            StudentController studentController = loader.getController();
@@ -24,20 +24,32 @@ public class MainApp extends Application {
 //            primaryStage.setScene(scene);
 //            primaryStage.setTitle("Student Information");
 //            primaryStage.show();
-//            read file schedule
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/schedule.fxml"));
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/schedule.fxml"));
+//            AnchorPane root = loader.load();
+//            ScheduleController scheduleController = loader.getController();
+//            scheduleController.setText();
+//            String maSV = "012133";
+//            Preferences preferences = Preferences.userNodeForPackage(MainApp.class);
+//            preferences.put("MSSV", maSV);
+//            String MSSV = preferences.get("MSSV", maSV);
+//            scheduleController.setLichHoc(MSSV, ScheduleController.getDate());
+//            Scene scene = new Scene(root);
+//            primaryStage.setScene(scene);
+//            primaryStage.setTitle("Schedule");
+//            primaryStage.show();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/learning_outcomes.fxml"));
             AnchorPane root = loader.load();
-            ScheduleController scheduleController = loader.getController();
-            scheduleController.setText();
+            KQHTController learningOutcomesController = loader.getController();
             String maSV = "012133";
             Preferences preferences = Preferences.userNodeForPackage(MainApp.class);
             preferences.put("MSSV", maSV);
-String MSSV = preferences.get("MSSV", maSV);
-            scheduleController.setLichHoc(MSSV, ScheduleController.getDate());
+            String MSSV = preferences.get("MSSV", maSV);
+            learningOutcomesController.showKetQuaHocTayByHocKi(MSSV);
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
-            primaryStage.setTitle("Schedule");
+            primaryStage.setTitle("Learning Outcomes");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();

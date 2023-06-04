@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseModel {
 
@@ -22,7 +23,6 @@ public class DatabaseModel {
   ) throws SQLException {
     PreparedStatement stmt = null;
     ResultSet rs = null;
-
     try {
       String query =
         "SELECT Ma_HK,Name_MH, So_Tin, lh.Name_Lop, Thu, Ca, Phong, " +
@@ -69,8 +69,21 @@ public class DatabaseModel {
       }
     }
   }
+  public List<String> getHocKi(String maSV) throws SQLException {
+    List<String> hocKiList = new ArrayList<>();
 
-  public ArrayList<KetQuaHocTap> getKetQuaHocTap(String maSV) throws SQLException {
+    String query = "SELECT * FROM dbo.allHocKySinhVien(?)";
+    try (PreparedStatement statement = connection.prepareStatement(query)) {
+      statement.setString(1, maSV);
+      ResultSet resultSet = statement.executeQuery();
+      while (resultSet.next()) {
+        String hocKi = resultSet.getString("Ma_HK");
+        hocKiList.add(hocKi);
+      }
+    }
+    return hocKiList;
+  }
+  public ObservableList<KetQuaHocTap> getKetQuaHocTap(String maSV, String maHK) throws SQLException {
     PreparedStatement stmt = null;
     ResultSet rs = null;
 
@@ -82,13 +95,14 @@ public class DatabaseModel {
         "INNER JOIN caNhan CN ON CN.CCCD = SV.CCCD " +
         "INNER JOIN monHoc mh ON mh.Ma_MH = BD.Ma_MH " +
         "INNER JOIN dangKyMonHoc ON SV.Ma_SV = dangKyMonHoc.Ma_SV AND mh.Ma_MH = dangKyMonHoc.Ma_MH " +
-        "WHERE SV.Ma_SV = ?";
+        "WHERE SV.Ma_SV = ? and Ma_HK = ?";
 
       stmt = connection.prepareStatement(query);
       stmt.setString(1, maSV);
+      stmt.setString(2, maHK);
 
       rs = stmt.executeQuery();
-      ArrayList<KetQuaHocTap> listKetQuaHocTap = new ArrayList<KetQuaHocTap>();
+      ObservableList<KetQuaHocTap> listKetQuaHocTap = FXCollections.observableArrayList();
       while(rs.next()) {
         KetQuaHocTap kqht = new KetQuaHocTap(
           rs.getString(1),
@@ -114,7 +128,50 @@ public class DatabaseModel {
       }
     }
   }
+  public ObservableList<KetQuaHocTap> getKetQuaHocTapFull(String maSV) throws SQLException {
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
 
+    try {
+      String query =
+              "SELECT Ma_HK, mh.Ma_MH, Name_MH, So_Tin, Loai_HP, Diem_QT, Diem_BS, Diem_Thi, Diem_KT, HoanThanh " +
+                      "FROM bangDiem BD " +
+                      "INNER JOIN sinhVien SV ON SV.Ma_SV = BD.Ma_SV " +
+                      "INNER JOIN caNhan CN ON CN.CCCD = SV.CCCD " +
+                      "INNER JOIN monHoc mh ON mh.Ma_MH = BD.Ma_MH " +
+                      "INNER JOIN dangKyMonHoc ON SV.Ma_SV = dangKyMonHoc.Ma_SV AND mh.Ma_MH = dangKyMonHoc.Ma_MH " +
+                      "WHERE SV.Ma_SV = ?";
+
+      stmt = connection.prepareStatement(query);
+      stmt.setString(1, maSV);
+
+      rs = stmt.executeQuery();
+      ObservableList<KetQuaHocTap> listKetQuaHocTap = FXCollections.observableArrayList();
+      while(rs.next()) {
+        KetQuaHocTap kqht = new KetQuaHocTap(
+                rs.getString(1),
+                rs.getString(2),
+                rs.getString(3),
+                rs.getInt(4),
+                rs.getString(5),
+                rs.getFloat(6),
+                rs.getFloat(7),
+                rs.getFloat(8),
+                rs.getFloat(9),
+                rs.getInt(10)
+        );
+        listKetQuaHocTap.add(kqht);
+      }
+      return listKetQuaHocTap;
+    } finally {
+      if (rs != null) {
+        rs.close();
+      }
+      if (stmt != null) {
+        stmt.close();
+      }
+    }
+  }
   public boolean authenticateUser(String username, String password)
     throws SQLException {
     Statement statement = null;
@@ -194,7 +251,7 @@ public class DatabaseModel {
       }
     }
   }
-  public Student getregisterForTheCourse(String maSV) throws SQLException {
+  public Student getregisterForTheCourse(String maSV, String strMAHK) throws SQLException {
     Statement statement = null;
     ResultSet resultSet = null;
 
@@ -263,7 +320,6 @@ public class DatabaseModel {
     DatabaseModel databaseModel = new DatabaseModel();
     Student std = databaseModel.getInformation("010041");
     std.DisplayStudent();
-    databaseModel.getKetQuaHocTap("010041");
     ObservableList<LichHoc> lh = databaseModel.getLichHoc(
       "016951",
       "2023-04-05",
@@ -271,10 +327,6 @@ public class DatabaseModel {
     );
     for (LichHoc lichHoc : lh) {
       lichHoc.displayLichHoc();
-    }
-    ArrayList<KetQuaHocTap> kqht = databaseModel.getKetQuaHocTap("010041");
-    for (KetQuaHocTap ketQuaHocTap : kqht) {
-      ketQuaHocTap.displayKQHT();
     }
     databaseModel.closeConnection();
   }
