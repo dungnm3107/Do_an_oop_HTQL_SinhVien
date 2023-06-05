@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="736.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.controller.ScheduleController">
+<AnchorPane prefHeight="736.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.controller.ScheduleController">
    <AnchorPane layoutX="17.0" layoutY="124.0" prefHeight="611.0" prefWidth="1420.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="125.0">
       <children>
          <Button fx:id="tuanTruoc" layoutX="1170.0" layoutY="41.0" mnemonicParsing="false" onAction="#tuanTruocClicked" style="-fx-background-color: #3f998d;" text="Tuần trước" textFill="WHITE" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="30.0">
@@ -43,17 +43,17 @@
    </AnchorPane>
     <ButtonBar layoutX="-19.0" layoutY="77.0" prefHeight="32.0" prefWidth="1011.0" AnchorPane.topAnchor="80.0">
         <buttons>
-            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Trang chủ" textFill="WHITE">
+            <Button fx:id="btn_dashboard" mnemonicParsing="false" onAction="#btn_dashboardClicked" style="-fx-background-color: #3f998d;" text="Trang chủ" textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: #3f998d;" text="Thông tin sinh viên" textFill="WHITE">
+            <Button fx:id="btn_studentInfo" mnemonicParsing="false" onAction="#btn_studentInfoClicked" prefHeight="26.0" style="-fx-background-color: #3f998d;" text="Thông tin sinh viên" textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Kết quả học tập" textFill="WHITE">
+            <Button fx:id="btn_learningOutcome" mnemonicParsing="false" onAction="#btn_learningOutcomeClicked" style="-fx-background-color: #3f998d;" text="Kết quả học tập" textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>
@@ -63,12 +63,12 @@
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Đăng kí môn học" textFill="WHITE">
+            <Button fx:id="btn_courseEnrolment" mnemonicParsing="false" onAction="#btn_courseEnrolmentClicked" style="-fx-background-color: #3f998d;" text="Đăng kí môn học" textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" style="-fx-background-color: #3f998d;" text="Phúc khảo" textFill="WHITE">
+            <Button fx:id="btn_reExamine" mnemonicParsing="false" onAction="#btn_reExamineClicked" prefHeight="37.0" prefWidth="156.0" style="-fx-background-color: #3f998d;" text="Phúc khảo" textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>

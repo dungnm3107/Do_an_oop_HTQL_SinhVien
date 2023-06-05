@@ -205,7 +205,7 @@ public class DatabaseModel {
               "JOIN sinhVien sv ON sv.Ma_SV = dkmh.Ma_SV\n" +
               "JOIN hocKy hk ON hk.Ma_HK = dkmh.Ma_HK\n" +
               "JOIN lopHoc lh ON sv.Name_Lop = lh.Name_Lop\n" +
-              "WHERE sv.Ma_SV = '" + maSV + "' AND hk.Ma_HK = '"+strMAHK+"';";
+              "WHERE sv.Ma_SV = '" + maSV + "' AND hk.Ma_HK = 'HK01-2023';";
       statement = connection.createStatement();
       resultSet = statement.executeQuery(query);
       while (resultSet.next()) {
@@ -258,6 +258,8 @@ public class DatabaseModel {
       System.out.println();
     }
   }
+
+
 
   public static void main(String[] args) throws SQLException {
     DatabaseModel databaseModel = new DatabaseModel();

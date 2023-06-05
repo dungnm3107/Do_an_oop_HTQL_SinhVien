@@ -32,5 +32,13 @@ public class KetQuaHocTap {
     public void displayKQHT(){
         System.out.println(MaHK + " " + MaMH + " " + NameMH + " " + SoTin + " " + LoaiHP + " " + DiemQT + " " + DiemBS + " " + DiemThi + " " + DiemKT + " " + hoanThanh);
     }
+
+    public String getNameMH() {
+        return NameMH;
+    }
+
+    public float getDiemKT() {
+        return DiemKT;
+    }
 }
 

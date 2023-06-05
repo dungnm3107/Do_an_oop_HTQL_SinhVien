@@ -6,13 +6,11 @@ import java.sql.SQLException;
 
 public class ConnectionDatabase {
     public static Connection getConnection() {
-        Connection conn;
+        Connection conn = null;
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-
-
-            String user = "tool";
-            String pass = "2003";
+            String user = "sa";
+            String pass = "88888888";
 
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=SinhVienHucer;encrypt=true;trustServerCertificate=true", user, pass);
             if (conn == null) {
@@ -21,7 +19,7 @@ public class ConnectionDatabase {
                 System.out.println("success connect");
             }
         } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return conn;
     }

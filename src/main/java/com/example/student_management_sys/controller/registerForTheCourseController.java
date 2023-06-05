@@ -8,9 +8,15 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.sql.*;
 
 
@@ -32,6 +38,17 @@ public class registerForTheCourseController {
     @FXML
     private MenuButton menuButton;
     private String strMAHK;
+
+    @FXML
+    private Button btn_studentInfo;
+    @FXML
+    private Button btn_dashboard;
+    @FXML
+    private Button btn_learningOutcome;
+    @FXML
+    private Button btn_reExamine;
+    @FXML
+    private Button btn_schedule;
 
     @FXML
     private TableView tableView;
@@ -197,5 +214,74 @@ public class registerForTheCourseController {
             System.out.println(e.getMessage());
         }
     }
+
+
+    @FXML
+    public void btn_studentInfoClicked() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/student_infor.fxml"));
+        try {
+            Stage currentStage = (Stage) btn_studentInfo.getScene().getWindow();
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 1424, 750);
+            currentStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void btn_learningOutcomeClicked() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/learning_outcomes.fxml"));
+        try {
+            Stage currentStage = (Stage) btn_learningOutcome.getScene().getWindow();
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 1424, 750);
+            currentStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void btn_scheduleClicked() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/schedule.fxml"));
+        try {
+            Stage currentStage = (Stage) btn_schedule.getScene().getWindow();
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 1424, 750);
+            currentStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void btn_reExamineClicked() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/re-examine.fxml"));
+        try {
+            Stage currentStage = (Stage) btn_reExamine.getScene().getWindow();
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 1424, 750);
+            currentStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void btn_dashboardClicked() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/home_view.fxml"));
+        try {
+            Stage currentStage = (Stage) btn_dashboard.getScene().getWindow();
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 1424, 750);
+            currentStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 
 }

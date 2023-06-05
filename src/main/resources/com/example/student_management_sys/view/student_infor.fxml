@@ -41,7 +41,7 @@
     </AnchorPane>
     <ButtonBar layoutX="-19.0" layoutY="77.0" prefHeight="32.0" prefWidth="1011.0">
         <buttons>
-            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Trang chủ" textFill="WHITE">
+            <Button fx:id="btn_dashboard" mnemonicParsing="false" onAction="#btn_dashboardClicked" style="-fx-background-color: #3f998d;" text="Trang chủ" textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>
@@ -51,22 +51,22 @@
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Kết quả học tập" textFill="WHITE">
+            <Button fx:id="btn_learningOutcome" mnemonicParsing="false" onAction="#btn_learningOutcomeClicked" style="-fx-background-color: #3f998d;" text="Kết quả học tập" textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Lịch học " textFill="WHITE">
+            <Button fx:id="btn_schedule" mnemonicParsing="false" onAction="#btn_scheduleClicked" style="-fx-background-color: #3f998d;" text="Lịch học " textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Đăng kí môn học" textFill="WHITE">
+            <Button fx:id="btn_courseEnrolment" mnemonicParsing="false" onAction="#btn_courseEnrolmentClicked" style="-fx-background-color: #3f998d;" text="Đăng kí môn học" textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" style="-fx-background-color: #3f998d;" text="Phúc khảo" textFill="WHITE">
+            <Button fx:id="btn_reExamine" mnemonicParsing="false" onAction="#btn_reExamineClicked" prefHeight="37.0" prefWidth="156.0" style="-fx-background-color: #3f998d;" text="Phúc khảo" textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>

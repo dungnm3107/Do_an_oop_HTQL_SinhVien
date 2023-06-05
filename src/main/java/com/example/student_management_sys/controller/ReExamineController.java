@@ -9,18 +9,17 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class KQHTController {
+public class ReExamineController {
     @FXML
     private Button btn_studentInfo;
     @FXML
     private Button btn_dashboard;
     @FXML
-    private Button btn_schedule;
+    private Button btn_learningOutcome;
     @FXML
     private Button btn_courseEnrolment;
     @FXML
-    private Button btn_reExamine;
-
+    private Button btn_schedule;
 
     @FXML
     public void btn_studentInfoClicked() {
@@ -36,10 +35,10 @@ public class KQHTController {
     }
 
     @FXML
-    public void btn_dashboardClicked() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/home_view.fxml"));
+    public void btn_learningOutcomeClicked() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/learning_outcomes.fxml"));
         try {
-            Stage currentStage = (Stage) btn_dashboard.getScene().getWindow();
+            Stage currentStage = (Stage) btn_learningOutcome.getScene().getWindow();
             Parent root = loader.load();
             Scene scene = new Scene(root, 1424, 750);
             currentStage.setScene(scene);
@@ -75,10 +74,10 @@ public class KQHTController {
     }
 
     @FXML
-    public void btn_reExamineClicked() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/re-examine.fxml"));
+    public void btn_dashboardClicked() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/home_view.fxml"));
         try {
-            Stage currentStage = (Stage) btn_reExamine.getScene().getWindow();
+            Stage currentStage = (Stage) btn_dashboard.getScene().getWindow();
             Parent root = loader.load();
             Scene scene = new Scene(root, 1424, 750);
             currentStage.setScene(scene);
@@ -86,6 +85,5 @@ public class KQHTController {
             e.printStackTrace();
         }
     }
-
-
+    
 }
