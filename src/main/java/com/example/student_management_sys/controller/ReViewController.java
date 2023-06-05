@@ -9,20 +9,21 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.sql.SQLException;
 import java.util.Random;
+import java.util.prefs.Preferences;
 
 public class ReViewController {
     @FXML
     private TableView tableReView;
     public void reViewData(String MSSV) {
         try {
-
+//
+//            username = usernameTextField.getText();
+//            Preferences preferences = Preferences.userNodeForPackage(MainApp.class);
+//            preferences.put("MSSV",username);
+//            System.out.println("MaSV la " + preferences.get("MSSV", "00000"));
             DatabaseModel databaseModel = new DatabaseModel();
-
-            LoginController nameController = new LoginController();
-            nameController.setAccountName(MSSV);
             ObservableList<ReViewData>  reViewDataList = databaseModel.getReView(MSSV);
 
             tableReView.getColumns().clear();

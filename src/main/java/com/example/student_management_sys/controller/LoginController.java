@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.prefs.Preferences;
 
 public class LoginController {
 
@@ -56,7 +57,10 @@ public class LoginController {
         try {
             username=usernameTextField.getText();
             Connection databaseConnection = ConnectionDatabase.getConnection();
-
+            username = usernameTextField.getText();
+            Preferences preferences = Preferences.userNodeForPackage(MainApp.class);
+            preferences.put("MSSV",username);
+            System.out.println("MaSV la " + preferences.get("MSSV", "00000"));
                 String nameQuery = "SELECT Name_CN FROM caNhan,sinhVien WHERE sinhVien.CCCD = caNhan.CCCD AND sinhVien.Ma_SV='" + username + "'";
                 Statement statement = databaseConnection.createStatement();
                 ResultSet nameResultSet = statement.executeQuery(nameQuery);

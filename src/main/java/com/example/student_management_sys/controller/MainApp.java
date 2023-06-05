@@ -11,12 +11,9 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/re-examine.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/dkHocBong.fxml"));
             AnchorPane root = loader.load();
-
-           ReViewController reViewController = loader.getController();
-            String mssv="010041";
-            reViewController.reViewData(mssv);
+            DKHBController dkhbController = loader.getController();
 
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
@@ -27,8 +24,8 @@ public class MainApp extends Application {
             System.out.println(e.getMessage());
         }
     }
+
     public static void main(String[] args) {
         launch(args);
     }
 }
-

@@ -27,7 +27,7 @@
                 <Font size="18.0" />
             </font>
         </Text>
-        <TextField layoutX="370.0" layoutY="14.0" prefHeight="39.0" prefWidth="350.0" promptText="Tìm kiếm..." style="-fx-background-color: white; -fx-background-radius: 9 9 9 9;" AnchorPane.leftAnchor="370.0">
+        <TextField layoutX="370.0" layoutY="16.0" prefHeight="37.0" prefWidth="350.0" promptText="Tìm kiếm..." style="-fx-background-color: white; -fx-background-radius: 9 9 9 9;" AnchorPane.leftAnchor="370.0">
             <font>
                 <Font size="14.0" />
             </font>
@@ -91,7 +91,7 @@
          </TableView>
          <Text fill="#2600ff" layoutX="52.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DANH SÁCH ĐĂNG KÍ PHÚC KHẢO" AnchorPane.bottomAnchor="557.882421875" AnchorPane.leftAnchor="52.0">
             <font>
-               <Font size="18.0" />
+               <Font size="24.0" />
             </font>
          </Text>
       </children>
