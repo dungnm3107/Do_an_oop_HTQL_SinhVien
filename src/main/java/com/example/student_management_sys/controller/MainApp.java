@@ -1,19 +1,17 @@
 package com.example.student_management_sys.controller;
 
-
-import com.example.student_management_sys.model.DatabaseModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import java.util.prefs.Preferences;
 
 public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
         try {
+
 //            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/student_infor.fxml"));
 //            AnchorPane root = loader.load();
 //
@@ -50,6 +48,16 @@ public class MainApp extends Application {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Learning Outcomes");
+
+//             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/re-examine.fxml"));
+//             AnchorPane root = loader.load();
+
+//            ReViewController reViewController = loader.getController();
+//             String mssv="010041";
+//             reViewController.reViewData(mssv);
+
+//             Scene scene = new Scene(root);
+//             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();

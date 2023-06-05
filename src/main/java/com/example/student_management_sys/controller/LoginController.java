@@ -16,8 +16,8 @@ import java.sql.*;
 public class LoginController {
 
     //Chức năng đăng nhập và đăng xuất
-    private String username;
 
+    private String username;
     @FXML
     private TextField usernameTextField;
     @FXML
@@ -71,8 +71,8 @@ public class LoginController {
 
     @FXML
     public void loginButtonClicked() {
-        username = usernameTextField.getText();
         try {
+            username=usernameTextField.getText();
             Connection databaseConnection = ConnectionDatabase.getConnection();
             String nameQuery = "SELECT Name_CN FROM caNhan,sinhVien WHERE sinhVien.CCCD = caNhan.CCCD AND sinhVien.Ma_SV='" + username + "'";
             Statement statement = databaseConnection.createStatement();
@@ -94,7 +94,6 @@ public class LoginController {
             Stage homeStage = new Stage();
             homeStage.setScene(scene);
             homeStage.setTitle("Hệ thống quản lý sinh viên");
-
             Stage loginStage = (Stage) homeButton.getScene().getWindow();
             loginStage.close();
             homeStage.show();
@@ -107,28 +106,27 @@ public class LoginController {
             throw new RuntimeException(e);
         }
     }
+        @FXML
+        public void exitButtonClicked () {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/login_view.fxml"));
+                Parent root = loader.load();
 
-    @FXML
-    public void exitButtonClicked() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/login_view.fxml"));
-            Parent root = loader.load();
+                Stage loginStage = new Stage();
+                loginStage.setTitle("Đăng nhập hệ thống");
+                loginStage.setScene(new Scene(root, 600, 400));
+                loginStage.show();
 
-            Stage loginStage = new Stage();
-            loginStage.setTitle("Đăng nhập hệ thống");
-            loginStage.setScene(new Scene(root, 600, 400));
-            loginStage.show();
+                Stage currentStage = (Stage) exitButton.getParentPopup().getOwnerWindow();
+                currentStage.close();
 
-            Stage currentStage = (Stage) exitButton.getParentPopup().getOwnerWindow();
-            currentStage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lỗi");
-            alert.setHeaderText(null);
-            alert.setContentText("Đã xảy ra lỗi. Vui lòng thử lại!");
-            alert.showAndWait();
+            } catch (IOException e) {
+                e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Lỗi");
+                alert.setHeaderText(null);
+                alert.setContentText("Đã xảy ra lỗi. Vui lòng thử lại!");
+                alert.showAndWait();
+            }
         }
     }
-}

@@ -49,5 +49,8 @@ public class CourseData {
     public void setTrangThaiDangKi(boolean trangThaiDangKi) {
         this.trangThaiDangKi = trangThaiDangKi;
     }
+    public void DisplayCourse(){
+        System.out.println(maMH + " " + nameMH + " " + nameLop + " " + soTin + " " + hocPhi + " " + loaiHP + " " + trangThaiDangKi);
+    }
 
 }

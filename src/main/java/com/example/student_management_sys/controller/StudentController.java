@@ -61,8 +61,4 @@ public class StudentController{
         }
     }
 
-    public void exitButtonClicked(ActionEvent actionEvent) {
-        LoginController loginController = new LoginController();
-        loginController.exitButtonClicked();
-    }
 }
