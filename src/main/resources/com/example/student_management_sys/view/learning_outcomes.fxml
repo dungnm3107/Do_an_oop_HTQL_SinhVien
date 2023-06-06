@@ -5,6 +5,7 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="750.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.controller.KQHTController">
     <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="68.0" prefWidth="1427.0" style="-fx-background-color: #3f998d;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <effect>
             <DropShadow />
@@ -26,7 +27,7 @@
                 <Font size="18.0" />
             </font>
         </Text>
-        <TextField layoutX="370.0" layoutY="16.0" prefHeight="37.0" prefWidth="350.0" promptText="Tìm kiếm..." style="-fx-background-color: white; -fx-background-radius: 9 9 9 9;" AnchorPane.leftAnchor="370.0">
+        <TextField layoutX="500.0" layoutY="16.0" prefHeight="37.0" prefWidth="378.0" promptText="Tìm kiếm..." style="-fx-background-color: white; -fx-background-radius: 9 9 9 9;" AnchorPane.leftAnchor="501.0">
             <font>
                 <Font size="14.0" />
             </font>
@@ -74,50 +75,110 @@
             </Button>
         </buttons>
     </ButtonBar>
-   <AnchorPane layoutX="20.0" layoutY="20.0" minHeight="0.0" minWidth="0.0" prefHeight="625.0" prefWidth="1420.0" style="-fx-background-color: #B0D7EB;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-      <effect>
-         <DropShadow radius="9.415" width="18.66" />
-      </effect>
-      <children>
-         <ScrollPane layoutX="975.0" layoutY="28.0" prefHeight="262.0" prefWidth="420.0" AnchorPane.bottomAnchor="355.0" AnchorPane.leftAnchor="975.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="28.0">
-            <content>
-               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="262.0" prefWidth="418.0">
+    <AnchorPane layoutY="124.0" minHeight="0.0" minWidth="0.0" prefHeight="625.0" prefWidth="1420.0" style="-fx-background-color: #B0D7EB;" AnchorPane.bottomAnchor="0.39999999999997726" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <effect>
+            <DropShadow radius="9.415" width="18.66" />
+        </effect>
+        <children>
+            <ScrollPane layoutX="22.0" layoutY="94.0" prefHeight="509.0" prefWidth="935.0" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="463.0" AnchorPane.topAnchor="94.0">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="578.0" prefWidth="896.0">
+                        <children>
+                            <TableView fx:id="ketQuaHocTap" layoutY="7.0" prefHeight="588.0" prefWidth="935.0" />
+                        </children>
+                    </AnchorPane>
+                </content>
+            </ScrollPane>
+         <MenuButton fx:id="mbHocKi" layoutX="69.0" layoutY="24.0" mnemonicParsing="false" text="Chọn học kì">
+           <items>
+             <MenuItem mnemonicParsing="false" text="Action 1" />
+             <MenuItem mnemonicParsing="false" text="Action 2" />
+           </items>
+            <font>
+               <Font size="22.0" />
+            </font>
+         </MenuButton>
+         <AnchorPane layoutX="973.0" layoutY="47.0" prefHeight="554.0" prefWidth="419.0" style="-fx-background-color: fff;">
+            <children>
+               <AnchorPane prefHeight="47.0" prefWidth="419.0" style="-fx-background-color: #3f998d;">
                   <children>
-                     <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thành tích trong học tập">
+                     <Text fill="#f7f4f4" layoutX="95.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thành tích học tập" textAlignment="CENTER">
                         <font>
-                           <Font size="15.0" />
+                           <Font size="28.0" />
                         </font>
                      </Text>
                   </children>
                </AnchorPane>
-            </content>
-         </ScrollPane>
-         <ScrollPane layoutX="974.0" layoutY="308.0" prefHeight="319.0" prefWidth="421.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="974.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="308.0">
-            <content>
-               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="350.0" prefWidth="274.0">
-                  <children>
-                     <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chứng chỉ đạt được">
-                        <font>
-                           <Font size="15.0" />
-                        </font>
-                     </Text>
-                  </children>
-               </AnchorPane>
-            </content>
-         </ScrollPane>
-         <ScrollPane layoutX="26.0" layoutY="25.0" prefHeight="600.0" prefWidth="930.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="468.0" AnchorPane.topAnchor="25.0">
-            <content>
-               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="544.0" prefWidth="582.0">
-                  <children>
-                     <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Điểm các kỳ">
-                        <font>
-                           <Font size="15.0" />
-                        </font>
-                     </Text>
-                  </children>
-               </AnchorPane>
-            </content>
-         </ScrollPane>
-      </children>
-   </AnchorPane>
+               <Text layoutX="16.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Điểm trung bình học kì " wrappingWidth="256.7021484375">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Text>
+               <Text layoutX="18.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Điểm trung bình tích lũy">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Text>
+               <Text layoutX="18.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tổng số tín chỉ đăng ký ">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Text>
+               <Text layoutX="18.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tổng số tín chỉ đạt">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Text>
+               <Text layoutX="18.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tổng số tín nợ: ">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Text>
+               <Text layoutX="18.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Xếp loại học lực tích lũy">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Text>
+               <Text layoutX="18.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Xếp loại học lực học kì">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Text>
+               <TextField fx:id="tfDiemTBHK" alignment="CENTER" layoutX="284.0" layoutY="80.0" prefHeight="32.0" prefWidth="107.0">
+                  <font>
+                     <Font size="16.0" />
+                  </font></TextField>
+               <TextField fx:id="tfHocLucHK" alignment="CENTER" layoutX="284.0" layoutY="411.0" prefHeight="32.0" prefWidth="107.0">
+                  <font>
+                     <Font size="16.0" />
+                  </font></TextField>
+               <TextField fx:id="tfHocLucTL" alignment="CENTER" layoutX="284.0" layoutY="357.0" prefHeight="32.0" prefWidth="107.0">
+                  <font>
+                     <Font size="16.0" />
+                  </font></TextField>
+               <TextField fx:id="tfSoTinNo" alignment="CENTER" layoutX="284.0" layoutY="300.0" prefHeight="32.0" prefWidth="107.0">
+                  <font>
+                     <Font size="16.0" />
+                  </font></TextField>
+               <TextField fx:id="tfSoTinDat" alignment="CENTER" layoutX="284.0" layoutY="246.0" prefHeight="32.0" prefWidth="107.0">
+                  <font>
+                     <Font size="16.0" />
+                  </font></TextField>
+               <TextField fx:id="tfSoTinDk" alignment="CENTER" layoutX="284.0" layoutY="189.0" prefHeight="32.0" prefWidth="107.0">
+                  <font>
+                     <Font size="16.0" />
+                  </font></TextField>
+               <TextField fx:id="tfDiemTBTL" alignment="CENTER" layoutX="284.0" layoutY="134.0" prefHeight="32.0" prefWidth="107.0">
+                  <font>
+                     <Font size="16.0" />
+                  </font></TextField>
+               <Button fx:id="openPdfButton" layoutX="86.0" layoutY="480.0" mnemonicParsing="false" onAction="#openPdfButtonClicked" prefHeight="39.0" prefWidth="250.0" style="-fx-background-color: #3f998d; -fx-background-radius: 9 9 9 9;" text="Điều kiện học bổng" textFill="WHITE">
+                  <font>
+                     <Font size="22.0" />
+                  </font>
+               </Button>
+            </children>
+         </AnchorPane>
+        </children>
+    </AnchorPane>
 </AnchorPane>
