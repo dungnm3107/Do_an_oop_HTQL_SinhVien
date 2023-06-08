@@ -26,7 +26,6 @@ public class DatabaseModel {
   public DatabaseModel() {
     connection = ConnectionDatabase.getConnection();
   }
-
   public ObservableList<LichHoc> getLichHoc(
     String maSV,
     String ngayBatDau,
@@ -34,6 +33,7 @@ public class DatabaseModel {
   ) throws SQLException {
     PreparedStatement stmt = null;
     ResultSet rs = null;
+
     try {
       String query =
         "SELECT Ma_HK,Name_MH, So_Tin, lh.Name_Lop, Thu, Ca, Phong, " +
@@ -80,6 +80,7 @@ public class DatabaseModel {
       }
     }
   }
+
   public List<String> getHocKi(String maSV) throws SQLException {
     List<String> hocKiList = new ArrayList<>();
 
@@ -265,6 +266,16 @@ public class DatabaseModel {
         statement.close();
       }
     }
+  }
+
+  public String getHoTen(String MSSV){
+    Student student = null;
+    try {
+      student = getInformation(MSSV);
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
+    }
+    return student.getHoTen();
   }
 
   public  ObservableList<CourseData> getRegisterForTheCourse(String maSV,String mahk) throws SQLException {

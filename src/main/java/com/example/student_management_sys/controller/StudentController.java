@@ -1,16 +1,21 @@
 package com.example.student_management_sys.controller;
 
+import com.example.student_management_sys.model.ConnectionDatabase;
 import com.example.student_management_sys.model.DatabaseModel;
 import com.example.student_management_sys.model.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
-public class StudentController{
+public class StudentController extends Controller {
     @FXML
     private TextField tfMaSV;
     @FXML
@@ -35,6 +40,9 @@ public class StudentController{
     private TextField tfVaoTruong;
     @FXML
     private ImageView imageSinhVien;
+    @FXML
+    private MenuButton buttonAccount;
+
     public void showInferStudent(String maSV){
         try {
             DatabaseModel databaseModel = new DatabaseModel();

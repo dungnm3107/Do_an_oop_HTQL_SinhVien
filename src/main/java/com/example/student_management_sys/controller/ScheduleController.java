@@ -4,14 +4,14 @@ import com.example.student_management_sys.model.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
@@ -20,13 +20,14 @@ import java.util.prefs.Preferences;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 
 
-public class ScheduleController {
-    Preferences preferences = Preferences.userNodeForPackage(MainApp.class);
-    String MSSV = preferences.get("MSSV",null);
+
+
+public class ScheduleController  extends Controller {
+
+    String MSSV= username;
     @FXML
     private TextField ngayLH;
     @FXML
@@ -51,21 +52,21 @@ public class ScheduleController {
     private TableColumn<LichHoc, String> email;
     @FXML
     private TableColumn<LichHoc, String> lop;
+    @FXML
+    private MenuButton buttonAccount;
 
     private void ScheduleController(){
-        Preferences preferences = Preferences.userNodeForPackage(MainApp.class);
-        MSSV = preferences.get("MSSV",null);
     }
     public void setText(){
         String date = java.time.LocalDate.now().toString();
-        System.out.println(date);
         ngayLH.setText(date);
     }
-    public static String getDate(){
+    public String getDate(){
         String date = java.time.LocalDate.now().toString();
         return date;
     }
     public static String getStartOfWeek(String date) {
+        System.out.println(date);
         String [] dateSplit = date.split("-");
         int year = Integer.parseInt(dateSplit[0]);
         int month = Integer.parseInt(dateSplit[1]);
@@ -106,7 +107,7 @@ public class ScheduleController {
         }
         String newDate = year+"-"+month+"-"+day;
         ngayLH.setText(newDate);
-        setLichHoc(MSSV,newDate);
+        setLichHoc(newDate);
     }
     public <T> ObservableList<T> convertArrayListToObservableList(ArrayList<T> arrayList) {
         ObservableList<T> observableList = FXCollections.observableArrayList(arrayList);
@@ -134,9 +135,9 @@ public void tuanSauClicked(){
         }
         String newDate = year+"-"+month+"-"+day;
         ngayLH.setText(newDate);
-        setLichHoc(MSSV,newDate);
+        setLichHoc(newDate);
     }
-    public void setLichHoc(String MSSV, String date){
+    public void setLichHoc(String date){
         ObservableList<LichHoc> list =FXCollections.observableArrayList();
         DatabaseModel databaseModel = new DatabaseModel();
         try {
@@ -146,9 +147,7 @@ public void tuanSauClicked(){
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        for(LichHoc lichHoc : list){
-            lichHoc.displayLichHoc();
-        }
+
         tableLichHoc.getColumns().clear();
 
         TableColumn<LichHoc, Integer> soThuTuColumn = new TableColumn<>("STT");

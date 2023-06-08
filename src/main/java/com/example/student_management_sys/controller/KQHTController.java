@@ -1,5 +1,6 @@
 package com.example.student_management_sys.controller;
 
+import com.example.student_management_sys.model.ConnectionDatabase;
 import com.example.student_management_sys.model.DatabaseModel;
 import com.example.student_management_sys.model.KetQuaHocTap;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -11,17 +12,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
-import java.util.prefs.Preferences;
 
-public class KQHTController {
-    Preferences preferences = Preferences.userNodeForPackage(MainApp.class);
-    String maSV = preferences.get("MSSV",null);
+
+
+public class KQHTController extends Controller {
+
+    String maSV = username;
     @FXML
     TableView<KetQuaHocTap> ketQuaHocTap;
     @FXML
@@ -64,6 +68,12 @@ public class KQHTController {
     private TextField tfSoTinNo;
     @FXML
     private Button openPdfButton;
+    @FXML
+    private MenuButton buttonAccount;
+
+
+
+
     public void showKetQuaHocTayByHocKi(String maSV) throws SQLException {
         DatabaseModel dm = new DatabaseModel();
         List<String> hocKiList = dm.getHocKi(maSV);

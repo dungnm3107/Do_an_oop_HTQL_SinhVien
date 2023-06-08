@@ -1,5 +1,6 @@
 package com.example.student_management_sys.controller;
 
+import com.example.student_management_sys.model.ConnectionDatabase;
 import com.example.student_management_sys.model.CourseData;
 import com.example.student_management_sys.model.DatabaseModel;
 import javafx.beans.property.BooleanProperty;
@@ -14,8 +15,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.sql.*;
 
 
-public class RegisterCourseController {
-    private String username;
+
+
+public class RegisterCourseController extends Controller {
 
     private String selectedMAHK = "";
     @FXML

@@ -11,6 +11,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -34,50 +35,53 @@
         </TextField>
         <MenuButton fx:id="buttonAccount" layoutX="1186.0" layoutY="14.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="194.0" style="-fx-background-color: #3f998d;" text="user" textFill="WHITE" AnchorPane.rightAnchor="23.799999999999955">
             <items>
-                <MenuItem id="exitButton" fx:id="exitButton" mnemonicParsing="false" text="           Đăng xuất           " />
+                <MenuItem id="exitButton" fx:id="exitButton" mnemonicParsing="false" onAction="#exitButtonClicked" text="           Đăng xuất           " />
             </items>
             <font>
                 <Font size="16.0" />
             </font>
         </MenuButton>
     </AnchorPane>
-    <ButtonBar layoutX="-19.0" layoutY="77.0" prefHeight="32.0" prefWidth="1011.0">
+    <ButtonBar layoutX="-19.0" layoutY="77.0" prefHeight="32.0" prefWidth="1011.0" AnchorPane.leftAnchor="-22.0" AnchorPane.topAnchor="77.0">
         <buttons>
-            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Trang chủ" textFill="WHITE">
+            <Button fx:id="btn_dashboard" mnemonicParsing="false" onAction="#btn_dashboardClicked" style="-fx-background-color: #3f998d;" text="Trang chủ" textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: #3f998d;" text="Thông tin sinh viên" textFill="WHITE">
+            <Button fx:id="btn_studentInfo" mnemonicParsing="false" onAction="#btn_studentInfoClicked" prefHeight="26.0" style="-fx-background-color: #3f998d;" text="Thông tin sinh viên" textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Kết quả học tập" textFill="WHITE">
+            <Button fx:id="btn_learningOutcome" mnemonicParsing="false" onAction="#btn_learningOutcomeClicked" style="-fx-background-color: #3f998d;" text="Kết quả học tập" textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Lịch học " textFill="WHITE">
+            <Button fx:id="btn_schedule" mnemonicParsing="false" onAction="#btn_scheduleClicked" style="-fx-background-color: #3f998d;" text="Lịch học " textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: #3f998d;" text="Đăng kí môn học" textFill="WHITE">
+            <Button fx:id="btn_courseEnrolment" mnemonicParsing="false" onAction="#btn_courseEnrolmentClicked" style="-fx-background-color: #3f998d;" text="Đăng kí môn học" textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" style="-fx-background-color: #3f998d;" text="Phúc khảo" textFill="WHITE">
+            <Button fx:id="btn_review" mnemonicParsing="false" onAction="#btn_reViewClicked" prefHeight="37.0" prefWidth="156.0" style="-fx-background-color: #3f998d;" text="Phúc khảo" textFill="WHITE">
                 <font>
                     <Font size="16.0" />
                 </font>
             </Button>
         </buttons>
     </ButtonBar>
-    <AnchorPane layoutY="124.0" minHeight="0.0" minWidth="0.0" prefHeight="625.0" prefWidth="1420.0" style="-fx-background-color: #B0D7EB;" AnchorPane.bottomAnchor="0.39999999999997726" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+    <AnchorPane layoutY="124.0" minHeight="0.0" minWidth="0.0" prefHeight="628.0" prefWidth="1420.0" style="-fx-background-color: #B0D7EB;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <effect>
-            <DropShadow radius="9.415" width="18.66" />
+            <DropShadow height="19.244999999999997" radius="8.97625" width="18.66">
+            <color>
+               <Color red="0.7789473533630371" green="0.7674074172973633" blue="0.7674074172973633" />
+            </color></DropShadow>
         </effect>
         <children>
             <ScrollPane layoutX="22.0" layoutY="94.0" prefHeight="509.0" prefWidth="935.0" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="463.0" AnchorPane.topAnchor="94.0">

@@ -1,28 +1,32 @@
 package com.example.student_management_sys.controller;
 
+import com.example.student_management_sys.model.ConnectionDatabase;
 import com.example.student_management_sys.model.DatabaseModel;
 import com.example.student_management_sys.model.ReViewData;
 import javafx.beans.property.*;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Random;
 import java.util.prefs.Preferences;
 
-public class ReViewController {
+public class ReViewController extends Controller {
+    @FXML
+    private MenuButton buttonAccount;
+
     @FXML
     private TableView tableReView;
     public void reViewData(String MSSV) {
         try {
-//
-//            username = usernameTextField.getText();
-//            Preferences preferences = Preferences.userNodeForPackage(MainApp.class);
-//            preferences.put("MSSV",username);
-//            System.out.println("MaSV la " + preferences.get("MSSV", "00000"));
             DatabaseModel databaseModel = new DatabaseModel();
             ObservableList<ReViewData>  reViewDataList = databaseModel.getReView(MSSV);
 
