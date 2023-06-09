@@ -98,11 +98,18 @@ public class HomeController extends Controller {
             }
         }
     }
-
+public void turnOffGet(){
+    tfname.setEditable(false);
+    tfclass.setEditable(false);
+    tfgender.setEditable(false);
+    tfmssv.setEditable(false);
+    tfnganh.setEditable(false);
+}
     public void showInforHomeView(String maSV) {
         try {
             DatabaseModel databaseModel = new DatabaseModel();
             Student std = databaseModel.getInformation(maSV);
+            turnOffGet();
             tfmssv.setText(std.getMSSV());
             tfname.setText(std.getHoTen());
             tfgender.setText(std.getGioiTinh());

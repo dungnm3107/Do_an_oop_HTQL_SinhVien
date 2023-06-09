@@ -42,11 +42,24 @@ public class StudentController extends Controller {
     private ImageView imageSinhVien;
     @FXML
     private MenuButton buttonAccount;
-
+    public void turnOffGetn(){
+        tfAdress.setEditable(false);
+        tfBirthDay.setEditable(false);
+        tfChuyenNganh.setEditable(false);
+        tfSDT.setEditable(false);
+        tfClassQL.setEditable(false);
+        tfGioiTinh.setEditable(false);
+        tfHoTen.setEditable(false);
+        tfLoaiDT.setEditable(false);
+        tfMaSV.setEditable(false);
+        tfStatus.setEditable(false);
+        tfVaoTruong.setEditable(false);
+    }
     public void showInferStudent(String maSV){
         try {
             DatabaseModel databaseModel = new DatabaseModel();
             Student std = databaseModel.getInformation(maSV);
+            turnOffGetn();
             tfMaSV.setText(std.getMSSV());
             tfHoTen.setText(std.getHoTen());
             tfGioiTinh.setText(std.getGioiTinh());
