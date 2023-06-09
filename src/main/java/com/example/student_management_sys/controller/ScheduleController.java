@@ -155,7 +155,7 @@ public void tuanSauClicked(){
         soThuTuColumn.setId("soThuTuColumn");
         tableLichHoc.getColumns().add(0, soThuTuColumn);
 
-        TableColumn<LichHoc, String> maHKColumn = new TableColumn<>("Mã HK");
+        TableColumn<LichHoc, String> maHKColumn = new TableColumn<>("Mã học kì");
         maHKColumn.setCellValueFactory(new PropertyValueFactory<>("maHK"));
         tableLichHoc.getColumns().add(maHKColumn);
 
@@ -194,7 +194,7 @@ public void tuanSauClicked(){
         TableColumn<LichHoc, String> emailColumn = new TableColumn<>("Email");
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
         tableLichHoc.getColumns().add(emailColumn);
-
+        tableLichHoc.setStyle("-fx-font-size: 14px;");
 
         tableLichHoc.setItems(list);
 

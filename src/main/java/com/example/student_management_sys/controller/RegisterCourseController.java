@@ -8,13 +8,16 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Font;
 
 import java.sql.*;
+import java.text.DecimalFormat;
 
-
+import static com.sun.javafx.scene.control.skin.Utils.computeTextWidth;
 
 
 public class RegisterCourseController extends Controller {
@@ -50,9 +53,9 @@ public class RegisterCourseController extends Controller {
         });
         menuButton.getItems().add(hk1);
 
-        MenuItem hk2 = new MenuItem("Học kì 1 năm 2022");
+        MenuItem hk2 = new MenuItem("Học kì 2 năm 2021");
         hk2.setOnAction(event -> {
-            selectedMAHK = "HK01-2022";
+            selectedMAHK = "HK02-2021";
             try {
                 dt.getRegisterForTheCourse(username, selectedMAHK.substring(0, 9));
             } catch (SQLException e) {
@@ -62,9 +65,9 @@ public class RegisterCourseController extends Controller {
         });
         menuButton.getItems().add(hk2);
 
-        MenuItem hk3 = new MenuItem("Học kì 1 năm 2023");
+        MenuItem hk3 = new MenuItem("Học kì 3 năm 2021");
         hk3.setOnAction(event -> {
-            selectedMAHK = "HK01-2023";
+            selectedMAHK = "HK03-2021";
             try {
                 dt.getRegisterForTheCourse(username, selectedMAHK.substring(0, 9));
             } catch (SQLException e) {
@@ -74,9 +77,10 @@ public class RegisterCourseController extends Controller {
         });
         menuButton.getItems().add(hk3);
 
-        MenuItem hk4 = new MenuItem("Học kì 2 năm 2021");
+
+        MenuItem hk4 = new MenuItem("Học kì 1 năm 2022");
         hk4.setOnAction(event -> {
-            selectedMAHK = "HK02-2021";
+            selectedMAHK = "HK01-2022";
             try {
                 dt.getRegisterForTheCourse(username, selectedMAHK.substring(0, 9));
             } catch (SQLException e) {
@@ -85,6 +89,7 @@ public class RegisterCourseController extends Controller {
             loadCourseData(MSSV);
         });
         menuButton.getItems().add(hk4);
+
 
         MenuItem hk5 = new MenuItem("Học kì 2 năm 2022");
         hk5.setOnAction(event -> {
@@ -98,9 +103,9 @@ public class RegisterCourseController extends Controller {
         });
         menuButton.getItems().add(hk5);
 
-        MenuItem hk6 = new MenuItem("Học kì 2 năm 2023");
+        MenuItem hk6 = new MenuItem("Học kì 3 năm 2022");
         hk6.setOnAction(event -> {
-            selectedMAHK = "HK02-2023";
+            selectedMAHK = "HK03-2022";
             try {
                 dt.getRegisterForTheCourse(username, selectedMAHK.substring(0, 9));
             } catch (SQLException e) {
@@ -110,9 +115,9 @@ public class RegisterCourseController extends Controller {
         });
         menuButton.getItems().add(hk6);
 
-        MenuItem hk7 = new MenuItem("Học kì 3 năm 2021");
+        MenuItem hk7 = new MenuItem("Học kì 1 năm 2023");
         hk7.setOnAction(event -> {
-            selectedMAHK = "HK03-2021";
+            selectedMAHK = "HK01-2023";
             try {
                 dt.getRegisterForTheCourse(username, selectedMAHK.substring(0, 9));
             } catch (SQLException e) {
@@ -122,9 +127,10 @@ public class RegisterCourseController extends Controller {
         });
         menuButton.getItems().add(hk7);
 
-        MenuItem hk8 = new MenuItem("Học kì 3 năm 2022");
+
+        MenuItem hk8 = new MenuItem("Học kì 2 năm 2023");
         hk8.setOnAction(event -> {
-            selectedMAHK = "HK03-2022";
+            selectedMAHK = "HK02-2023";
             try {
                 dt.getRegisterForTheCourse(username, selectedMAHK.substring(0, 9));
             } catch (SQLException e) {
@@ -156,36 +162,162 @@ public class RegisterCourseController extends Controller {
 
             tableView.getColumns().clear();
 
-            TableColumn<CourseData, Integer> soThuTuColumn = new TableColumn<>("STT");
+            TableColumn<CourseData, Integer> soThuTuColumn = new TableColumn<>(" STT ");
             soThuTuColumn.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(tableView.getItems().indexOf(cellData.getValue()) + 1));
             soThuTuColumn.setId("soThuTuColumn");
+            soThuTuColumn.setPrefWidth(50);
+
+            soThuTuColumn.setCellFactory(column -> {
+                return new TableCell<CourseData, Integer>() {
+                    @Override
+                    protected void updateItem(Integer item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (item == null || empty) {
+                            setText(null);
+                            setAlignment(Pos.CENTER); // Căn giữa nếu cell trống
+                        } else {
+                            setText(String.valueOf(item));
+                            setAlignment(Pos.CENTER); // Căn giữa nội dung của cell
+                        }
+                    }
+                };
+            });
+
             tableView.getColumns().add(0, soThuTuColumn);
 
-            TableColumn<CourseData, String> maMHColumn = new TableColumn<>("Mã môn học");
+
+            TableColumn<CourseData, String> maMHColumn = new TableColumn<>("  Mã môn học   ");
             maMHColumn.setCellValueFactory(new PropertyValueFactory<>("maMH"));
+            maMHColumn.setPrefWidth(150);
+            maMHColumn.setCellFactory(column -> {
+                return new TableCell<CourseData, String>() {
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (item == null || empty) {
+                            setText(null);
+                            setAlignment(Pos.CENTER); // Căn giữa nếu cell trống
+                        } else {
+                            setText(item);
+                            setAlignment(Pos.CENTER); // Căn giữa nội dung của cell
+                        }
+                    }
+                };
+            });
             tableView.getColumns().add(maMHColumn);
 
-            TableColumn<CourseData, String> nameMHColumn = new TableColumn<>("Tên môn học");
+            TableColumn<CourseData, String> nameMHColumn = new TableColumn<>(" Tên môn học ");
             nameMHColumn.setCellValueFactory(new PropertyValueFactory<>("nameMH"));
+            nameMHColumn.setPrefWidth(400);
+            nameMHColumn.setCellFactory(column -> {
+                return new TableCell<CourseData, String>() {
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (item == null || empty) {
+                            setText(null);
+                            setAlignment(Pos.CENTER); // Căn giữa nếu cell trống
+                        } else {
+                            setText(item);
+                            setAlignment(Pos.CENTER); // Căn giữa nội dung của cell
+                        }
+                    }
+                };
+            });
             tableView.getColumns().add(nameMHColumn);
 
-            TableColumn<CourseData, String> nameLopColumn = new TableColumn<>("Lớp");
+            TableColumn<CourseData, String> nameLopColumn = new TableColumn<>(" Lớp ");
             nameLopColumn.setCellValueFactory(new PropertyValueFactory<>("nameLop"));
+            nameLopColumn.setPrefWidth(100);
+            nameLopColumn.setCellFactory(column -> {
+                return new TableCell<CourseData, String>() {
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (item == null || empty) {
+                            setText(null);
+                            setAlignment(Pos.CENTER); // Căn giữa nếu cell trống
+                        } else {
+                            setText(item);
+                            setAlignment(Pos.CENTER); // Căn giữa nội dung của cell
+                        }
+                    }
+                };
+            });
             tableView.getColumns().add(nameLopColumn);
 
             TableColumn<CourseData, Integer> soTinColumn = new TableColumn<>("Số tín");
             soTinColumn.setCellValueFactory(new PropertyValueFactory<>("soTin"));
+            soTinColumn.setPrefWidth(100);
+            soTinColumn.setCellFactory(column -> {
+                return new TableCell<CourseData, Integer>() {
+                    @Override
+                    protected void updateItem(Integer item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (item == null || empty) {
+                            setText(null);
+                            setAlignment(Pos.CENTER);
+                        } else {
+                            setText(String.valueOf(item));
+                            setAlignment(Pos.CENTER);
+                        }
+                    }
+                };
+            });
             tableView.getColumns().add(soTinColumn);
 
-            TableColumn<CourseData, Double> hocPhiColumn = new TableColumn<>("Học phí");
+
+            TableColumn<CourseData, Double> hocPhiColumn = new TableColumn<>(" Học phí ");
             hocPhiColumn.setCellValueFactory(new PropertyValueFactory<>("hocPhi"));
+            hocPhiColumn.setPrefWidth(200);
+            hocPhiColumn.setCellFactory(column -> {
+                return new TableCell<CourseData, Double>() {
+                    private final DecimalFormat decimalFormat = new DecimalFormat("#.##");
+
+                    @Override
+                    protected void updateItem(Double item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (item == null || empty) {
+                            setText(null);
+                            setAlignment(Pos.CENTER); // Căn giữa nếu cell trống
+                        } else {
+                            setText(decimalFormat.format(item));
+                            setAlignment(Pos.CENTER); // Căn giữa nội dung của cell
+                        }
+                    }
+                };
+            });
             tableView.getColumns().add(hocPhiColumn);
 
-            TableColumn<CourseData, String> loaiHPColumn = new TableColumn<>("Loại học phần");
+            TableColumn<CourseData, String> loaiHPColumn = new TableColumn<>("  Loại học phần  ");
             loaiHPColumn.setCellValueFactory(new PropertyValueFactory<>("loaiHP"));
+            loaiHPColumn.setPrefWidth(200);
+            loaiHPColumn.setCellFactory(column -> {
+                return new TableCell<CourseData, String>() {
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (item == null || empty) {
+                            setText(null);
+                            setAlignment(Pos.CENTER); // Căn giữa nếu cell trống
+                        } else {
+                            setText(item);
+                            setAlignment(Pos.CENTER); // Căn giữa nội dung của cell
+                        }
+                    }
+                };
+            });
+
             tableView.getColumns().add(loaiHPColumn);
 
-            TableColumn<CourseData, Boolean> trangThaiDangKiColumn = new TableColumn<>("Trạng thái đăng kí");
+            TableColumn<CourseData, Boolean> trangThaiDangKiColumn = new TableColumn<>("    Trạng thái đăng kí     ");
             trangThaiDangKiColumn.setCellValueFactory(cellData -> {
                 CourseData courseData = cellData.getValue();
                 BooleanProperty property = new SimpleBooleanProperty(courseData.isTrangThaiDangKi());
@@ -193,10 +325,10 @@ public class RegisterCourseController extends Controller {
                 return property;
             });
             trangThaiDangKiColumn.setCellFactory(CheckBoxTableCell.forTableColumn(trangThaiDangKiColumn));
+            trangThaiDangKiColumn.setPrefWidth(200);
             tableView.getColumns().add(trangThaiDangKiColumn);
             tableView.setItems(courseDataList);
             tableView.setStyle("-fx-font-size: 14px;");
-            tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
 
         } catch (SQLException e) {

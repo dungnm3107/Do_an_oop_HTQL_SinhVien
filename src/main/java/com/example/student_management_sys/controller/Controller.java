@@ -1,8 +1,6 @@
 package com.example.student_management_sys.controller;
 
 import com.example.student_management_sys.model.DatabaseModel;
-import com.example.student_management_sys.model.ReViewData;
-import com.example.student_management_sys.model.Student;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.prefs.Preferences;
@@ -77,6 +74,9 @@ public class Controller {
         kqhtController.showDiemVaHocLucHK(username,"HK01-2023");
         kqhtController.showKetQuaHocTayByHocKi(username);
         kqhtController.showKetQuaHocTap(username,"HK01-2023");
+        kqhtController.tinhTrungBinhTungHocKy(username,"HK01-2023");
+        kqhtController.tinhTrungBinhTichLuy(username);
+        kqhtController.showTongKet(username);
     }
 
     @FXML

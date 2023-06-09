@@ -134,7 +134,7 @@ public class KQHTController extends Controller {
             TableColumn<KetQuaHocTap, String> diemKTColumn = new TableColumn<>("Điểm kết thúc");
             diemKTColumn.setCellValueFactory(new PropertyValueFactory<>("diemKT"));
             ketQuaHocTap.getColumns().add(diemKTColumn);
-
+            ketQuaHocTap.setStyle("-fx-font-size: 12px;");
             ketQuaHocTap.setItems(listKQHT);
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -196,9 +196,9 @@ public class KQHTController extends Controller {
             float diemKT = kqht.getDiemKT();
             tongSoTinDK += soTin;
             if (hoanThanh == 0) {
-                tongSoTinNo += soTin;
-            } else {
                 tongSoTinDat += soTin;
+            } else {
+                tongSoTinNo += soTin;
             }
         }
         float diemTrungBinhTichLuy = tinhTrungBinhTichLuy(maSV);

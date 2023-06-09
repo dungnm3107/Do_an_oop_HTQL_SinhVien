@@ -6,11 +6,11 @@ public class CourseData {
     private String nameLop;
     private int soTin;
 
-    private int hocPhi;
+    private double hocPhi;
     private String loaiHP;
     private boolean trangThaiDangKi;
 
-    public CourseData(String maMH, String nameMH, String nameLop, int soTin, int hocPhi, String loaiHP, boolean trangThaiDangKi) {
+    public CourseData(String maMH, String nameMH, String nameLop, int soTin, double hocPhi, String loaiHP, boolean trangThaiDangKi) {
         this.maMH = maMH;
         this.nameMH = nameMH;
         this.nameLop = nameLop;
@@ -35,7 +35,7 @@ public class CourseData {
     public int getSoTin() {
         return soTin;
     }
-    public int getHocPhi() {
+    public double getHocPhi() {
         return hocPhi;
     }
 

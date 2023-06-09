@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="736.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.controller.ScheduleController">
-   <AnchorPane layoutX="17.0" layoutY="124.0" prefHeight="611.0" prefWidth="1420.0" style="-fx-background-color: #B0D7EB;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="125.0">
+   <AnchorPane layoutX="17.0" layoutY="124.0" prefHeight="611.0" prefWidth="1420.0" style="-fx-background-color: #B0D7EB;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="122.0">
       <children>
          <Button fx:id="tuanTruoc" layoutX="1170.0" layoutY="41.0" mnemonicParsing="false" onAction="#tuanTruocClicked" style="-fx-background-color: #3f998d;" text="Tuần trước" textFill="WHITE" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="30.0">
             <font>
@@ -27,7 +27,7 @@
                <Font size="16.0" />
             </font>
          </Button>
-         <TableView fx:id="tableLichHoc" layoutX="46.0" layoutY="80.0" prefHeight="433.0" prefWidth="927.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="80.0">
+         <TableView fx:id="tableLichHoc" layoutX="46.0" layoutY="80.0" prefHeight="512.0" prefWidth="1320.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="80.0">
             <columns>
                <TableColumn fx:id="tenMH" prefWidth="297.45318603515625" text="Tên MH" />
                <TableColumn fx:id="thu" prefWidth="54.546783447265625" text="Thứ" />

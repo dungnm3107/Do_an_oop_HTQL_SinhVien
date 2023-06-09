@@ -16,13 +16,18 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import java.util.List;
+
 
 import static com.example.student_management_sys.controller.ScheduleController.getEndOfWeek;
 import static com.example.student_management_sys.controller.ScheduleController.getStartOfWeek;
 
 public class HomeController extends Controller {
+    @FXML
+    private ImageView imageHome;
     @FXML
     private TableView<LichHoc> lichHoc;
     @FXML
@@ -39,7 +44,6 @@ public class HomeController extends Controller {
     @FXML
     private TextField tfnganh;
 
-    //    private String username;
     @FXML
     private MenuItem exitButton;
     @FXML
@@ -104,6 +108,12 @@ public class HomeController extends Controller {
             tfgender.setText(std.getGioiTinh());
             tfclass.setText(std.getLop());
             tfnganh.setText(std.getChuyenNganh());
+            String gender = std.getGioiTinh();
+            String imageName = gender.equalsIgnoreCase("Nam") ? "nam.jpg" : "nu.jpg";
+            String imagePath = getClass().getResource("/com/example/student_management_sys/view/" + imageName).toExternalForm();
+            Image image = new Image(imagePath);
+            imageHome.setImage(image);
+
         } catch (SQLException e) {
             System.out.println("Lỗi truy vấn thông tin sinh viên");
             System.out.println(e.getMessage());

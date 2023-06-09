@@ -76,7 +76,7 @@
             </Button>
         </buttons>
     </ButtonBar>
-    <AnchorPane layoutY="124.0" minHeight="0.0" minWidth="0.0" prefHeight="628.0" prefWidth="1420.0" style="-fx-background-color: #B0D7EB;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+    <AnchorPane layoutY="124.0" minHeight="0.0" minWidth="0.0" prefHeight="628.0" prefWidth="1420.0" style="-fx-background-color: #B0D7EB;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="122.0">
         <effect>
             <DropShadow height="19.244999999999997" radius="8.97625" width="18.66">
             <color>
@@ -93,13 +93,13 @@
                     </AnchorPane>
                 </content>
             </ScrollPane>
-         <MenuButton fx:id="mbHocKi" layoutX="69.0" layoutY="24.0" mnemonicParsing="false" text="Chọn học kì">
+         <MenuButton fx:id="mbHocKi" layoutX="69.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-radius: 9 9 9 9;" text="Chọn học kì">
            <items>
              <MenuItem mnemonicParsing="false" text="Action 1" />
              <MenuItem mnemonicParsing="false" text="Action 2" />
            </items>
             <font>
-               <Font size="22.0" />
+               <Font size="20.0" />
             </font>
          </MenuButton>
          <AnchorPane layoutX="973.0" layoutY="47.0" prefHeight="554.0" prefWidth="419.0" style="-fx-background-color: fff;">

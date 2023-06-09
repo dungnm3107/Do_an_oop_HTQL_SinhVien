@@ -15,14 +15,14 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="750.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.controller.RegisterCourseController">
-   <AnchorPane fx:id="anchorTable" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1420.0" style="-fx-background-color: #B0D7EB;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+   <AnchorPane fx:id="anchorTable" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1420.0" style="-fx-background-color: #B0D7EB;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="122.0">
       <children>
-         <MenuButton fx:id="menuButton" layoutX="113.0" layoutY="56.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="307.0" text="Chọn học kì" textAlignment="CENTER" textOverrun="CLIP" AnchorPane.leftAnchor="113.0" AnchorPane.topAnchor="56.0">
+         <MenuButton fx:id="menuButton" layoutX="52.0" layoutY="58.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="323.0" style="-fx-background-radius: 9 9 9 9;" text="Chọn học kì" textAlignment="CENTER" textOverrun="CLIP" AnchorPane.leftAnchor="52.0" AnchorPane.topAnchor="58.0">
             <font>
-               <Font size="18.0" />
+               <Font size="20.0" />
             </font>
          </MenuButton>
-         <TableView fx:id="tableView" layoutX="14.0" layoutY="154.0" prefHeight="342.0" prefWidth="892.0" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="154.0">
+         <TableView fx:id="tableView" layoutX="14.0" layoutY="134.0" prefHeight="474.0" prefWidth="1392.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="134.0">
             <columns>
                <TableColumn fx:id="soThuTuColumn" prefWidth="75.0" text="STT" />
                <TableColumn fx:id="maMHColumn" prefWidth="111.20000839233398" text="Mã môn học" />

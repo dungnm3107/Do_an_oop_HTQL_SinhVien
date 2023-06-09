@@ -19,70 +19,70 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="750.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.controller.HomeController">
-   <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="68.0" prefWidth="1427.0" style="-fx-background-color: #3f998d;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <effect>
-         <DropShadow />
-      </effect>
-      <children>
-         <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.599998474121094" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1342.2" AnchorPane.topAnchor="10.0">
-            <image>
-               <Image url="@logo_huce.png" />
-            </image>
-         </ImageView>
-         <Text fill="WHITE" layoutX="75.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HỆ THỐNG QUẢN LÝ SINH VIÊN">
-            <font>
-               <Font size="18.0" />
-            </font>
-         </Text>
-         <TextField layoutX="500.0" layoutY="16.0" prefHeight="37.0" prefWidth="378.0" promptText="Tìm kiếm..." style="-fx-background-color: white; -fx-background-radius: 9 9 9 9;" AnchorPane.leftAnchor="501.0">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </TextField>
-         <MenuButton fx:id="buttonAccount" layoutX="1186.0" layoutY="14.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="194.0" style="-fx-background-color: #3f998d;" text="user" textFill="WHITE" AnchorPane.rightAnchor="23.799999999999955">
-            <items>
-               <MenuItem id="exitButton" fx:id="exitButton" mnemonicParsing="false" onAction="#exitButtonClicked" text="           Đăng xuất           " />
-            </items>
-            <font>
-               <Font size="16.0" />
-            </font>
-         </MenuButton>
-      </children>
-   </AnchorPane>
-   <ButtonBar layoutX="-21.0" layoutY="76.0" prefHeight="32.0" prefWidth="1011.0" AnchorPane.leftAnchor="-22.0" AnchorPane.topAnchor="77.0">
-      <buttons>
-         <Button fx:id="btn_dashboard" mnemonicParsing="false" onAction="#btn_dashboardClicked" style="-fx-background-color: #3f998d;" text="Trang chủ" textFill="WHITE">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Button>
-         <Button fx:id="btn_studentInfo" mnemonicParsing="false" onAction="#btn_studentInfoClicked" prefHeight="26.0" style="-fx-background-color: #3f998d;" text="Thông tin sinh viên" textFill="WHITE">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Button>
-         <Button fx:id="btn_learningOutcome" mnemonicParsing="false" onAction="#btn_learningOutcomeClicked" style="-fx-background-color: #3f998d;" text="Kết quả học tập" textFill="WHITE">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Button>
-         <Button fx:id="btn_schedule" mnemonicParsing="false" onAction="#btn_scheduleClicked" style="-fx-background-color: #3f998d;" text="Lịch học " textFill="WHITE">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Button>
-         <Button fx:id="btn_courseEnrolment" mnemonicParsing="false" onAction="#btn_courseEnrolmentClicked" style="-fx-background-color: #3f998d;" text="Đăng kí môn học" textFill="WHITE">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Button>
-         <Button fx:id="btn_review" mnemonicParsing="false" onAction="#btn_reViewClicked" prefHeight="37.0" prefWidth="156.0" style="-fx-background-color: #3f998d;" text="Phúc khảo" textFill="WHITE">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Button>
-      </buttons>
-   </ButtonBar>
+    <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="68.0" prefWidth="1427.0" style="-fx-background-color: #3f998d;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.599998474121094" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1342.2" AnchorPane.topAnchor="10.0">
+                <image>
+                    <Image url="@logo_huce.png" />
+                </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="75.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HỆ THỐNG QUẢN LÝ SINH VIÊN">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Text>
+            <TextField layoutX="500.0" layoutY="16.0" prefHeight="37.0" prefWidth="378.0" promptText="Tìm kiếm..." style="-fx-background-color: white; -fx-background-radius: 9 9 9 9;" AnchorPane.leftAnchor="501.0">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </TextField>
+            <MenuButton fx:id="buttonAccount" layoutX="1186.0" layoutY="14.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="194.0" style="-fx-background-color: #3f998d;" text="user" textFill="WHITE" AnchorPane.rightAnchor="23.799999999999955">
+                <items>
+                    <MenuItem id="exitButton" fx:id="exitButton" mnemonicParsing="false" onAction="#exitButtonClicked" text="           Đăng xuất           " />
+                </items>
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </MenuButton>
+        </children>
+    </AnchorPane>
+    <ButtonBar layoutX="-21.0" layoutY="76.0" prefHeight="32.0" prefWidth="1011.0" AnchorPane.leftAnchor="-22.0" AnchorPane.topAnchor="77.0">
+        <buttons>
+            <Button fx:id="btn_dashboard" mnemonicParsing="false" onAction="#btn_dashboardClicked" style="-fx-background-color: #3f998d;" text="Trang chủ" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button fx:id="btn_studentInfo" mnemonicParsing="false" onAction="#btn_studentInfoClicked" prefHeight="26.0" style="-fx-background-color: #3f998d;" text="Thông tin sinh viên" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button fx:id="btn_learningOutcome" mnemonicParsing="false" onAction="#btn_learningOutcomeClicked" style="-fx-background-color: #3f998d;" text="Kết quả học tập" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button fx:id="btn_schedule" mnemonicParsing="false" onAction="#btn_scheduleClicked" style="-fx-background-color: #3f998d;" text="Lịch học " textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button fx:id="btn_courseEnrolment" mnemonicParsing="false" onAction="#btn_courseEnrolmentClicked" style="-fx-background-color: #3f998d;" text="Đăng kí môn học" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button fx:id="btn_review" mnemonicParsing="false" onAction="#btn_reViewClicked" prefHeight="37.0" prefWidth="156.0" style="-fx-background-color: #3f998d;" text="Phúc khảo" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+        </buttons>
+    </ButtonBar>
     <AnchorPane layoutX="9.0" layoutY="121.0" minHeight="0.0" minWidth="0.0" prefHeight="628.0" prefWidth="1420.0" style="-fx-background-color: #B0D7EB;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="122.0">
         <children>
             <AnchorPane layoutX="38.0" layoutY="3.0" prefHeight="638.0" prefWidth="1381.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="3.0">
@@ -96,12 +96,12 @@
                                             <Font size="18.0" />
                                         </font>
                                     </Text>
-                           <TableView fx:id="lichHoc" layoutX="21.0" layoutY="41.0" prefHeight="267.0" prefWidth="550.0">
-                             <columns>
-                               <TableColumn prefWidth="75.0" text="C1" />
-                               <TableColumn prefWidth="75.0" text="C2" />
-                             </columns>
-                           </TableView>
+                                    <TableView fx:id="lichHoc" layoutX="21.0" layoutY="41.0" prefHeight="267.0" prefWidth="550.0">
+                                        <columns>
+                                            <TableColumn prefWidth="75.0" text="C1" />
+                                            <TableColumn prefWidth="75.0" text="C2" />
+                                        </columns>
+                                    </TableView>
                                 </children>
                             </AnchorPane>
                         </content>
@@ -113,6 +113,21 @@
                                     <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông báo">
                                         <font>
                                             <Font size="18.0" />
+                                        </font>
+                                    </Text>
+                                    <Text fill="#797272" layoutX="25.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trường Đại Học Xây Dựng Hà Nội ● Thông báo Lịch Thi cuối kỳ ● Vào ngày 12-06-2023" wrappingWidth="546.9832801818848">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Text>
+                                    <Text fill="#797272" layoutX="25.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông báo thi đánh giá trình độ tiếng Anh tháng 6.2023" wrappingWidth="546.9832801818848">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Text>
+                                    <Text fill="#898282" layoutX="25.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông báo thu thập nguyện vọng mở lớp học kỳ III năm học 2022-2023 - 05/06/2023 " wrappingWidth="546.767219543457">
+                                        <font>
+                                            <Font size="19.0" />
                                         </font>
                                     </Text>
                                 </children>
@@ -128,7 +143,7 @@
                             <TextField fx:id="tfclass" layoutX="434.0" layoutY="150.0" promptText="Lớp" />
                             <TextField fx:id="tfnganh" layoutX="434.0" layoutY="194.0" promptText="Khoa" />
 
-                            <ImageView fitHeight="166.0" fitWidth="148.0" layoutX="95.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="imageHome" fitHeight="166.0" fitWidth="148.0" layoutX="95.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@avata_pro.jpg" />
                                 </image>

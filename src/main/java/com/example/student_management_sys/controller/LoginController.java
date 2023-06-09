@@ -57,59 +57,73 @@ public class LoginController {
     public void setAccountName(String accountName) {
         buttonAccount.setText(accountName);
     }
+
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
     @FXML
-    public void loginButtonClicked() {
+    public void loginButtonClicked() throws IOException {
+        username = usernameTextField.getText();
+        String password = passwordPasswordField.getText();
+        if ((username.equals("admin")) && (password.equals("admin") )) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/admin.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 1424, 750);
+            Stage homeStage = new Stage();
+            homeStage.setScene(scene);
+            Stage loginStage = (Stage) homeButton.getScene().getWindow();
+            loginStage.close();
+            homeStage.show();
+        } else {
+            try {
 
-        try {
-            username = usernameTextField.getText();
-            String password = passwordPasswordField.getText();
+                Connection databaseConnection = ConnectionDatabase.getConnection();
 
-            Connection databaseConnection = ConnectionDatabase.getConnection();
 
-            String query = "SELECT Ma_SV, Pass_SV FROM sinhVien WHERE Ma_SV = '" + username + "' AND Pass_SV = '" + password + "'";
+                String query = "SELECT Ma_SV, Pass_SV FROM sinhVien WHERE Ma_SV = '" + username + "' AND Pass_SV = '" + password + "'";
 
-            Statement statement = databaseConnection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
-            Preferences preferences = Preferences.userNodeForPackage(Controller.class);
-            preferences.put("MSSV", username);
-            if (resultSet.next()) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/home_view.fxml"));
-                Parent root = loader.load();
-                HomeController homeController = loader.getController();
-                homeController.setButtonAccount();
+                Statement statement = databaseConnection.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
 
-                Scene scene = new Scene(root, 1424, 750);
-                Stage homeStage = new Stage();
-                homeStage.setScene(scene);
-                homeStage.setTitle("Hệ thống quản lý sinh viên");
-                Stage loginStage = (Stage) homeButton.getScene().getWindow();
-                loginStage.close();
-                homeStage.show();
+                Preferences preferences = Preferences.userNodeForPackage(Controller.class);
+                preferences.put("MSSV", username);
+                if (resultSet.next()) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/home_view.fxml"));
+                    Parent root = loader.load();
+                    HomeController homeController = loader.getController();
+                    homeController.setButtonAccount();
+                    homeController.showInforHomeView(username);
+                    homeController.initBarChart();
+                    homeController.setLichHoc();
 
-            } else {
+                    Scene scene = new Scene(root, 1424, 750);
+                    Stage homeStage = new Stage();
+                    homeStage.setScene(scene);
+                    Stage loginStage = (Stage) homeButton.getScene().getWindow();
+                    loginStage.close();
+                    homeStage.show();
+
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Lỗi đăng nhập");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Sai tên đăng nhập hoặc mật khẩu. Vui lòng thử lại!");
+                    alert.showAndWait();
+                }
+
+                resultSet.close();
+                statement.close();
+                databaseConnection.close();
+
+            } catch (SQLException | IOException e) {
+                e.printStackTrace();
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Lỗi đăng nhập");
+                alert.setTitle("Lỗi");
                 alert.setHeaderText(null);
-                alert.setContentText("Sai tên đăng nhập hoặc mật khẩu. Vui lòng thử lại!");
+                alert.setContentText("Đã xảy ra lỗi. Vui lòng thử lại!");
                 alert.showAndWait();
             }
-
-            resultSet.close();
-            statement.close();
-            databaseConnection.close();
-
-        } catch (SQLException | IOException e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lỗi");
-            alert.setHeaderText(null);
-            alert.setContentText("Đã xảy ra lỗi. Vui lòng thử lại!");
-            alert.showAndWait();
         }
     }
 }
-

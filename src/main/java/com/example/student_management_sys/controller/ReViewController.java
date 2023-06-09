@@ -35,6 +35,7 @@ public class ReViewController extends Controller {
             TableColumn<ReViewData, Integer> soThuTuColumn = new TableColumn<>("STT");
             soThuTuColumn.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(tableReView.getItems().indexOf(cellData.getValue()) + 1));
             soThuTuColumn.setId("soThuTuColumn");
+            soThuTuColumn.setPrefWidth(50);
             tableReView.getColumns().add(0, soThuTuColumn);
 
             TableColumn<ReViewData, String> maMHColumn = new TableColumn<>("Mã môn học");
@@ -87,6 +88,7 @@ public class ReViewController extends Controller {
 
             TableColumn<ReViewData, String> trangThaiColumn = new TableColumn<>("Trạng thái");
             trangThaiColumn.setCellValueFactory(cellData -> new SimpleStringProperty("Phúc khảo thành công"));
+            trangThaiColumn.setPrefWidth(150);
             tableReView.getColumns().add(trangThaiColumn);
 
 
