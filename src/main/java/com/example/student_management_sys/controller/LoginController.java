@@ -1,6 +1,5 @@
 package com.example.student_management_sys.controller;
 
-
 import com.example.student_management_sys.model.ConnectionDatabase;
 import com.example.student_management_sys.model.DatabaseModel;
 import com.example.student_management_sys.model.Student;

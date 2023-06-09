@@ -115,6 +115,21 @@
                                             <Font size="18.0" />
                                         </font>
                                     </Text>
+                           <Text fill="#797272" layoutX="25.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trường Đại Học Xây Dựng Hà Nội ● Thông báo Lịch Thi cuối kỳ ● Vào ngày 12-06-2023" wrappingWidth="546.9832801818848">
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </Text>
+                           <Text fill="#797272" layoutX="25.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông báo thi đánh giá trình độ tiếng Anh tháng 6.2023" wrappingWidth="546.9832801818848">
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </Text>
+                           <Text fill="#898282" layoutX="25.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông báo thu thập nguyện vọng mở lớp học kỳ III năm học 2022-2023 - 05/06/2023 " wrappingWidth="546.767219543457">
+                              <font>
+                                 <Font size="19.0" />
+                              </font>
+                           </Text>
                                 </children>
                             </AnchorPane>
                         </content>

@@ -15,10 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 
@@ -48,22 +45,16 @@ public class KQHTController extends Controller {
     private MenuButton mbHocKi;
     @FXML
     private TextField tfDiemTBHK;
-
     @FXML
     private TextField tfDiemTBTL;
-
     @FXML
     private TextField tfHocLucHK;
-
     @FXML
     private TextField tfHocLucTL;
-
     @FXML
     private TextField tfSoTinDat;
-
     @FXML
     private TextField tfSoTinDk;
-
     @FXML
     private TextField tfSoTinNo;
     @FXML
@@ -196,9 +187,9 @@ public class KQHTController extends Controller {
             float diemKT = kqht.getDiemKT();
             tongSoTinDK += soTin;
             if (hoanThanh == 0) {
-                tongSoTinNo += soTin;
-            } else {
                 tongSoTinDat += soTin;
+            } else {
+                tongSoTinNo += soTin;
             }
         }
         float diemTrungBinhTichLuy = tinhTrungBinhTichLuy(maSV);

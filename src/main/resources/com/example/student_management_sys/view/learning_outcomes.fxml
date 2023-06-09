@@ -93,7 +93,7 @@
                     </AnchorPane>
                 </content>
             </ScrollPane>
-         <MenuButton fx:id="mbHocKi" layoutX="69.0" layoutY="24.0" mnemonicParsing="false" text="Chọn học kì">
+         <MenuButton fx:id="mbHocKi" layoutX="768.0" layoutY="37.0" mnemonicParsing="false" text="Chọn học kì">
            <items>
              <MenuItem mnemonicParsing="false" text="Action 1" />
              <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -104,7 +104,7 @@
          </MenuButton>
          <AnchorPane layoutX="973.0" layoutY="47.0" prefHeight="554.0" prefWidth="419.0" style="-fx-background-color: fff;">
             <children>
-               <AnchorPane prefHeight="47.0" prefWidth="419.0" style="-fx-background-color: #3f998d;">
+               <AnchorPane layoutY="-13.0" prefHeight="60.0" prefWidth="419.0" style="-fx-background-color: #3f998d;">
                   <children>
                      <Text fill="#f7f4f4" layoutX="95.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thành tích học tập" textAlignment="CENTER">
                         <font>

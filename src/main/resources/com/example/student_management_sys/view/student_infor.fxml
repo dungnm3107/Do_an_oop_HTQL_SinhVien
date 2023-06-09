@@ -52,7 +52,7 @@
                <Font size="18.0" />
             </font>
          </Text>
-         <Text layoutX="749.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại:">
+         <Text layoutX="749.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quê Quán:">
             <font>
                <Font size="18.0" />
             </font>
@@ -62,7 +62,7 @@
                <Font size="18.0" />
             </font>
          </Text>
-         <Text layoutX="752.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bậc đào tạo: ">
+         <Text layoutX="752.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại:">
             <font>
                <Font size="18.0" />
             </font>
@@ -82,7 +82,7 @@
                <Font size="18.0" />
             </font>
          </Text>
-         <ImageView fx:id="imageSinhVien" fitHeight="222.0" fitWidth="279.0" layoutX="286.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="imageSinhVien" fitHeight="222.0" fitWidth="194.0" layoutX="371.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
       </children>
    </AnchorPane>
    <AnchorPane layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="68.0" prefWidth="1427.0" style="-fx-background-color: #3f998d;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
