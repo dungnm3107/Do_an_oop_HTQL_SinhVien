@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.controller.RegisterCourseController">
+<AnchorPane prefHeight="750.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.controller.SinhVien.RegisterCourseController">
    <AnchorPane fx:id="anchorTable" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1420.0" style="-fx-background-color: #B0D7EB;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="122.0">
       <children>
          <MenuButton fx:id="menuButton" layoutX="52.0" layoutY="58.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="323.0" style="-fx-background-radius: 9 9 9 9;" text="Chọn học kì" textAlignment="CENTER" textOverrun="CLIP" AnchorPane.leftAnchor="52.0" AnchorPane.topAnchor="58.0">

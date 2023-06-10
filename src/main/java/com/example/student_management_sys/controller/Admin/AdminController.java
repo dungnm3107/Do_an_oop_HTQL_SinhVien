@@ -1,8 +1,9 @@
-package com.example.student_management_sys.controller;
+package com.example.student_management_sys.controller.Admin;
 
-import com.example.student_management_sys.model.ConnectionDatabase;
-import com.example.student_management_sys.model.DatabaseModel;
-import com.example.student_management_sys.model.Student;
+import com.example.student_management_sys.controller.SinhVien.Controller;
+import com.example.student_management_sys.model.*;
+import com.example.student_management_sys.model.DB.AdminDatabase;
+import com.example.student_management_sys.model.DB.ConnectionDatabase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
@@ -62,7 +62,7 @@ public class AdminController extends Controller {
 
     public void showInforStudent(String maSV) {
 
-            DatabaseModel databaseModel = new DatabaseModel();
+            AdminDatabase databaseModel = new AdminDatabase();
             Student std = databaseModel.timKiem(maSV).get(0);
             tfMaSV.setText(std.getMSSV());
             tfHoTen.setText(std.getHoTen());
@@ -145,7 +145,7 @@ public class AdminController extends Controller {
             alert.setContentText("Vui lòng tìm kiếm sinh viên trước khi xóa");
             alert.showAndWait();
         } else {
-            DatabaseModel databaseModel = new DatabaseModel();
+            AdminDatabase databaseModel = new AdminDatabase();
             databaseModel.deleteSV(maSV);
             setTextField("", "", "", "", "", "", "", "", "", "", "");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
