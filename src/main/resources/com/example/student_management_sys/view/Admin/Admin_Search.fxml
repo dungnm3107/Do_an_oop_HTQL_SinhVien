@@ -26,7 +26,7 @@
             <children>
                 <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.599998474121094" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1342.2" AnchorPane.topAnchor="10.0">
                     <image>
-                        <Image url="@logo_huce.png" />
+                        <Image url="@../logo_huce.png" />
                     </image>
                 </ImageView>
                 <Text fill="WHITE" layoutX="75.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HỆ THỐNG QUẢN LÝ SINH VIÊN">
@@ -64,6 +64,7 @@
             </effect>
             <children>
             <TableView fx:id="tableSV" layoutX="36.0" layoutY="78.0" prefHeight="584.0" prefWidth="1362.0" />
+            <Button layoutX="1037.0" layoutY="36.0" mnemonicParsing="false" onAction="#loadfile" text="Button" />
             </children>
         </AnchorPane>
       <ButtonBar layoutX="-3.0" layoutY="76.0" prefHeight="40.0" prefWidth="643.0">

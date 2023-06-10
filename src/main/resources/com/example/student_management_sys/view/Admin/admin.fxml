@@ -24,7 +24,7 @@
          <children>
             <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.599998474121094" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1342.2" AnchorPane.topAnchor="10.0">
                <image>
-                  <Image url="@logo_huce.png" />
+                  <Image url="@../logo_huce.png" />
                </image>
             </ImageView>
             <Text fill="WHITE" layoutX="75.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HỆ THỐNG QUẢN LÝ SINH VIÊN">
