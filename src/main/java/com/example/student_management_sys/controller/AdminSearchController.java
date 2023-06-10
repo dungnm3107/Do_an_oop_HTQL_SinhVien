@@ -86,5 +86,4 @@ public class AdminSearchController extends AdminController {
 
         tableSV.setItems(list);
     }
-
 }

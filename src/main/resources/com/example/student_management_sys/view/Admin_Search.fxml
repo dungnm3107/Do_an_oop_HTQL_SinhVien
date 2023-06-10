@@ -62,12 +62,27 @@
                 </DropShadow>
             </effect>
             <children>
-            <Button layoutX="15.0" layoutY="8.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Hiển thị thông tin" textFill="WHITE">
+            <Button fx:id="ThongTin" layoutX="15.0" layoutY="8.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Hiển thị thông tin" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
             <TableView fx:id="tableSV" layoutX="36.0" layoutY="78.0" prefHeight="584.0" prefWidth="1362.0" />
+            <Button fx:id="CapNhat" layoutX="176.0" layoutY="8.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Cập nhật thông tin" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="CapNhatDiem" layoutX="341.0" layoutY="9.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Cập nhật điểm" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="CapNhatDiem1" layoutX="499.0" layoutY="9.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Thêm sinh viên" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </children>
