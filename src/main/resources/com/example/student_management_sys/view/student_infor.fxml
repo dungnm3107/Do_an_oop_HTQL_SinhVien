@@ -42,7 +42,7 @@
                <Font size="18.0" />
             </font>
          </Text>
-         <Text layoutX="140.0" layoutY="581.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trạng thái:" wrappingWidth="106.44556427001953">
+         <Text layoutX="151.0" layoutY="580.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trạng thái:" wrappingWidth="106.44556427001953">
             <font>
                <Font size="18.0" />
             </font>

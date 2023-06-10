@@ -87,25 +87,6 @@
         <children>
             <AnchorPane layoutX="38.0" layoutY="3.0" prefHeight="638.0" prefWidth="1381.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="3.0">
                 <children>
-                    <ScrollPane layoutX="744.0" layoutY="280.0" prefHeight="334.0" prefWidth="596.0">
-                        <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="598.0" style="-fx-background-color: fff;">
-                                <children>
-                                    <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lịch theo tuần">
-                                        <font>
-                                            <Font size="18.0" />
-                                        </font>
-                                    </Text>
-                                    <TableView fx:id="lichHoc" layoutX="21.0" layoutY="41.0" prefHeight="267.0" prefWidth="550.0">
-                                        <columns>
-                                            <TableColumn prefWidth="75.0" text="C1" />
-                                            <TableColumn prefWidth="75.0" text="C2" />
-                                        </columns>
-                                    </TableView>
-                                </children>
-                            </AnchorPane>
-                        </content>
-                    </ScrollPane>
                     <ScrollPane layoutX="745.0" layoutY="22.0" prefHeight="234.0" prefWidth="595.0">
                         <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="597.0" style="-fx-background-color: fff;">
@@ -196,6 +177,21 @@
                             </AnchorPane>
                         </content>
                     </ScrollPane>
+               <AnchorPane layoutX="745.0" layoutY="284.0" minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="595.0" style="-fx-background-color: fff;">
+                  <children>
+                     <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lịch theo tuần">
+                        <font>
+                           <Font size="18.0" />
+                        </font>
+                     </Text>
+                     <TableView fx:id="lichHoc" layoutX="21.0" layoutY="41.0" prefHeight="281.0" prefWidth="550.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
+                        <columns>
+                           <TableColumn prefWidth="75.0" text="C1" />
+                           <TableColumn prefWidth="75.0" text="C2" />
+                        </columns>
+                     </TableView>
+                  </children>
+               </AnchorPane>
                 </children>
             </AnchorPane>
         </children>

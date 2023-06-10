@@ -1,15 +1,8 @@
 package com.example.student_management_sys.model;
 
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.property.SimpleBooleanProperty;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.CheckBoxTableCell;
-import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +10,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DatabaseModel {
@@ -25,6 +19,39 @@ public class DatabaseModel {
 
   public DatabaseModel() {
     connection = ConnectionDatabase.getConnection();
+  }
+  public void updateStudentInformation(String updateQuery , String hoTen, String gioiTinh, String trangThai,
+                                       String queQuan, Date ngaySinh, String maSV, String lop,
+                                       String chuyenNganh, String loaiDaoTao, String sdt,
+                                       String ngayVaoTruong) throws SQLException {
+    Connection connection = null;
+    PreparedStatement preparedStatement = null;
+
+    try {
+      connection = ConnectionDatabase.getConnection();
+
+      preparedStatement = connection.prepareStatement(updateQuery);
+      preparedStatement.setString(1, hoTen);
+      preparedStatement.setString(2, gioiTinh);
+      preparedStatement.setString(3, trangThai);
+      preparedStatement.setString(4, queQuan);
+      preparedStatement.setDate(5, (java.sql.Date) ngaySinh);
+      preparedStatement.setString(6, maSV);
+      preparedStatement.setString(7, lop);
+      preparedStatement.setString(8, chuyenNganh);
+      preparedStatement.setString(9, loaiDaoTao);
+      preparedStatement.setString(10, sdt);
+      preparedStatement.setString(11, ngayVaoTruong);
+
+      preparedStatement.executeUpdate();
+    } finally {
+      if (preparedStatement != null) {
+        preparedStatement.close();
+      }
+      if (connection != null) {
+        connection.close();
+      }
+    }
   }
   public ObservableList<LichHoc> getLichHoc(
     String maSV,
@@ -139,6 +166,40 @@ public class DatabaseModel {
       if (rs != null) {
         rs.close();
       }
+      if (stmt != null) {
+        stmt.close();
+      }
+    }
+  }
+  public void deleteSV(String maSV) throws SQLException {
+    PreparedStatement stmt = null;
+    try {
+      String query =
+              "DELETE FROM bangDiem " +
+                      "WHERE Ma_SV IN ( " +
+                      "SELECT Ma_SV " +
+                      "FROM sinhVien " +
+                      "WHERE Ma_SV = ? " +
+                      "); " +
+                      "DELETE FROM dangKyMonHoc " +
+                      "WHERE Ma_SV IN ( " +
+                      "SELECT Ma_SV " +
+                      "FROM sinhVien " +
+                      "WHERE Ma_SV = ? " +
+                      "); " +
+                      "DELETE FROM sinhVien " +
+                      "WHERE Ma_SV = ?; " +
+                      "DELETE FROM caNhan " +
+                      "WHERE CCCD = ?; ";
+      stmt = connection.prepareStatement(query);
+      stmt.setString(1, maSV);
+      stmt.setString(2, maSV);
+      stmt.setString(3, maSV);
+      stmt.setString(4, maSV);
+      stmt.executeUpdate();
+    } catch (SQLException e) {
+      System.out.println(e.getMessage());
+    } finally {
       if (stmt != null) {
         stmt.close();
       }
@@ -334,7 +395,7 @@ public class DatabaseModel {
               "JOIN monHoc ON bangDiem.Ma_MH = monHoc.Ma_MH\n" +
               "JOIN sinhVien ON bangDiem.Ma_SV = sinhVien.Ma_SV\n" +
               "JOIN hocKy ON dangKyMonHoc.Ma_HK = hocKy.Ma_HK\n" +
-              "WHERE bangDiem.Diem_Thi < 9\n" +
+              "WHERE bangDiem.Diem_Thi < 8\n" +
               "AND sinhVien.Ma_SV = '"+maSV+"';";
       statement = connection.createStatement();
       resultSet = statement.executeQuery(query);
@@ -402,7 +463,7 @@ public class DatabaseModel {
     for (LichHoc lichHoc : lh) {
       lichHoc.displayLichHoc();
     }
-    databaseModel.closeConnection();
+
 //     ObservableList<ReViewData> list = databaseModel.getReView("010174");
 //     for (ReViewData reViewData : list) {
 //       reViewData.DisplayCourse();
