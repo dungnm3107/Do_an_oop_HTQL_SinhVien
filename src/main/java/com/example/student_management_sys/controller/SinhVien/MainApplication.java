@@ -1,4 +1,4 @@
-package com.example.student_management_sys.controller;
+package com.example.student_management_sys.controller.SinhVien;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

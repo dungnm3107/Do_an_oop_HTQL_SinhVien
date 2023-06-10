@@ -1,7 +1,6 @@
-package com.example.student_management_sys.controller;
+package com.example.student_management_sys.controller.Admin;
 
-import com.example.student_management_sys.model.DatabaseModel;
-import com.example.student_management_sys.model.LichHoc;
+import com.example.student_management_sys.model.DB.AdminDatabase;
 import com.example.student_management_sys.model.Student;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
@@ -24,7 +23,7 @@ public class AdminSearchController extends AdminController {
     public void setTableView(){
         tableSV.getColumns().clear();
         String query = tfTimKiem.getText();
-        DatabaseModel dm = new DatabaseModel();
+        AdminDatabase dm = new AdminDatabase();
         ObservableList<Student> list = dm.timKiem(query);
 
         TableColumn<Student, String> sttColumn = new TableColumn<>("STT");

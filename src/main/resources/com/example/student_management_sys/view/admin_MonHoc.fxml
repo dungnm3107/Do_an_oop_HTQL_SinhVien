@@ -68,7 +68,7 @@
         </AnchorPane>
       <ButtonBar layoutX="-3.0" layoutY="76.0" prefHeight="40.0" prefWidth="643.0">
          <buttons>
-            <Button fx:id="ThongTin" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý sinh viên" textFill="WHITE">
+            <Button fx:id="ThongTin" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý thông tin" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
