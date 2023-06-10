@@ -4,6 +4,7 @@ import com.example.student_management_sys.model.CourseData;
 import com.example.student_management_sys.model.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -57,7 +58,12 @@ public class AdminDatabase extends DatabaseModel {
                 "SELECT CONCAT_WS(';', \n" +
                 "    Ma_MH, Name_Mh, So_Tin, Loai_HP\n" +
                 ") AS mh\n" +
-                "FROM monHoc) as monhoc\n" +
+                "FROM monHoc\n" +
+                "\n" +
+                "WHERE Ma_MH NOT IN (\n" +
+                "    SELECT Ma_MH FROM Trash_MH\n" +
+                ")\n" +
+                ") as monhoc\n" +
                 "WHERE mh LIKE N'%"+queries+"%'";
         List<String> list = new ArrayList<>();
         ObservableList <CourseData> listCourse = FXCollections.observableArrayList();
@@ -74,12 +80,38 @@ public class AdminDatabase extends DatabaseModel {
 
             String[] arr = s.split(";");
             CourseData courseData = new CourseData(arr[0], arr[1], arr[2], arr[3]);
-            System.out.println(arr[0] +" "+ arr[1] +" "+ arr[2] +" "+ arr[3]);
             listCourse.add(courseData);
         }
         return listCourse;
     }
 
+
+    public void deleteMonHoc(String maMH){
+        String query = "INSERT INTO Trash_MH values (?)";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, maMH);
+            statement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Không thể xóa môn học này");
+        }
+    }
+    public void updateMonHoc(CourseData CD){
+        String query = "UPDATE monHoc SET Name_MH = ?, So_Tin = ?, Loai_HP = ? WHERE Ma_MH = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, CD.getNameMH());
+            String soTin = String.valueOf(CD.getSoTin());
+            statement.setString(2, soTin);
+            statement.setString(3, CD.getLoaiHP());
+            statement.setString(4, CD.getMaMH());
+            statement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Không thể cập nhật môn học này");
+        }
+    }
     public static void main(String[] args) {
         AdminDatabase adminDatabase = new AdminDatabase();
         ObservableList<CourseData> list = adminDatabase.timKiemMonHoc("Vật Lý");

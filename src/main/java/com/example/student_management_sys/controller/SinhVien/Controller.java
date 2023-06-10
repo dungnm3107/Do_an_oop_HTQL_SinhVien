@@ -64,7 +64,6 @@ public class Controller {
      FXMLLoader loader =   OpenNewFXMLFile("/com/example/student_management_sys/view/student_infor.fxml", btn_studentInfo);
      StudentController studentController = loader.getController();
      studentController.showInferStudent(username);
-
     }
 
     @FXML

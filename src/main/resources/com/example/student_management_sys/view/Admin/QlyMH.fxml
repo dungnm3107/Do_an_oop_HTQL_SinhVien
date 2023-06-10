@@ -16,7 +16,7 @@
       <Text layoutX="66.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên môn học" />
       <TextField fx:id="loaiHP" layoutX="153.0" layoutY="200.0" />
       <Text layoutX="63.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loại học phần" />
-      <Button layoutX="24.0" layoutY="273.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Sửa" textFill="WHITE">
+      <Button fx:id="Sua" layoutX="24.0" layoutY="273.0" mnemonicParsing="false" onAction="#Sua" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Sửa" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
