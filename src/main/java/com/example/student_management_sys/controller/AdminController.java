@@ -62,9 +62,8 @@ public class AdminController extends Controller {
 
     public void showInforStudent(String maSV) {
 
-        try {
             DatabaseModel databaseModel = new DatabaseModel();
-            Student std = databaseModel.getInformation(maSV);
+            Student std = databaseModel.timKiem(maSV).get(0);
             tfMaSV.setText(std.getMSSV());
             tfHoTen.setText(std.getHoTen());
             tfGioiTinh.setText(std.getGioiTinh());
@@ -76,14 +75,10 @@ public class AdminController extends Controller {
             tfChuyenNganh.setText(std.getChuyenNganh());
             tfSDT.setText(std.getSoDienThoai());
             tfVaoTruong.setText(std.getNgayVao());
-        } catch (SQLException e) {
-            System.out.println(" lỗi truy vấn thông tin sinh viên ở StudentController ");
-            System.out.println(e.getMessage());
-        }
     }
 
-    public void loginAdmin(String username, String password) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/admin.fxml"));
+    public void loginAdmin(String username, String password, String path) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
         Parent root = loader.load();
         Scene scene = new Scene(root, 1424, 750);
         Stage homeStage = new Stage();

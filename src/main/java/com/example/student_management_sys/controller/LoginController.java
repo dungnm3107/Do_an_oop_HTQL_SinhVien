@@ -69,8 +69,13 @@ public class LoginController {
         username = usernameTextField.getText();
         String password = passwordPasswordField.getText();
         if ((username.equals("admin")) && (password.equals("admin"))) {
-            AdminController ad = new AdminController();
-            ad.loginAdmin(username, password);
+//            AdminController ad = new AdminController();
+//            ad.loginAdmin(username, password);
+//            Stage loginStage = (Stage) homeButton.getScene().getWindow();
+//            loginStage.close();
+
+            AdminSearchController ad = new AdminSearchController();
+            ad.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin_Search.fxml");
             Stage loginStage = (Stage) homeButton.getScene().getWindow();
             loginStage.close();
         } else{

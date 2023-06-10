@@ -139,18 +139,20 @@ public class Student {
     }
 
     public void DisplayStudent() {
-        System.out.print(this.MSSV + "\t");
-        System.out.print(this.HoTen + "\t");
-        System.out.print(this.GioiTinh + "\t");
-        System.out.print(this.TrangThai + "\t");
-        System.out.print(this.QueQuan + "\t");
-        System.out.print(this.Lop + "\t");
-        System.out.print(this.LoaiDaoTao + "\t");
-        System.out.print(this.HeDaoTao + "\t");
-        System.out.print(this.ChuyenNganh + "\t");
-        System.out.print(this.NganhHoc + "\t");
-        System.out.print(this.NgayVao + "\t");
-        System.out.println();
+        System.out.print(this.MSSV + ",");
+        System.out.print(this.HoTen + ",");
+        System.out.print(this.GioiTinh + ",");
+        System.out.print(this.TrangThai + ",");
+        System.out.print(this.QueQuan + ",");
+        System.out.print(this.Lop + ",");
+        System.out.print(this.LoaiDaoTao + ",");
+        System.out.print(this.NgaySinh + ",");
+        System.out.print(this.SoDienThoai + ",");
+        System.out.print(this.HeDaoTao + ",");
+        System.out.print(this.ChuyenNganh + ",");
+        System.out.print(this.NganhHoc + ",");
+        System.out.print(this.NgayVao + "\n");
+
     }
 
 }
