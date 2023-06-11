@@ -1,6 +1,7 @@
 package com.example.student_management_sys.model.DB;
 
 import com.example.student_management_sys.model.CourseData;
+import com.example.student_management_sys.model.GiaoVien;
 import com.example.student_management_sys.model.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -116,5 +117,73 @@ public class AdminDatabase extends DatabaseModel {
         AdminDatabase adminDatabase = new AdminDatabase();
         ObservableList<CourseData> list = adminDatabase.timKiemMonHoc("Vật Lý");
 
+    }
+
+    public String getMaGV(String maMH) {
+//        select Ma_GV from giangDay where Ma_MH = '10020109'
+        String query = "select Ma_GV from giangDay where Ma_MH = ?";
+        String maGV = "";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, maMH);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                maGV = resultSet.getString("Ma_GV");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return maGV;
+    }
+
+    public void PhanCongGV(String maMH, String maGV) {
+        String query = "MERGE giangDay AS target\n" +
+                "USING (VALUES ('"+maMH+"', '"+maGV+"')) AS source (Ma_MH, Ma_GV)\n" +
+                "ON (target.Ma_MH = source.Ma_MH AND target.Ma_GV = source.Ma_GV)\n" +
+                "WHEN MATCHED THEN\n" +
+                "    UPDATE SET target.Ma_MH = source.Ma_MH, target.Ma_GV = source.Ma_GV\n" +
+                "WHEN NOT MATCHED THEN\n" +
+                "    INSERT (Ma_MH, Ma_GV) VALUES (source.Ma_MH, source.Ma_GV);";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+//
+//select * from (
+//SELECT CONCAT_WS(';',
+//    Ma_GV, TrinhDo, Name_CN, Sdt_CN
+//) AS concatenated_values
+//FROM giaoVien
+//INNER JOIN caNhan cn ON cn.CCCD = giaoVien.CCCD
+//) as sub
+//where concatenated_values like N'%Mai%'
+    public ObservableList<GiaoVien> timGV(String queries){
+        String query = "select * from (\n" +
+                "SELECT CONCAT_WS(';', \n" +
+                "    Ma_GV, TrinhDo, Name_CN, Sdt_CN\n" +
+                ") AS concatenated_values\n" +
+                "FROM giaoVien\n" +
+                "INNER JOIN caNhan cn ON cn.CCCD = giaoVien.CCCD\n" +
+                ") as sub\n" +
+                "where concatenated_values like N'%"+queries+"%'";
+        List<String> list = new ArrayList<>();
+        ObservableList <GiaoVien> listGV = FXCollections.observableArrayList();
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                String thongTin = resultSet.getString("concatenated_values");
+                list.add(thongTin);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        for (String s : list) {
+
+            String[] arr = s.split(";");
+            GiaoVien giaoVien = new GiaoVien(arr[0], arr[1], arr[2], arr[3]);
+            listGV.add(giaoVien);
+        }
+        return listGV;
     }
 }

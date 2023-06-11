@@ -1,4 +1,4 @@
-package com.example.student_management_sys.controller.Admin;
+package com.example.student_management_sys.controller.Admin.Small;
 
 import com.example.student_management_sys.model.CourseData;
 import com.example.student_management_sys.model.DB.AdminDatabase;
@@ -12,16 +12,20 @@ public class QlyMH {
     private TextField nameMH;
     @FXML
     private TextField maMH;
+
+
     @FXML
     private TextField soTC;
     @FXML
     private TextField loaiHP;
-public void setCourseData(CourseData courseData){
-    nameMH.setText(courseData.getNameMH());
-    maMH.setText(courseData.getMaMH());
-    soTC.setText(String.valueOf(courseData.getSoTin()));
-    loaiHP.setText(courseData.getLoaiHP());
-}
+
+    public void setCourseData(CourseData courseData){
+        nameMH.setText(courseData.getNameMH());
+        maMH.setText(courseData.getMaMH());
+        maMH.setEditable(false);
+        soTC.setText(String.valueOf(courseData.getSoTin()));
+        loaiHP.setText(courseData.getLoaiHP());
+    }
 
     public void Sua() {
         String name = nameMH.getText();
