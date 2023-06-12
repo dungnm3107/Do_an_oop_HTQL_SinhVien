@@ -1,21 +1,18 @@
-package com.example.student_management_sys.controller;
+package com.example.student_management_sys.controller.SinhVien;
 
 
-import com.example.student_management_sys.model.ConnectionDatabase;
-import com.example.student_management_sys.model.DatabaseModel;
-import com.example.student_management_sys.model.Student;
+import com.example.student_management_sys.controller.Admin.AdminSearchController;
+import com.example.student_management_sys.controller.Admin.MonHoc;
+import com.example.student_management_sys.model.DB.ConnectionDatabase;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.*;
-import java.util.ResourceBundle;
 import java.util.prefs.Preferences;
 
 public class LoginController {
@@ -73,9 +70,14 @@ public class LoginController {
 //            ad.loginAdmin(username, password, "/com/example/student_management_sys/view/admin.fxml");
 //            Stage loginStage = (Stage) homeButton.getScene().getWindow();
 //            loginStage.close();
+//
+//            AdminSearchController ad = new AdminSearchController();
+//            ad.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin_Search.fxml");
+//            Stage loginStage = (Stage) homeButton.getScene().getWindow();
+//            loginStage.close();
 
-            AdminSearchController ad = new AdminSearchController();
-            ad.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin_Search.fxml");
+            MonHoc monHoc = new MonHoc();
+            monHoc.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin/monhoc.fxml");
             Stage loginStage = (Stage) homeButton.getScene().getWindow();
             loginStage.close();
         } else{

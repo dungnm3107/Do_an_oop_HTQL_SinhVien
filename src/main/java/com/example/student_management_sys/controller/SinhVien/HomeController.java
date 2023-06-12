@@ -1,6 +1,6 @@
-package com.example.student_management_sys.controller;
+package com.example.student_management_sys.controller.SinhVien;
 
-import com.example.student_management_sys.model.DatabaseModel;
+import com.example.student_management_sys.model.DB.DatabaseModel;
 import com.example.student_management_sys.model.LichHoc;
 import com.example.student_management_sys.model.Student;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -22,8 +22,8 @@ import javafx.util.Duration;
 import java.util.List;
 
 
-import static com.example.student_management_sys.controller.ScheduleController.getEndOfWeek;
-import static com.example.student_management_sys.controller.ScheduleController.getStartOfWeek;
+import static com.example.student_management_sys.controller.SinhVien.ScheduleController.getEndOfWeek;
+import static com.example.student_management_sys.controller.SinhVien.ScheduleController.getStartOfWeek;
 
 public class HomeController extends Controller {
     @FXML

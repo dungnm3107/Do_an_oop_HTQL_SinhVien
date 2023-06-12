@@ -1,6 +1,6 @@
-package com.example.student_management_sys.controller;
+package com.example.student_management_sys.controller.SinhVien;
 
-import com.example.student_management_sys.model.DatabaseModel;
+import com.example.student_management_sys.model.DB.DatabaseModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -64,7 +64,6 @@ public class Controller {
      FXMLLoader loader =   OpenNewFXMLFile("/com/example/student_management_sys/view/student_infor.fxml", btn_studentInfo);
      StudentController studentController = loader.getController();
      studentController.showInferStudent(username);
-
     }
 
     @FXML

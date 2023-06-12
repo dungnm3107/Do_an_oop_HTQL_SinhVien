@@ -1,8 +1,7 @@
-package com.example.student_management_sys.controller;
+package com.example.student_management_sys.controller.SinhVien;
 
-import com.example.student_management_sys.model.ConnectionDatabase;
 import com.example.student_management_sys.model.CourseData;
-import com.example.student_management_sys.model.DatabaseModel;
+import com.example.student_management_sys.model.DB.DatabaseModel;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -12,12 +11,9 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Font;
 
 import java.sql.*;
 import java.text.DecimalFormat;
-
-import static com.sun.javafx.scene.control.skin.Utils.computeTextWidth;
 
 
 public class RegisterCourseController extends Controller {

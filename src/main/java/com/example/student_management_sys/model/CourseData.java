@@ -10,6 +10,14 @@ public class CourseData {
     private String loaiHP;
     private boolean trangThaiDangKi;
 
+    public CourseData(String maMH, String nameMH, String soTin, String loaiHP) {
+        System.out.println(maMH + " " + nameMH + " " + soTin + " " + loaiHP);
+        int temp = Integer.parseInt(soTin);
+        this.maMH = maMH;
+        this.nameMH = nameMH;
+        this.soTin = temp;
+        this.loaiHP = loaiHP;
+    }
     public CourseData(String maMH, String nameMH, String nameLop, int soTin, double hocPhi, String loaiHP, boolean trangThaiDangKi) {
         this.maMH = maMH;
         this.nameMH = nameMH;

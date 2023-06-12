@@ -1,6 +1,8 @@
-package com.example.student_management_sys.model;
+package com.example.student_management_sys.model.DB;
 
 
+import com.example.student_management_sys.model.*;
+import com.example.student_management_sys.model.DB.ConnectionDatabase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.sql.Connection;
@@ -20,9 +22,17 @@ public class DatabaseModel {
   public DatabaseModel() {
     connection = ConnectionDatabase.getConnection();
   }
-  public void updateStudentInformation(String updateQuery , String hoTen, String gioiTinh, String trangThai,
-                                       String queQuan, Date ngaySinh, String maSV, String lop,
-                                       String chuyenNganh, String loaiDaoTao, String sdt,
+  public void updateStudentInformation(String updateQuery,
+                                       String hoTen,
+                                       String gioiTinh,
+                                       String trangThai,
+                                       String queQuan,
+                                       Date ngaySinh,
+                                       String maSV,
+                                       String lop,
+                                       String chuyenNganh,
+                                       String loaiDaoTao,
+                                       String sdt,
                                        String ngayVaoTruong) throws SQLException {
     Connection connection = null;
     PreparedStatement preparedStatement = null;
@@ -106,39 +116,6 @@ public class DatabaseModel {
         stmt.close();
       }
     }
-  }
-
-  public ObservableList<Student> timKiem(String queries){
-    List <String> list = new ArrayList<>();
-    ObservableList <Student> listStudent = FXCollections.observableArrayList();
-      String query = "\n" +
-              "SELECT *\n" +
-              "FROM (\n" +
-              "    SELECT CONCAT_WS(',', SV.Ma_SV, caNhan.Name_CN, Gender, TrangThai, caNhan.Que_Quan, Name_Lop,ldt.Name_Loai, caNhan.Ngay_Sinh, caNhan.Sdt_CN, hdt.Name_He, chuyenNganh.Name_ChuyenNganh, nganhHoc.Name_Nganh,NgayVao) AS concatenated_values\n" +
-              "    FROM sinhVien SV\n" +
-              "    INNER JOIN caNhan ON SV.CCCD = caNhan.CCCD\n" +
-              "    INNER JOIN chuyenNganh ON chuyenNganh.Ma_ChuyenNganh = SV.Ma_ChuyenNganh\n" +
-              "    INNER JOIN loaiDaoTao ldt ON ldt.Ma_Loai = SV.Ma_Loai\n" +
-              "    INNER JOIN heDaoTao hdt ON hdt.Ma_He = ldt.Ma_He\n" +
-              "    INNER JOIN nganhHoc ON nganhHoc.Ma_Nganh = chuyenNganh.Ma_Nganh\n" +
-              ") AS subquery\n" +
-              "WHERE concatenated_values LIKE N'%" + queries + "%'";
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-              String thongTin = resultSet.getString("concatenated_values");
-              list.add(thongTin);
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        for (String s : list) {
-
-          String[] arr = s.split(",");
-          Student student = new Student(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7],arr[8], arr[9], arr[10], arr[11], arr[12]);
-            listStudent.add(student);
-        }
-        return listStudent;
   }
 
   public List<String> getHocKi(String maSV) throws SQLException {
@@ -372,7 +349,7 @@ public class DatabaseModel {
     return student.getHoTen();
   }
 
-  public  ObservableList<CourseData> getRegisterForTheCourse(String maSV,String mahk) throws SQLException {
+  public  ObservableList<CourseData> getRegisterForTheCourse(String maSV, String mahk) throws SQLException {
     Statement statement = null;
     ResultSet resultSet = null;
 
@@ -485,10 +462,7 @@ public class DatabaseModel {
 
 
   public static void main(String[] args) throws SQLException {
-    DatabaseModel databaseModel = new DatabaseModel();
-    List<Student> list = databaseModel.timKiem("2003");
-    for (Student student : list) {
-      student.DisplayStudent();
-    }
+
   }
+
 }

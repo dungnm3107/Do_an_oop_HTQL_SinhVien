@@ -1,7 +1,6 @@
-package com.example.student_management_sys.controller;
+package com.example.student_management_sys.controller.SinhVien;
 
-import com.example.student_management_sys.model.ConnectionDatabase;
-import com.example.student_management_sys.model.DatabaseModel;
+import com.example.student_management_sys.model.DB.DatabaseModel;
 import com.example.student_management_sys.model.ReViewData;
 import javafx.beans.property.*;
 import javafx.collections.ObservableList;
@@ -12,12 +11,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Random;
-import java.util.prefs.Preferences;
 
 public class ReViewController extends Controller {
     @FXML
