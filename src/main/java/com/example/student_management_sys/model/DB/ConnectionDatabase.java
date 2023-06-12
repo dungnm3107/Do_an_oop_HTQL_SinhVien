@@ -12,7 +12,7 @@ public class ConnectionDatabase {
 
 
             String user = "sa";
-            String pass = "Minh@2003";
+            String pass = "88888888";
 
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=SinhVienHucer;encrypt=true;trustServerCertificate=true", user, pass);
             if (conn == null) {
