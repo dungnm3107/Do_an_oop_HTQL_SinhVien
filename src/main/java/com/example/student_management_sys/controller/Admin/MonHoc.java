@@ -1,5 +1,7 @@
 package com.example.student_management_sys.controller.Admin;
 
+import com.example.student_management_sys.controller.Admin.Small.PhanCongGV;
+import com.example.student_management_sys.controller.Admin.Small.QlyMH;
 import com.example.student_management_sys.model.CourseData;
 import com.example.student_management_sys.model.DB.AdminDatabase;
 import javafx.collections.ObservableList;
@@ -27,13 +29,9 @@ public class MonHoc extends AdminController{
     private Button btn_timKiem;
     @FXML
     TextField nameMH = new TextField();
-    
-    
-    
-//    load file src/main/resources/com/example/student_management_sys/view/Admin/QlyMH.fxml
 private void loadFile(CourseData courseData) {
     try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/Admin/QlyMH.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/Admin/Small/QlyMH.fxml"));
         Parent parent = loader.load();
         QlyMH controller = loader.getController();
         controller.setCourseData(courseData);
@@ -53,13 +51,14 @@ private void loadFile(CourseData courseData) {
 
 
 
-    public void setMHView(){
-        table.getColumns().clear();
-        String query = tfTimKiem.getText();
-        AdminDatabase dm = new AdminDatabase();
-        ObservableList<CourseData> list = dm.timKiemMonHoc(query);
-//        String maMH, String nameMH, String soTin, String loaiHP
 
+    public void setMHView(){
+
+        String query = tfTimKiem.getText();
+        AdminDatabase Am = new AdminDatabase();
+        ObservableList<CourseData> list = Am.timKiemMonHoc(query);
+//        String maMH, String nameMH, String soTin, String loaiHP
+        table.getColumns().clear();
         TableColumn<CourseData, String> sttColumn = new TableColumn<>("STT");
         sttColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(table.getItems().indexOf(column.getValue()) + 1).asString());
         table.getColumns().add(sttColumn);
@@ -82,7 +81,7 @@ private void loadFile(CourseData courseData) {
         TableColumn<CourseData, Void> actionColumn = new TableColumn<>("Action");
         table.getColumns().add(actionColumn);
         actionColumn.setCellFactory(column -> new TableCell<CourseData, Void>() {
-            private final Button loadFileButton = new Button("Load File");
+            private final Button loadFileButton = new Button("Sửa");
 
             {
                 loadFileButton.setOnAction(event -> {
@@ -105,7 +104,77 @@ private void loadFile(CourseData courseData) {
             }
         });
 
+        TableColumn<CourseData, Void> deleteColumn = new TableColumn<>("Delete");
+        table.getColumns().add(deleteColumn);
+        deleteColumn.setCellFactory(column -> new TableCell<CourseData, Void>() {
+            private final Button deleteButton = new Button("Delete");
 
+            {
+                deleteButton.setOnAction(event -> {
+                    CourseData courseData = getTableRow().getItem();
+                    if (courseData != null) {
+                        Am.deleteMonHoc(courseData.getMaMH());
+                        setMHView();
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteButton);
+                }
+            }
+        });
+
+//        add action "Phân công giảng viên"
+        TableColumn<CourseData, Void> phanCongColumn = new TableColumn<>("Phân công giảng viên");
+        table.getColumns().add(phanCongColumn);
+        phanCongColumn.setCellFactory(column -> new TableCell<CourseData, Void>() {
+            private final Button phanCongButton = new Button("Phân công giảng viên");
+
+            {
+                phanCongButton.setOnAction(event -> {
+                    CourseData courseData = getTableRow().getItem();
+                    if (courseData != null) {
+                        // Thực hiện hành động "load file" ở đây
+                        phanCong(courseData);
+                    }
+                });
+            }
+
+            private void phanCong(CourseData courseData) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/Admin/Small/phanCongGV.fxml"));
+                    Parent parent = loader.load();
+                    PhanCongGV controller = loader.getController();
+                    controller.setCourseData(courseData);
+
+                    Scene scene = new Scene(parent);
+                    Stage stage = new Stage();
+
+                    stage.setScene(scene);
+
+                    stage.show();
+                } catch (Exception e) {
+                        System.out.println(e);
+                }
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+
+                } else {
+                    setGraphic(phanCongButton);
+                }
+            }
+        });
         table.setItems(list);
     }
 

@@ -22,9 +22,17 @@ public class DatabaseModel {
   public DatabaseModel() {
     connection = ConnectionDatabase.getConnection();
   }
-  public void updateStudentInformation(String updateQuery , String hoTen, String gioiTinh, String trangThai,
-                                       String queQuan, Date ngaySinh, String maSV, String lop,
-                                       String chuyenNganh, String loaiDaoTao, String sdt,
+  public void updateStudentInformation(String updateQuery,
+                                       String hoTen,
+                                       String gioiTinh,
+                                       String trangThai,
+                                       String queQuan,
+                                       Date ngaySinh,
+                                       String maSV,
+                                       String lop,
+                                       String chuyenNganh,
+                                       String loaiDaoTao,
+                                       String sdt,
                                        String ngayVaoTruong) throws SQLException {
     Connection connection = null;
     PreparedStatement preparedStatement = null;
@@ -456,4 +464,5 @@ public class DatabaseModel {
   public static void main(String[] args) throws SQLException {
 
   }
+
 }
