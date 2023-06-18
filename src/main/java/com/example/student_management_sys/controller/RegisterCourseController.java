@@ -1,8 +1,7 @@
 package com.example.student_management_sys.controller;
 
-import com.example.student_management_sys.model.ConnectionDatabase;
 import com.example.student_management_sys.model.CourseData;
-import com.example.student_management_sys.model.DatabaseModel;
+import com.example.student_management_sys.model.DB.DatabaseModel;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleBooleanProperty;

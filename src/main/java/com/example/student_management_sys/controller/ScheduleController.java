@@ -1,23 +1,18 @@
 package com.example.student_management_sys.controller;
 
 import com.example.student_management_sys.model.*;
+import com.example.student_management_sys.model.DB.DatabaseModel;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
-import java.util.prefs.Preferences;
-import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 

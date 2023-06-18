@@ -1,7 +1,7 @@
 package com.example.student_management_sys.controller;
 
-import com.example.student_management_sys.model.ConnectionDatabase;
-import com.example.student_management_sys.model.DatabaseModel;
+import com.example.student_management_sys.model.DB.ConnectionDatabase;
+import com.example.student_management_sys.model.DB.DatabaseModel;
 import com.example.student_management_sys.model.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

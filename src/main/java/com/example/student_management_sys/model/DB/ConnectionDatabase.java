@@ -1,4 +1,4 @@
-package com.example.student_management_sys.model;
+package com.example.student_management_sys.model.DB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +12,7 @@ public class ConnectionDatabase {
 
 
             String user = "sa";
-            String pass = "Minh@2003";
+            String pass = "kien0912003@";
 
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=SinhVienHucer;encrypt=true;trustServerCertificate=true", user, pass);
             if (conn == null) {
