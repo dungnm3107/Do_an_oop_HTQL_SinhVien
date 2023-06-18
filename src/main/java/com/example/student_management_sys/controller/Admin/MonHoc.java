@@ -3,6 +3,7 @@ package com.example.student_management_sys.controller.Admin;
 import com.example.student_management_sys.model.CourseData;
 import com.example.student_management_sys.model.DB.AdminDatabase;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.*;
 import javafx.scene.*;
@@ -13,6 +14,10 @@ import javafx.stage.Stage;
 
 public class MonHoc extends AdminController{
 
+    public Button SinhVien;
+    public Button Diem;
+    public Button MonHoc;
+    public Button GiaoVien;
     @FXML
     TableView table;
 
@@ -21,14 +26,16 @@ public class MonHoc extends AdminController{
     @FXML
     private Button btn_timKiem;
     @FXML
-
     TextField nameMH = new TextField();
+    
+    
+    
 //    load file src/main/resources/com/example/student_management_sys/view/Admin/QlyMH.fxml
 private void loadFile(CourseData courseData) {
     try {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/Admin/QlyMH.fxml"));
         Parent parent = loader.load();
-QlyMH controller = loader.getController();
+        QlyMH controller = loader.getController();
         controller.setCourseData(courseData);
 
         Scene scene = new Scene(parent);
@@ -100,6 +107,10 @@ QlyMH controller = loader.getController();
 
 
         table.setItems(list);
+    }
+
+    public void btn_giaoVienClicked() {
+
     }
 }
 
