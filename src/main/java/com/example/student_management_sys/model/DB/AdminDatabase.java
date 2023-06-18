@@ -3,6 +3,7 @@ package com.example.student_management_sys.model.DB;
 import com.example.student_management_sys.model.CourseData;
 import com.example.student_management_sys.model.GiaoVien;
 import com.example.student_management_sys.model.Student;
+import com.example.student_management_sys.model.Subjects;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
