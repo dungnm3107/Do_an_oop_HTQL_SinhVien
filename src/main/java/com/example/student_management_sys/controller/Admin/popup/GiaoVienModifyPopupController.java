@@ -5,10 +5,14 @@ import com.example.student_management_sys.model.DB.AdminDatabase;
 import com.example.student_management_sys.model.Teacher;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -112,10 +116,11 @@ public class GiaoVienModifyPopupController {
 
 
     public void btn_OKClicked() {
+        // check textfield set border red if not filled
         boolean isAllTextFieldFilled = true;
         for (TextField currentTextField :
                 textFieldSet) {
-            if (currentTextField.getCharacters().isEmpty()) {
+            if (currentTextField.getText().trim().isEmpty()) {
                 isAllTextFieldFilled = false;
                 currentTextField.setStyle("-fx-border-color: #F08080 ; -fx-border-width: 2px ;");
             }
@@ -125,23 +130,33 @@ public class GiaoVienModifyPopupController {
             return;
         }
 
+        // check teacher above 18 years old to teach students
+        if (Period.between(LocalDate.parse(tf_ngaySinh.getText().trim(), DateTimeFormatter.ofPattern("yyyy-MM-dd")), LocalDate.now()).getYears() <= 18) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi");
+            alert.setHeaderText(null);
+            alert.setContentText("Ngày sinh không hợp lệ!\nGiáo viên chưa đủ tuổi để giảng dạy.");
+            alert.showAndWait();
+            return;
+        }
+
         AdminDatabase adminDatabase = new AdminDatabase();
         try {
             Teacher modifiedTeacher = new Teacher();
-            modifiedTeacher.setCCCD(tf_CCCD.getText());
-            modifiedTeacher.setMaGV(tf_maGV.getText());
-            modifiedTeacher.setHoTen(tf_hoVaTen.getText());
-            modifiedTeacher.setGioiTinh(tf_gioiTinh.getText());
-            modifiedTeacher.setEmail(tf_email.getText());
-            modifiedTeacher.setNgaySinh(tf_ngaySinh.getText());
-            modifiedTeacher.setQueQuan(tf_queQuan.getText());
-            modifiedTeacher.setSoDienThoai(tf_SDT.getText());
-            modifiedTeacher.setTrinhDo(tf_trinhDo.getText());
+            modifiedTeacher.setCCCD(tf_CCCD.getText().trim());
+            modifiedTeacher.setMaGV(tf_maGV.getText().trim());
+            modifiedTeacher.setHoTen(tf_hoVaTen.getText().trim());
+            modifiedTeacher.setGioiTinh(tf_gioiTinh.getText().trim());
+            modifiedTeacher.setEmail(tf_email.getText().trim());
+            modifiedTeacher.setNgaySinh(tf_ngaySinh.getText().trim());
+            modifiedTeacher.setQueQuan(tf_queQuan.getText().trim());
+            modifiedTeacher.setSoDienThoai(tf_SDT.getText().trim());
+            modifiedTeacher.setTrinhDo(tf_trinhDo.getText().trim());
 
             switch (mode) {
                 case CREATE -> {
-                    if (adminDatabase.isGiaoVienInTrashGV(tf_maGV.getText())) {
-                        adminDatabase.removeGiaoVienFromTrashGV(tf_maGV.getText());
+                    if (adminDatabase.isGiaoVienInTrashGV(tf_maGV.getText().trim())) {
+                        adminDatabase.removeGiaoVienFromTrashGV(tf_maGV.getText().trim());
                     } else {
                         adminDatabase.insertGiaoVien(modifiedTeacher);
                     }
