@@ -53,6 +53,7 @@ public class AdminDatabase extends DatabaseModel {
         return listStudent;
     }
     public ObservableList<CourseData> timKiemMonHoc(String queries){
+//
         String query = "\n" +
                 "select * from(\n" +
                 "SELECT CONCAT_WS(';', \n" +
@@ -60,9 +61,6 @@ public class AdminDatabase extends DatabaseModel {
                 ") AS mh\n" +
                 "FROM monHoc\n" +
                 "\n" +
-                "WHERE Ma_MH NOT IN (\n" +
-                "    SELECT Ma_MH FROM Trash_MH\n" +
-                ")\n" +
                 ") as monhoc\n" +
                 "WHERE mh LIKE N'%"+queries+"%'";
         List<String> list = new ArrayList<>();
@@ -77,6 +75,7 @@ public class AdminDatabase extends DatabaseModel {
             throwables.printStackTrace();
         }
         for (String s : list) {
+
             String[] arr = s.split(";");
             CourseData courseData = new CourseData(arr[0], arr[1], arr[2], arr[3]);
             listCourse.add(courseData);
@@ -283,8 +282,33 @@ public class AdminDatabase extends DatabaseModel {
         }
         return null;
     }
-
-
+    public void deleteMonHoc(String maMH){
+        String query = "DELETE FROM giangDay WHERE Ma_MH = '" + maMH + "'\n" +
+                "DELETE FROM monHoc WHERE Ma_MH = '" + maMH + "'";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.executeUpdate();
+        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Sinh viên đã đăng kí MH, Không thể xóa môn học này");
+            alert.show();
+        }
+    }
+    public void updateMonHoc(CourseData CD){
+        String query = "UPDATE monHoc SET Name_MH = ?, So_Tin = ?, Loai_HP = ? WHERE Ma_MH = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, CD.getNameMH());
+            String soTin = String.valueOf(CD.getSoTin());
+            statement.setString(2, soTin);
+            statement.setString(3, CD.getLoaiHP());
+            statement.setString(4, CD.getMaMH());
+            statement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Không thể cập nhật môn học này");
+        }
+    }
 
     public static void main(String[] args) {
         AdminDatabase adminDatabase = new AdminDatabase();
@@ -331,7 +355,7 @@ public class AdminDatabase extends DatabaseModel {
 //INNER JOIN caNhan cn ON cn.CCCD = giaoVien.CCCD
 //) as sub
 //where concatenated_values like N'%Mai%'
-    public ObservableList<GiaoVien> timGV(String queries){
+    public ObservableList<GiaoVien> timGVMinh(String queries){
         String query = "select * from (\n" +
                 "SELECT CONCAT_WS(';', \n" +
                 "    Ma_GV, TrinhDo, Name_CN, Sdt_CN\n" +

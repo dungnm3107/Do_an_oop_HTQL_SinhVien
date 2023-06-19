@@ -11,7 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class AdminSearchController extends AdminController {
+public class AdminSearchController extends ControllerAdmin {
     @FXML
     TableView tableSV;
 

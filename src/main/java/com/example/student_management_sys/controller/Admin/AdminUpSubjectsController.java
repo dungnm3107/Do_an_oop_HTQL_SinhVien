@@ -18,7 +18,7 @@ import javafx.util.Callback;
 import java.io.IOException;
 
 
-public class AdminUpSubjectsController {
+public class AdminUpSubjectsController extends ControllerAdmin{
     @FXML
     private TableView<Subjects> tableSV;
     @FXML
@@ -82,7 +82,7 @@ public class AdminUpSubjectsController {
                             Subjects selectedSubject = tableSV.getItems().get(rowIndex);
                             String maSV = selectedSubject.getMaSV();
                             String maMH = selectedSubject.getMaMH();
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/UpDiem.fxml"));
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/Admin/UpDiem.fxml"));
                             try {
                                 Parent root = loader.load();
                                 UpDiemController controller = loader.getController();

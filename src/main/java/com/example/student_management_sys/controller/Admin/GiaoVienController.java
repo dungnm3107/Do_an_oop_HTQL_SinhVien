@@ -23,7 +23,7 @@ import java.lang.reflect.Method;
 import java.sql.Date;
 import java.time.LocalDate;
 
-public class GiaoVienController extends AdminController {
+public class GiaoVienController extends ControllerAdmin{
     public TableView tableGV;
     public Button btn_addNewTeacher;
     public Button btn_deleteTeacher;

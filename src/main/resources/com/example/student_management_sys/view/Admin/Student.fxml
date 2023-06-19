@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="750.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="68.0" prefWidth="1427.0" style="-fx-background-color: #3f998d;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <effect>
@@ -39,7 +39,7 @@
                         <Font size="14.0" />
                     </font>
                 </TextField>
-                <MenuButton layoutX="1186.0" layoutY="14.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="194.0" style="-fx-background-color: #3f998d;" text="         Admin" textFill="WHITE" AnchorPane.rightAnchor="23.799999999999955">
+                <MenuButton fx:id="buttonAccount" layoutX="1186.0" layoutY="14.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="194.0" style="-fx-background-color: #3f998d;" text="         Admin" textFill="WHITE" AnchorPane.rightAnchor="23.799999999999955">
                     <items>
                         <MenuItem id="exitButton" fx:id="exitButton" mnemonicParsing="false" onAction="#exitButtonClicked" text="           Đăng xuất           " />
                     </items>
@@ -68,22 +68,22 @@
         </AnchorPane>
       <ButtonBar layoutX="-3.0" layoutY="76.0" prefHeight="40.0" prefWidth="643.0">
          <buttons>
-            <Button fx:id="SinhVien" mnemonicParsing="false" onAction="#btnSV" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý sinh viên" textFill="WHITE">
+            <Button fx:id="btn_Student" mnemonicParsing="false" onAction="#btn_StudentClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý sinh viên" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="Diem" mnemonicParsing="false" onAction="#btnD" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý điểm" textFill="WHITE">
+            <Button fx:id="btn_Diem" mnemonicParsing="false" onAction="#btn_DiemClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý điểm" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="MonHoc" mnemonicParsing="false" onAction="#btnMH" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý môn học" textFill="WHITE">
+            <Button fx:id="btn_Subjects" mnemonicParsing="false" onAction="#btn_SubjectsClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý môn học" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="GiaoVien" mnemonicParsing="false" onAction="#btnGV" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý giáo viên" textFill="WHITE">
+            <Button fx:id="btn_Teacher" mnemonicParsing="false" onAction="#btn_TeacherClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý giáo viên" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
