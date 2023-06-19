@@ -2,6 +2,7 @@ package com.example.student_management_sys.controller.Admin;
 
 import com.example.student_management_sys.controller.Admin.Small.PhanCongGV;
 import com.example.student_management_sys.controller.Admin.Small.QlyMH;
+import com.example.student_management_sys.controller.SinhVien.Controller;
 import com.example.student_management_sys.model.CourseData;
 import com.example.student_management_sys.model.DB.AdminDatabase;
 import javafx.collections.ObservableList;
@@ -14,7 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class MonHoc extends AdminController{
+public class MonHoc extends ControllerAdmin {
 
     public Button SinhVien;
     public Button Diem;
@@ -53,7 +54,6 @@ private void loadFile(CourseData courseData) {
 
 
     public void setMHView(){
-
         String query = tfTimKiem.getText();
         AdminDatabase Am = new AdminDatabase();
         ObservableList<CourseData> list = Am.timKiemMonHoc(query);
