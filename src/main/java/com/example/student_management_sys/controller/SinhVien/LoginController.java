@@ -1,8 +1,8 @@
 package com.example.student_management_sys.controller.SinhVien;
 
 
-import com.example.student_management_sys.controller.Admin.AdminSearchController;
-import com.example.student_management_sys.controller.Admin.MonHoc;
+
+import com.example.student_management_sys.controller.Admin.SinhVien;
 import com.example.student_management_sys.model.DB.ConnectionDatabase;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -75,9 +75,11 @@ public class LoginController {
 //            ad.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin_Search.fxml");
 //            Stage loginStage = (Stage) homeButton.getScene().getWindow();
 //            loginStage.close();
+             SinhVien sinhVien = new SinhVien();
+             sinhVien.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin/Student.fxml");
 
-            MonHoc monHoc = new MonHoc();
-            monHoc.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin/monhoc.fxml");
+//            MonHoc monHoc = new MonHoc();
+//            monHoc.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin/monhoc.fxml");
             Stage loginStage = (Stage) homeButton.getScene().getWindow();
             loginStage.close();
         } else{

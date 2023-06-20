@@ -138,21 +138,5 @@ public class Student {
         NgayVao = ngayVao;
     }
 
-    public void DisplayStudent() {
-        System.out.print(this.MSSV + ",");
-        System.out.print(this.HoTen + ",");
-        System.out.print(this.GioiTinh + ",");
-        System.out.print(this.TrangThai + ",");
-        System.out.print(this.QueQuan + ",");
-        System.out.print(this.Lop + ",");
-        System.out.print(this.LoaiDaoTao + ",");
-        System.out.print(this.NgaySinh + ",");
-        System.out.print(this.SoDienThoai + ",");
-        System.out.print(this.HeDaoTao + ",");
-        System.out.print(this.ChuyenNganh + ",");
-        System.out.print(this.NganhHoc + ",");
-        System.out.print(this.NgayVao + "\n");
-
-    }
 
 }

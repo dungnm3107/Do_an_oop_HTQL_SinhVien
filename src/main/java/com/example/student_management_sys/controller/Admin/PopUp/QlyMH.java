@@ -1,4 +1,4 @@
-package com.example.student_management_sys.controller.Admin.Small;
+package com.example.student_management_sys.controller.Admin.PopUp;
 
 import com.example.student_management_sys.model.CourseData;
 import com.example.student_management_sys.model.DB.AdminDatabase;

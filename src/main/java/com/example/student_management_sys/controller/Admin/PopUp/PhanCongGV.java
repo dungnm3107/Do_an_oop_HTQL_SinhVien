@@ -1,4 +1,4 @@
-package com.example.student_management_sys.controller.Admin.Small;
+package com.example.student_management_sys.controller.Admin.PopUp;
 //
 //<?xml version="1.0" encoding="UTF-8"?>
 //

@@ -16,4 +16,5 @@ public class MainController extends Controller{
     public void btnSV(){
         FXMLLoader loader =   OpenNewFXMLFile("/com/example/student_management_sys/view/Admin/Student.fxml", SinhVien );
     }
+
 }
