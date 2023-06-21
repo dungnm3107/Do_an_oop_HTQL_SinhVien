@@ -65,6 +65,37 @@ public class DatabaseModel {
       }
     }
   }
+  public ObservableList<Subjects> timKiemSubjects(String queries){
+    List <String> list = new ArrayList<>();
+    ObservableList <Subjects> listSubjects = FXCollections.observableArrayList();
+    String query = "\n" +
+            "SELECT *\n" +
+            "FROM (\n" +
+            "    SELECT CONCAT_WS(',',lh.Name_Lop, sv.Ma_SV, cn.Name_CN,mh.Ma_MH, mh.Name_MH, bd.Diem_QT, bd.Diem_Thi, bd.Diem_BS, bd.Diem_KT) AS concatenated_values\n" +
+            "    FROM lopHoc lh \n" +
+            "    JOIN sinhVien sv ON lh.Name_Lop = sv.Name_Lop\n" +
+            "    join caNhan cn on cn.CCCD = sv.CCCD\n" +
+            "    JOIN dangKyMonHoc dk ON sv.Ma_SV = dk.Ma_SV JOIN monHoc mh ON dk.Ma_MH = mh.Ma_MH \n" +
+            "    JOIN bangDiem bd ON sv.Ma_SV = bd.Ma_SV AND dk.Ma_MH = bd.Ma_MH\n" +
+            ") AS subquery\n" +
+            "WHERE concatenated_values LIKE N'%" + queries + "%'";
+    try (PreparedStatement statement = connection.prepareStatement(query)) {
+      ResultSet resultSet = statement.executeQuery();
+      while (resultSet.next()) {
+        String thongTin = resultSet.getString("concatenated_values");
+        list.add(thongTin);
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    for (String s : list) {
+
+      String[] arr = s.split(",");
+      Subjects subjects = new Subjects(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8]);
+      listSubjects.add(subjects);
+    }
+    return listSubjects;
+  }
   public ObservableList<LichHoc> getLichHoc(
     String maSV,
     String ngayBatDau,

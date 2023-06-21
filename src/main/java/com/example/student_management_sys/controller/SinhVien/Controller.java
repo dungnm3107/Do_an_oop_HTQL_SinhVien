@@ -70,12 +70,7 @@ public class Controller {
     public void btn_learningOutcomeClicked() throws SQLException {
         FXMLLoader loader = OpenNewFXMLFile("/com/example/student_management_sys/view/learning_outcomes.fxml", btn_learningOutcome);
         KQHTController kqhtController = loader.getController();
-        kqhtController.showDiemVaHocLucHK(username,"HK01-2023");
         kqhtController.showKetQuaHocTayByHocKi(username);
-        kqhtController.showKetQuaHocTap(username,"HK01-2023");
-        kqhtController.tinhTrungBinhTungHocKy(username,"HK01-2023");
-        kqhtController.tinhTrungBinhTichLuy(username);
-        kqhtController.showTongKet(username);
     }
 
     @FXML

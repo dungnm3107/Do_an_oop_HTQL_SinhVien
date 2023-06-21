@@ -1,10 +1,13 @@
 package com.example.student_management_sys.controller.Admin;
 
+
 import com.example.student_management_sys.controller.Admin.PopUp.PhanCongGV;
 import com.example.student_management_sys.controller.Admin.PopUp.QlyMH;
+import com.example.student_management_sys.controller.Admin.SinhVien;
 import com.example.student_management_sys.model.CourseData;
 import com.example.student_management_sys.model.DB.AdminDatabase;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.*;
 import javafx.scene.*;
@@ -13,8 +16,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class MonHoc extends AdminController{
+public class MonHoc extends ControllerAdmin {
 
+    public Button SinhVien;
+    public Button Diem;
+    public Button MonHoc;
+    public Button GiaoVien;
     @FXML
     TableView table;
 
@@ -23,9 +30,7 @@ public class MonHoc extends AdminController{
     @FXML
     private Button btn_timKiem;
     @FXML
-
     TextField nameMH = new TextField();
-
 private void loadFile(CourseData courseData) {
     try {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/Admin/Small/QlyMH.fxml"));
@@ -50,7 +55,6 @@ private void loadFile(CourseData courseData) {
 
 
     public void setMHView(){
-
         String query = tfTimKiem.getText();
         AdminDatabase Am = new AdminDatabase();
         ObservableList<CourseData> list = Am.timKiemMonHoc(query);
@@ -173,6 +177,10 @@ private void loadFile(CourseData courseData) {
             }
         });
         table.setItems(list);
+    }
+
+    public void btn_giaoVienClicked() {
+
     }
 }
 

@@ -76,7 +76,7 @@ public class PhanCongGV extends QlyMH {
     public void setTable(){
         AdminDatabase adminDatabase = new AdminDatabase();
         String query = maGV.getText() ;
-        ObservableList<GiaoVien> list = adminDatabase.timGV(query);
+        ObservableList<GiaoVien> list = adminDatabase.timGVMinh(query);
         table.getColumns().clear();
         TableColumn<GiaoVien, String> sttColumn = new TableColumn<>("STT");
         sttColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(table.getItems().indexOf(column.getValue()) + 1).asString());
