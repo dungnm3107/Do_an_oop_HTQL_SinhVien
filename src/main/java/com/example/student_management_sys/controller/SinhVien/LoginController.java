@@ -1,7 +1,12 @@
 package com.example.student_management_sys.controller.SinhVien;
 
 
+
+
+import com.example.student_management_sys.controller.Admin.SinhVien;
+
 import com.example.student_management_sys.controller.Admin.ControllerAdmin;
+
 import com.example.student_management_sys.model.DB.ConnectionDatabase;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -64,8 +69,27 @@ public class LoginController {
         username = usernameTextField.getText();
         String password = passwordPasswordField.getText();
         if ((username.equals("admin")) && (password.equals("admin"))) {
-            ControllerAdmin ad = new ControllerAdmin();
-            ad.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin/Admin_Search.fxml");
+
+//            AdminController ad = new AdminController();
+//            ad.loginAdmin(username, password, "/com/example/student_management_sys/view/admin.fxml");
+//            Stage loginStage = (Stage) homeButton.getScene().getWindow();
+//            loginStage.close();
+//
+//            AdminSearchController ad = new AdminSearchController();
+//            ad.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin_Search.fxml");
+//            Stage loginStage = (Stage) homeButton.getScene().getWindow();
+//            loginStage.close();
+
+
+             SinhVien sinhVien = new SinhVien();
+             sinhVien.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin/Student.fxml");
+
+//            MonHoc monHoc = new MonHoc();
+//            monHoc.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin/monhoc.fxml");
+
+//            ControllerAdmin ad = new ControllerAdmin();
+//            ad.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin/Admin_Search.fxml");
+
             Stage loginStage = (Stage) homeButton.getScene().getWindow();
             loginStage.close();
         } else {

@@ -1,4 +1,4 @@
-package com.example.student_management_sys.controller.Admin.popup;
+package com.example.student_management_sys.controller.Admin.PopUp;
 
 import com.example.student_management_sys.controller.Admin.GiaoVienController;
 import com.example.student_management_sys.model.DB.AdminDatabase;

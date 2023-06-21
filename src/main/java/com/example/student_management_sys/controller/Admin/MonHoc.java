@@ -1,8 +1,9 @@
 package com.example.student_management_sys.controller.Admin;
 
-import com.example.student_management_sys.controller.Admin.Small.PhanCongGV;
-import com.example.student_management_sys.controller.Admin.Small.QlyMH;
-import com.example.student_management_sys.controller.SinhVien.Controller;
+
+import com.example.student_management_sys.controller.Admin.PopUp.PhanCongGV;
+import com.example.student_management_sys.controller.Admin.PopUp.QlyMH;
+import com.example.student_management_sys.controller.Admin.SinhVien;
 import com.example.student_management_sys.model.CourseData;
 import com.example.student_management_sys.model.DB.AdminDatabase;
 import javafx.collections.ObservableList;

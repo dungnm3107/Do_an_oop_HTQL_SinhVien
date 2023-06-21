@@ -1,6 +1,6 @@
 package com.example.student_management_sys.controller.Admin;
 
-import com.example.student_management_sys.controller.Admin.popup.GiaoVienModifyPopupController;
+import com.example.student_management_sys.controller.Admin.PopUp.GiaoVienModifyPopupController;
 import com.example.student_management_sys.model.CourseData;
 import com.example.student_management_sys.model.DB.AdminDatabase;
 import com.example.student_management_sys.model.Teacher;
