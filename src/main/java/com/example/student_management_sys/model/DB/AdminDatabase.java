@@ -1,20 +1,15 @@
 package com.example.student_management_sys.model.DB;
 
+import com.example.student_management_sys.controller.Admin.PopUp.insertSV;
 import com.example.student_management_sys.model.CourseData;
 import com.example.student_management_sys.model.GiaoVien;
 import com.example.student_management_sys.model.Student;
-
 import com.example.student_management_sys.model.StudentNew;
-
-import com.example.student_management_sys.model.Subjects;
 import com.example.student_management_sys.model.Teacher;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
+
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -24,6 +19,7 @@ public class AdminDatabase extends DatabaseModel {
 
 
     private Connection connection;
+
 
     public AdminDatabase() {
         connection = ConnectionDatabase.getConnection();
@@ -61,6 +57,69 @@ public class AdminDatabase extends DatabaseModel {
         }
         return listStudent;
     }
+//public ObservableList<Student> timKiem(String queries) {
+//    List<String> list = new ArrayList<>();
+//    ObservableList<Student> listStudent = FXCollections.observableArrayList();
+//
+//    // Search for individual characters
+//    String queryCharacters = "SELECT *\n" +
+//            "FROM (\n" +
+//            "    SELECT CONCAT_WS('/', SV.Ma_SV, caNhan.Name_CN, Gender, TrangThai, caNhan.Que_Quan, Name_Lop,ldt.Name_Loai, caNhan.Ngay_Sinh, caNhan.Sdt_CN, hdt.Name_He, chuyenNganh.Name_ChuyenNganh, nganhHoc.Name_Nganh,NgayVao) AS concatenated_values\n" +
+//            "    FROM sinhVien SV\n" +
+//            "    INNER JOIN caNhan ON SV.CCCD = caNhan.CCCD\n" +
+//            "    INNER JOIN chuyenNganh ON chuyenNganh.Ma_ChuyenNganh = SV.Ma_ChuyenNganh\n" +
+//            "    INNER JOIN loaiDaoTao ldt ON ldt.Ma_Loai = SV.Ma_Loai\n" +
+//            "    INNER JOIN heDaoTao hdt ON hdt.Ma_He = ldt.Ma_He\n" +
+//            "    INNER JOIN nganhHoc ON nganhHoc.Ma_Nganh = chuyenNganh.Ma_Nganh\n" +
+//            ") AS subquery\n" +
+//            "WHERE (concatenated_values LIKE ?)";
+//
+//    // Search for the complete string
+//    String queryString = "SELECT *\n" +
+//            "FROM (\n" +
+//            "    SELECT CONCAT_WS('/', SV.Ma_SV, caNhan.Name_CN, Gender, TrangThai, caNhan.Que_Quan, Name_Lop,ldt.Name_Loai, caNhan.Ngay_Sinh, caNhan.Sdt_CN, hdt.Name_He, chuyenNganh.Name_ChuyenNganh, nganhHoc.Name_Nganh,NgayVao) AS concatenated_values\n" +
+//            "    FROM sinhVien SV\n" +
+//            "    INNER JOIN caNhan ON SV.CCCD = caNhan.CCCD\n" +
+//            "    INNER JOIN chuyenNganh ON chuyenNganh.Ma_ChuyenNganh = SV.Ma_ChuyenNganh\n" +
+//            "    INNER JOIN loaiDaoTao ldt ON ldt.Ma_Loai = SV.Ma_Loai\n" +
+//            "    INNER JOIN heDaoTao hdt ON hdt.Ma_He = ldt.Ma_He\n" +
+//            "    INNER JOIN nganhHoc ON nganhHoc.Ma_Nganh = chuyenNganh.Ma_Nganh\n" +
+//            ") AS subquery\n" +
+//            "WHERE (concatenated_values LIKE ?)";
+//
+//    try (PreparedStatement statement = connection.prepareStatement(queryCharacters)) {
+//        statement.setString(1, "%" + queries + "%");
+//        ResultSet resultSet = statement.executeQuery();
+//        while (resultSet.next()) {
+//            String thongTin = resultSet.getString("concatenated_values");
+//            list.add(thongTin);
+//        }
+//    } catch (SQLException throwables) {
+//        throwables.printStackTrace();
+//    }
+//
+//    // Execute the query for the complete string if individual character search didn't yield any results
+//    if (list.isEmpty()) {
+//        try (PreparedStatement statement = connection.prepareStatement(queryString)) {
+//            statement.setString(1, "%" + queries + "%");
+//            ResultSet resultSet = statement.executeQuery();
+//            while (resultSet.next()) {
+//                String thongTin = resultSet.getString("concatenated_values");
+//                list.add(thongTin);
+//            }
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//    }
+//
+//    for (String s : list) {
+//        String[] arr = s.split("/");
+//        Student student = new Student(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8], arr[9], arr[10], arr[11], arr[12]);
+//        listStudent.add(student);
+//    }
+//
+//    return listStudent;
+//}
 
 
     public ObservableList<CourseData> timKiemMonHoc(String queries) {
@@ -95,15 +154,14 @@ public class AdminDatabase extends DatabaseModel {
     }
 
 
-
 //    public void deleteMonHoc(String maMH) {
 //        String query = "INSERT INTO Trash_MH values (?)";
 
     public ObservableList<Teacher> getAllActiveTeachers() {
         String query = "\n" +
                 "SELECT cn.*, gv.Ma_GV, gv.TrinhDo " +
-        "FROM giaoVien gv join caNhan cn on cn.CCCD = gv.CCCD where Ma_GV not in (select Ma_GV from trashGV)";
-        ObservableList <Teacher> teacherObservableList = FXCollections.observableArrayList();
+                "FROM giaoVien gv join caNhan cn on cn.CCCD = gv.CCCD where Ma_GV not in (select Ma_GV from trashGV)";
+        ObservableList<Teacher> teacherObservableList = FXCollections.observableArrayList();
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             ResultSet resultSet = statement.executeQuery();
@@ -272,12 +330,13 @@ public class AdminDatabase extends DatabaseModel {
         }
     }
 
-    public ObservableList<Teacher> timGV(String queries){
+    public ObservableList<Teacher> timGV(String queries) {
         String query = "SELECT cn.*, gv.Ma_GV, gv.TrinhDo FROM giaoVien gv " +
                 "INNER JOIN caNhan cn ON cn.CCCD = gv.CCCD " +
-                "where CONCAT_WS(';', gv.CCCD, cn.Name_CN, cn.Sdt_CN, cn.Que_Quan, cn.Ngay_Sinh, gv.Ma_GV, gv.TrinhDo) like N'%" + queries + "%'";
+                "WHERE CONCAT_WS(';', gv.CCCD, cn.Name_CN, cn.Sdt_CN, cn.Que_Quan, cn.Ngay_Sinh, gv.Ma_GV, gv.TrinhDo) LIKE N'%" + queries + "%' " +
+                "AND gv.Ma_GV NOT IN (SELECT * FROM TrashGV)";
         List<String> list = new ArrayList<>();
-        ObservableList <Teacher> teacherObservableList = FXCollections.observableArrayList();
+        ObservableList<Teacher> teacherObservableList = FXCollections.observableArrayList();
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -299,7 +358,8 @@ public class AdminDatabase extends DatabaseModel {
         }
         return null;
     }
-    public void deleteMonHoc(String maMH){
+
+    public void deleteMonHoc(String maMH) {
         String query = "DELETE FROM giangDay WHERE Ma_MH = '" + maMH + "'\n" +
                 "DELETE FROM monHoc WHERE Ma_MH = '" + maMH + "'";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -327,12 +387,14 @@ public class AdminDatabase extends DatabaseModel {
             alert.setContentText("Không thể cập nhật môn học này");
         }
     }
+
     public void insertSinhVien(StudentNew studentNew) {
         String canhanSql = "INSERT INTO caNhan (CCCD, Name_CN, Email, Ngay_Sinh, Gender, Sdt_CN, Que_Quan) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
-        String sinhvienSql = "INSERT INTO sinhVien (Ma_SV, CCCD, Pass_SV, Name_Lop, TrangThai, NgayVao) " +
-                "VALUES (?, ?, ?, ?, ?, ?)";
+        String sinhvienSql = "INSERT INTO sinhVien (Ma_SV, CCCD, Pass_SV, Ma_Loai, Ma_ChuyenNganh, Name_Lop, TrangThai, NgayVao) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, CONVERT(date, ?, 23))";
         String lopSql = "INSERT INTO lopHoc (Name_Lop) VALUES (?)";
+
 
         try (Connection databaseConnection = ConnectionDatabase.getConnection();
              PreparedStatement canhanStatement = databaseConnection.prepareStatement(canhanSql);
@@ -360,27 +422,32 @@ public class AdminDatabase extends DatabaseModel {
                     canhanStatement.executeUpdate();
 
                     lopStatement.setString(1, studentNew.getLop().toUpperCase());
-
                     lopStatement.executeUpdate();
-
 
                     sinhvienStatement.setString(1, studentNew.getMSSV());
                     sinhvienStatement.setString(2, studentNew.getCCCD());
                     sinhvienStatement.setString(3, studentNew.getPass());
-                    sinhvienStatement.setString(4, studentNew.getLop());
-                    sinhvienStatement.setString(5, studentNew.getTrangThai());
-                    sinhvienStatement.setString(6, studentNew.getNgayVao());
+                    sinhvienStatement.setString(4, studentNew.getMa_Loai());
+                    sinhvienStatement.setString(5, studentNew.getMa_Chuyennganh());
+                    sinhvienStatement.setString(6, studentNew.getLop());
+                    sinhvienStatement.setString(7, studentNew.getTrangThai());
+                    sinhvienStatement.setString(8, studentNew.getNgayVao());
+
 
                     sinhvienStatement.executeUpdate();
 
                     System.out.println("Insert successful!");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Thành công");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Thêm sinh viên thành công!");
+                    alert.showAndWait();
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
 
     public void updateSinhVien(String maSV, Student student) {
         String updateSinhVienQuery = "UPDATE sinhVien " +
@@ -542,7 +609,7 @@ public class AdminDatabase extends DatabaseModel {
 //) as sub
 //where concatenated_values like N'%Mai%'
 
-    public ObservableList<GiaoVien> timGVMinh(String queries){
+    public ObservableList<GiaoVien> timGVMinh(String queries) {
         String query = "select * from (\n" +
                 "SELECT CONCAT_WS(';', \n" +
                 "    Ma_GV, TrinhDo, Name_CN, Sdt_CN\n" +

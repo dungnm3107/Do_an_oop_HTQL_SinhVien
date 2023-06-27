@@ -132,7 +132,7 @@ public class GiaoVienController extends ControllerAdmin{
     public void btn_deleteTeacherClicked(ActionEvent event) {
         Alert alert;
         AdminDatabase adminDatabase = new AdminDatabase();
-        if (adminDatabase.isDateInSemester(Date.valueOf(LocalDate.now()))) {
+        if (adminDatabase.isDateInSemester(Date.valueOf(LocalDate.of(2024, 1, 1)))) {
             alert = new Alert(Alert.AlertType.ERROR, "Đang trong thời gian học kỳ, vui lòng thử lại sau khi học kỳ kết thúc.", ButtonType.OK);
             alert.showAndWait();
             if (alert.getResult() == ButtonType.OK) {

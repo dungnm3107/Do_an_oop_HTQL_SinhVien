@@ -60,7 +60,7 @@ public class UpDiemController {
             statement.setFloat(1, diemQT);
             statement.setFloat(2, diemThi);
             statement.setFloat(3, diemBS);
-            float temp = (float)(diemQT * 0.3 + diemThi + 0.7 + diemBS);
+            float temp = (float)(diemQT * 0.3 + diemThi*0.7 + diemBS);
             if(temp > 10){
                 temp = 10;
             }

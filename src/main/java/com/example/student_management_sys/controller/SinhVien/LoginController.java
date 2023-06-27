@@ -75,20 +75,17 @@ public class LoginController {
 //            Stage loginStage = (Stage) homeButton.getScene().getWindow();
 //            loginStage.close();
 //
-//            AdminSearchController ad = new AdminSearchController();
-//            ad.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin_Search.fxml");
-//            Stage loginStage = (Stage) homeButton.getScene().getWindow();
-//            loginStage.close();
+//
 
 
-             SinhVien sinhVien = new SinhVien();
-             sinhVien.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin/Student.fxml");
+//             SinhVien sinhVien = new SinhVien();
+//             sinhVien.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin/Student.fxml");
 
 //            MonHoc monHoc = new MonHoc();
 //            monHoc.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin/monhoc.fxml");
 
-//            ControllerAdmin ad = new ControllerAdmin();
-//            ad.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin/Admin_Search.fxml");
+            ControllerAdmin ad = new ControllerAdmin();
+            ad.loginAdmin(username, password, "/com/example/student_management_sys/view/Admin/Student.fxml");
 
             Stage loginStage = (Stage) homeButton.getScene().getWindow();
             loginStage.close();
