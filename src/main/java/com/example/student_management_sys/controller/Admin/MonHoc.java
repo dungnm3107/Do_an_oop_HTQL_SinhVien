@@ -2,6 +2,7 @@ package com.example.student_management_sys.controller.Admin;
 
 import com.example.student_management_sys.controller.Admin.Small.PhanCongGV;
 import com.example.student_management_sys.controller.Admin.Small.QlyMH;
+import com.example.student_management_sys.controller.Admin.Small.ThemMH;
 import com.example.student_management_sys.model.CourseData;
 import com.example.student_management_sys.model.DB.AdminDatabase;
 import javafx.collections.ObservableList;
@@ -23,32 +24,39 @@ public class MonHoc extends AdminController{
     @FXML
     private Button btn_timKiem;
     @FXML
-
+    private Button themMH;
+    @FXML
     TextField nameMH = new TextField();
 
-private void loadFile(CourseData courseData) {
+//init
+    public void initialize(){
+        setMHView();
+    }
+    public void them(){
+        CourseData courseData = new CourseData();
+        FXMLLoader f = loadFile(courseData, "ThemMH.fxml");
+        ThemMH qlyMH = f.getController();
+        qlyMH.setCourseData(courseData, false);
+        setMHView();
+    }
+
+private FXMLLoader loadFile(CourseData courseData, String path) {
     try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/Admin/Small/QlyMH.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/Admin/Small/" + path));
         Parent parent = loader.load();
-QlyMH controller = loader.getController();
-        controller.setCourseData(courseData);
 
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
-
-
         stage.setScene(scene);
 
         stage.show();
+        return loader;
     } catch (Exception e) {
 
         System.out.println(e);
     }
+    return null;
 }
-
-
-
-
     public void setMHView(){
 
         String query = tfTimKiem.getText();
@@ -84,8 +92,10 @@ QlyMH controller = loader.getController();
                 loadFileButton.setOnAction(event -> {
                     CourseData courseData = getTableRow().getItem();
                     if (courseData != null) {
-                        // Thực hiện hành động "load file" ở đây
-                        loadFile(courseData);
+                        FXMLLoader f = loadFile(courseData, "QlyMH.fxml");
+                        QlyMH controller = f.getController();
+                        controller.setCourseData(courseData, true);
+                        setMHView();
                     }
                 });
             }
@@ -137,8 +147,8 @@ QlyMH controller = loader.getController();
                 phanCongButton.setOnAction(event -> {
                     CourseData courseData = getTableRow().getItem();
                     if (courseData != null) {
-                        // Thực hiện hành động "load file" ở đây
                         phanCong(courseData);
+                        setMHView();
                     }
                 });
             }
@@ -149,12 +159,9 @@ QlyMH controller = loader.getController();
                     Parent parent = loader.load();
                     PhanCongGV controller = loader.getController();
                     controller.setCourseData(courseData);
-
                     Scene scene = new Scene(parent);
                     Stage stage = new Stage();
-
                     stage.setScene(scene);
-
                     stage.show();
                 } catch (Exception e) {
                         System.out.println(e);
@@ -172,6 +179,13 @@ QlyMH controller = loader.getController();
                 }
             }
         });
+        sttColumn.setMaxWidth(30);
+        maMonHocColumn.setMaxWidth(80);
+        soTinColumn.setMaxWidth(60);
+        loaiHocPhanColumn.setMaxWidth(80);
+        actionColumn.setMaxWidth(60);
+        deleteColumn.setMaxWidth(60);
+        phanCongColumn.setMaxWidth(150);
         table.setItems(list);
     }
 }

@@ -66,24 +66,29 @@
             <TableView fx:id="table" layoutX="36.0" layoutY="16.0" prefHeight="646.0" prefWidth="1366.0" />
             </children>
         </AnchorPane>
-      <ButtonBar layoutX="-3.0" layoutY="76.0" prefHeight="40.0" prefWidth="643.0">
+      <ButtonBar layoutX="-3.0" layoutY="76.0" prefHeight="40.0" prefWidth="803.0">
          <buttons>
             <Button fx:id="SinhVien" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý sinh viên" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="Diem" mnemonicParsing="false"  prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý điểm" textFill="WHITE">
+            <Button fx:id="Diem" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý điểm" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="MonHoc" mnemonicParsing="false"  prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý môn học" textFill="WHITE">
+            <Button fx:id="MonHoc" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý môn học" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
             <Button fx:id="GiaoVien" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý giáo viên" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="themMH" mnemonicParsing="false" onAction="#them" prefHeight="40.0" prefWidth="152.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Thêm Môn học" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>

@@ -54,6 +54,7 @@ public class AdminDatabase extends DatabaseModel {
         return listStudent;
     }
     public ObservableList<CourseData> timKiemMonHoc(String queries){
+//
         String query = "\n" +
                 "select * from(\n" +
                 "SELECT CONCAT_WS(';', \n" +
@@ -61,9 +62,6 @@ public class AdminDatabase extends DatabaseModel {
                 ") AS mh\n" +
                 "FROM monHoc\n" +
                 "\n" +
-                "WHERE Ma_MH NOT IN (\n" +
-                "    SELECT Ma_MH FROM Trash_MH\n" +
-                ")\n" +
                 ") as monhoc\n" +
                 "WHERE mh LIKE N'%"+queries+"%'";
         List<String> list = new ArrayList<>();
@@ -87,17 +85,31 @@ public class AdminDatabase extends DatabaseModel {
     }
 
 
+//    delete giangDay where Ma_MH = '1'
+//delete monHoc where Ma_MH = '1'
     public void deleteMonHoc(String maMH){
-        String query = "INSERT INTO Trash_MH values (?)";
+        String query = "DELETE FROM giangDay WHERE Ma_MH = '" + maMH + "'\n" +
+                "DELETE FROM monHoc WHERE Ma_MH = '" + maMH + "'";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, maMH);
             statement.executeUpdate();
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+//            throwables.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Không thể xóa môn học này");
+            alert.setContentText("Sinh viên đã đăng kí MH, Không thể xóa môn học này");
+            alert.show();
         }
     }
+//    public void deleteMonHoc(String maMH){
+//        String query = "INSERT INTO Trash_MH values (?)";
+//        try (PreparedStatement statement = connection.prepareStatement(query)) {
+//            statement.setString(1, maMH);
+//            statement.executeUpdate();
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setContentText("Không thể xóa môn học này");
+//        }
+//    }
     public void updateMonHoc(CourseData CD){
         String query = "UPDATE monHoc SET Name_MH = ?, So_Tin = ?, Loai_HP = ? WHERE Ma_MH = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -136,6 +148,8 @@ public class AdminDatabase extends DatabaseModel {
     }
 
     public void PhanCongGV(String maMH, String maGV) {
+        maMH = maMH.replaceAll("\\s", "");
+        maGV = maGV.replaceAll("\\s", "");
         String query = "MERGE giangDay AS target\n" +
                 "USING (VALUES ('"+maMH+"', '"+maGV+"')) AS source (Ma_MH, Ma_GV)\n" +
                 "ON (target.Ma_MH = source.Ma_MH AND target.Ma_GV = source.Ma_GV)\n" +
@@ -149,16 +163,30 @@ public class AdminDatabase extends DatabaseModel {
             throwables.printStackTrace();
         }
     }
-//
-//select * from (
-//SELECT CONCAT_WS(';',
-//    Ma_GV, TrinhDo, Name_CN, Sdt_CN
-//) AS concatenated_values
-//FROM giaoVien
-//INNER JOIN caNhan cn ON cn.CCCD = giaoVien.CCCD
-//) as sub
-//where concatenated_values like N'%Mai%'
+
+    public void themMH(String maMH, String tenMH, String soTin, String loaiHP){
+        String query = "INSERT INTO monHoc VALUES (?, ?, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, maMH);
+            statement.setString(2, tenMH);
+            statement.setString(3, soTin);
+            statement.setString(4, loaiHP);
+            statement.executeUpdate();
+        } catch (SQLException throwables) {
+            String errorCode = throwables.getSQLState();
+            if (errorCode.equals("23000")){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Mã môn học đã tồn tại");
+                alert.show();
+            }
+        }
+//        alert Thành công
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Thêm môn học thành công");
+        alert.show();
+    }
     public ObservableList<GiaoVien> timGV(String queries){
+
         String query = "select * from (\n" +
                 "SELECT CONCAT_WS(';', \n" +
                 "    Ma_GV, TrinhDo, Name_CN, Sdt_CN\n" +
