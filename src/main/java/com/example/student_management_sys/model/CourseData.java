@@ -11,7 +11,6 @@ public class CourseData {
     private boolean trangThaiDangKi;
 
     public CourseData(String maMH, String nameMH, String soTin, String loaiHP) {
-        System.out.println(maMH + " " + nameMH + " " + soTin + " " + loaiHP);
         int temp = Integer.parseInt(soTin);
         this.maMH = maMH;
         this.nameMH = nameMH;

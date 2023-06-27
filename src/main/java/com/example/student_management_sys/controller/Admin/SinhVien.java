@@ -1,10 +1,9 @@
 package com.example.student_management_sys.controller.Admin;
 
 
-import com.example.student_management_sys.controller.Admin.PopUp.QlySV;
+import com.example.student_management_sys.controller.Admin.PopUp.updateSV;
 import com.example.student_management_sys.model.DB.AdminDatabase;
 import com.example.student_management_sys.model.Student;
-import com.example.student_management_sys.model.StudentNew;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,7 +16,7 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
-public class SinhVien extends AdminController {
+public class SinhVien extends ControllerAdmin {
 
     @FXML
     private TableView tableSV;
@@ -49,9 +48,9 @@ public class SinhVien extends AdminController {
 
     private void loadFileSV(Student student) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/Admin/Small/updateSV.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/Admin/Small/updateSV1.fxml"));
             Parent parent = loader.load();
-            QlySV controller = loader.getController();
+            updateSV controller = loader.getController();
             controller.setSinhVien(student);
             controller.setSinhVienController(this);
             Scene scene = new Scene(parent);

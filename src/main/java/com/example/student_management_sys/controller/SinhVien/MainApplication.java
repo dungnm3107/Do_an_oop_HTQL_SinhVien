@@ -20,7 +20,6 @@ public class MainApplication extends Application {
         Scene scene = new Scene(root, 600, 400);
         primaryStage.setTitle("Đăng nhập hệ thống");
         primaryStage.setScene(scene);
-
         primaryStage.setMinWidth(600);
         primaryStage.setMinHeight(400);
         primaryStage.setMaxWidth(600);

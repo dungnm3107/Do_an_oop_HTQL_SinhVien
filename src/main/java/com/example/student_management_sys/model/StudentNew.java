@@ -10,15 +10,12 @@ public class StudentNew {
     private String Email;
     private String CCCD;
     private String Lop;
-
-
-
-    private String Name_He;
-
+    private String Ma_Loai;
+    private String Ma_Chuyennganh;
     private String TrangThai;
     private String NgayVao;
     private String Pass;
-    public StudentNew(String MSSV, String hoTen, String gioiTinh, String ngaySinh, String queQuan, String soDienThoai, String email, String CCCD, String lop, String trangThai, String ngayVao, String pass) {
+    public StudentNew(String MSSV, String hoTen, String gioiTinh, String ngaySinh, String queQuan, String soDienThoai, String email, String CCCD, String lop, String ma_Loai, String ma_Chuyennganh, String trangThai, String ngayVao, String pass) {
         this.MSSV = MSSV;
         HoTen = hoTen;
         GioiTinh = gioiTinh;
@@ -28,17 +25,28 @@ public class StudentNew {
         Email = email;
         this.CCCD = CCCD;
         Lop = lop;
+        Ma_Loai = ma_Loai;
+        Ma_Chuyennganh = ma_Chuyennganh;
         TrangThai = trangThai;
         NgayVao = ngayVao;
         Pass = pass;
     }
-    public String getName_He() {
-        return Name_He;
+    public String getMa_Loai() {
+        return Ma_Loai;
     }
 
-    public void setName_He(String name_He) {
-        Name_He = name_He;
+    public void setMa_Loai(String ma_Loai) {
+        Ma_Loai = ma_Loai;
     }
+
+    public String getMa_Chuyennganh() {
+        return Ma_Chuyennganh;
+    }
+
+    public void setMa_Chuyennganh(String ma_Chuyennganh) {
+        Ma_Chuyennganh = ma_Chuyennganh;
+    }
+
     public String getMSSV() {
         return MSSV;
     }

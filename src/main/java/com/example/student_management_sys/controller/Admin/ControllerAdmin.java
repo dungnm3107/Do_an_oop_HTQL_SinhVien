@@ -53,9 +53,9 @@ public class ControllerAdmin {
 
     @FXML
     public void btn_StudentClicked() {
-        FXMLLoader loader =   OpenNewFXMLFile("/com/example/student_management_sys/view/Admin/Admin_Search.fxml", btn_Student);
-        AdminSearchController ad = loader.getController();
-        ad.setTableView();
+        FXMLLoader loader =  OpenNewFXMLFile("/com/example/student_management_sys/view/Admin/Student.fxml", btn_Student);
+        SinhVien sv = loader.getController();
+        sv.setTableView();
     }
     @FXML
     public void btn_DiemClicked() {
