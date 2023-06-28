@@ -1,4 +1,4 @@
-package com.example.student_management_sys.controller.Admin.Small;
+package com.example.student_management_sys.controller.Admin.PopUp;
 
 import com.example.student_management_sys.model.DB.AdminDatabase;
 import javafx.fxml.FXML;
@@ -6,7 +6,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
-import com.example.student_management_sys.controller.Admin.MonHoc;
 public class ThemMH extends QlyMH {
 
     @FXML
