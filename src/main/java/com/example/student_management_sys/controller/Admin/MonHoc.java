@@ -19,9 +19,7 @@ import javafx.stage.Stage;
 public class MonHoc extends ControllerAdmin {
 
     public Button SinhVien;
-    public Button Diem;
-    public Button MonHoc;
-    public Button GiaoVien;
+
     @FXML
     TableView table;
 
@@ -29,8 +27,7 @@ public class MonHoc extends ControllerAdmin {
     private TextField tfTimKiem;
     @FXML
     private Button btn_timKiem;
-    @FXML
-    TextField nameMH = new TextField();
+
 private void loadFile(CourseData courseData) {
     try {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/student_management_sys/view/Admin/Small/QlyMH.fxml"));
