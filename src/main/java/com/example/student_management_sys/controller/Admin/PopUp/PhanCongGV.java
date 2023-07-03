@@ -1,5 +1,6 @@
 package com.example.student_management_sys.controller.Admin.PopUp;
 
+
 import com.example.student_management_sys.model.CourseData;
 import com.example.student_management_sys.model.DB.AdminDatabase;
 import com.example.student_management_sys.model.GiaoVien;
@@ -10,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+
 public class PhanCongGV extends QlyMH {
     @FXML
     TextField nameMH;
@@ -19,6 +21,7 @@ public class PhanCongGV extends QlyMH {
     TextField soTC;
     @FXML
     ComboBox loaiHP;
+
     @FXML
     TextField maGV;
     @FXML
@@ -42,6 +45,7 @@ public class PhanCongGV extends QlyMH {
         alert.setHeaderText("Phân công giảng viên thành công");
         alert.showAndWait();
     }
+
     public void setCourseData(CourseData courseData){
         nameMH.setText(courseData.getNameMH());
         maMH.setText(courseData.getMaMH());
@@ -53,11 +57,12 @@ public class PhanCongGV extends QlyMH {
         String maGV1 = adminDatabase.getMaGV(courseData.getMaMH());
         maGV1 = maGV1.replaceAll("\\s+","");
         maGV.setText(maGV1);
+
     }
     public void setTable(){
         AdminDatabase adminDatabase = new AdminDatabase();
         String query = maGV.getText() ;
-        ObservableList<GiaoVien> list = adminDatabase.timGV(query);
+        ObservableList<GiaoVien> list = adminDatabase.timGVMinh(query);
         table.getColumns().clear();
         TableColumn<GiaoVien, String> sttColumn = new TableColumn<>("STT");
         sttColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(table.getItems().indexOf(column.getValue()) + 1).asString());
@@ -96,6 +101,7 @@ public class PhanCongGV extends QlyMH {
                 GiaoVien giaoVien = getTableRow().getItem();
                 maGV.setText(giaoVien.getMaGV());
                 Sua();
+
             }
             @Override
             protected void updateItem(Void item, boolean empty) {
@@ -104,6 +110,7 @@ public class PhanCongGV extends QlyMH {
             }
         });
         table.setItems(list);
+
     }
 
 }

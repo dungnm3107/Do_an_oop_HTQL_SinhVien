@@ -11,8 +11,10 @@ public class ConnectionDatabase {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
 
-            String user = "sa";
-            String pass = "Minh@2003";
+
+            String user = "tool";
+            String pass = "2003";
+
 
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=SinhVienHucer;encrypt=true;trustServerCertificate=true", user, pass);
             if (conn == null) {

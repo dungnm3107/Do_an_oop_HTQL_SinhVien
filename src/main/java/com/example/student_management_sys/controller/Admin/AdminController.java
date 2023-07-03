@@ -47,6 +47,10 @@ public class AdminController extends Controller {
     @FXML
     private TextField tfBirthDay;
     @FXML
+    private TextField tfHDT;
+    @FXML
+    private TextField tfNganhHoc;
+    @FXML
     private TextField tfChuyenNganh;
     @FXML
     private TextField tfSDT;
@@ -60,21 +64,22 @@ public class AdminController extends Controller {
     private Button btn_Update;
 
 
+
     public void showInforStudent(String maSV) {
 
-            AdminDatabase databaseModel = new AdminDatabase();
-            Student std = databaseModel.timKiem(maSV).get(0);
-            tfMaSV.setText(std.getMSSV());
-            tfHoTen.setText(std.getHoTen());
-            tfGioiTinh.setText(std.getGioiTinh());
-            tfStatus.setText(std.getTrangThai());
-            tfAdress.setText(std.getQueQuan());
-            tfClassQL.setText(std.getLop());
-            tfLoaiDT.setText(std.getLoaiDaoTao());
-            tfBirthDay.setText(std.getNgaySinh());
-            tfChuyenNganh.setText(std.getChuyenNganh());
-            tfSDT.setText(std.getSoDienThoai());
-            tfVaoTruong.setText(std.getNgayVao());
+        AdminDatabase databaseModel = new AdminDatabase();
+        Student std = databaseModel.timKiem(maSV).get(0);
+        tfMaSV.setText(std.getMSSV());
+        tfHoTen.setText(std.getHoTen());
+        tfGioiTinh.setText(std.getGioiTinh());
+        tfStatus.setText(std.getTrangThai());
+        tfAdress.setText(std.getQueQuan());
+        tfClassQL.setText(std.getLop());
+        tfLoaiDT.setText(std.getLoaiDaoTao());
+        tfBirthDay.setText(std.getNgaySinh());
+        tfChuyenNganh.setText(std.getChuyenNganh());
+        tfSDT.setText(std.getSoDienThoai());
+        tfVaoTruong.setText(std.getNgayVao());
     }
 
     public void loginAdmin(String username, String password, String path) throws Exception {
@@ -85,7 +90,6 @@ public class AdminController extends Controller {
         homeStage.setScene(scene);
         homeStage.show();
     }
-
     @FXML
     public void timKiemClicked() throws Exception {
         String MSSV = tfTimKiem.getText();
@@ -155,74 +159,4 @@ public class AdminController extends Controller {
             alert.showAndWait();
         }
     }
-
-    @FXML
-    void clickButtonUpdate(ActionEvent event) {
-        String maSV = tfMaSV.getText();
-        if (maSV == null || maSV.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lỗi");
-            alert.setHeaderText(null);
-            alert.setContentText("Vui lòng tìm kiếm thông tin sinh viên trước khi cập nhật");
-            alert.showAndWait();
-        } else {
-            try {
-                String hoTen = tfHoTen.getText();
-                String gioiTinh = tfGioiTinh.getText();
-                Date ngaySinh = Date.valueOf(tfBirthDay.getText());
-                String queQuan = tfAdress.getText();
-                String chuyenNganh = tfChuyenNganh.getText();
-                String lop = tfClassQL.getText();
-                String loaiDaoTao = tfLoaiDT.getText();
-                String sdt = tfSDT.getText();
-                String trangThai = tfStatus.getText();
-                String ngayVaoTruong = tfVaoTruong.getText();
-
-
-                String updateQuery = "UPDATE caNhan SET Name_CN = ?, Gender = ?, Que_Quan = ?, Ngay_Sinh = ?, Sdt_CN = ? WHERE CCCD IN (SELECT CCCD FROM sinhVien WHERE Ma_SV = ?)";
-                updateQuery += ";";
-                updateQuery += "UPDATE sinhVien SET Name_Lop = ?, Ma_ChuyenNganh = (SELECT TOP 1 chuyenNganh.Ma_ChuyenNganh FROM chuyenNganh INNER JOIN nganhHoc ON chuyenNganh.Ma_Nganh = nganhHoc.Ma_Nganh WHERE nganhHoc.Name_Nganh = ?), Ma_Loai = (SELECT Ma_Loai FROM loaiDaoTao WHERE Name_Loai = ?), NgayVao = ?, TrangThai = ? WHERE Ma_SV = ?";
-
-                Connection databaseConnection = ConnectionDatabase.getConnection();
-                PreparedStatement preparedStatement = databaseConnection.prepareStatement(updateQuery);
-                preparedStatement.setString(1, hoTen);
-                preparedStatement.setString(2, gioiTinh);
-                preparedStatement.setString(3, queQuan);
-                preparedStatement.setDate(4, ngaySinh);
-                preparedStatement.setString(5, sdt);
-                preparedStatement.setString(6, maSV);
-                preparedStatement.setString(7, lop);
-                preparedStatement.setString(8, chuyenNganh);
-                preparedStatement.setString(9, loaiDaoTao);
-                preparedStatement.setString(10, ngayVaoTruong);
-                preparedStatement.setString(11, trangThai);
-                preparedStatement.setString(12, maSV);
-
-                int rowsAffected = preparedStatement.executeUpdate();
-
-                if (rowsAffected > 0) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Thông báo");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Cập nhật thành công");
-                    alert.showAndWait();
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setHeaderText(null);
-                    alert.setContentText("Không tìm thấy sinh viên để cập nhật");
-                    alert.showAndWait();
-                }
-
-                preparedStatement.close();
-                databaseConnection.close();
-
-            } catch (Exception e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText(null);
-                alert.setContentText("Đã xảy ra lỗi khi cập nhật dữ liệu:\n " + e.getMessage());
-                alert.showAndWait();
-            }
-        }
-    }
 }
-

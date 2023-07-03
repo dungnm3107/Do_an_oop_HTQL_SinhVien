@@ -39,6 +39,7 @@ public class QlyMH {
         String ma = maMH.getText();
         String soTin = soTC.getText();
         String loai = loaiHP.getValue().toString();
+
         // Kiểm tra trường trống
         if (name.isEmpty() || ma.isEmpty() || soTin.isEmpty() || loai.isEmpty()) {
             // Hiển thị thông báo lỗi

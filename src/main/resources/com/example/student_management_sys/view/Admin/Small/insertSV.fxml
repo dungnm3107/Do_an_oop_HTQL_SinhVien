@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="919.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.controller.Admin.PopUp.insertSV">
+   <children>
+      <AnchorPane layoutX="28.0" layoutY="6.0" minHeight="0.0" minWidth="0.0" prefHeight="282.0" prefWidth="415.0">
+         <children>
+            <TextField fx:id="tfMaSV1" layoutX="127.0" layoutY="27.0" prefHeight="30.0" prefWidth="260.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="28.0" />
+            <Text layoutX="29.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MSSV" AnchorPane.leftAnchor="27.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfAdress1" layoutX="125.0" layoutY="147.0" prefHeight="30.0" prefWidth="260.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="28.0" />
+            <Text layoutX="44.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quê quán" AnchorPane.leftAnchor="27.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfBirthDay1" layoutX="125.0" layoutY="190.0" prefHeight="30.0" prefWidth="260.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="28.0" />
+            <Text layoutX="28.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày sinh" AnchorPane.leftAnchor="27.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfSDT1" layoutX="125.0" layoutY="231.0" prefHeight="30.0" prefWidth="260.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="28.0" />
+            <Text layoutX="29.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SDT" AnchorPane.leftAnchor="27.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfHoTen1" layoutX="127.0" layoutY="66.0" prefHeight="30.0" prefWidth="260.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="28.0" />
+            <Text layoutX="27.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Họ tên" AnchorPane.leftAnchor="27.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfGioiTinh1" layoutX="127.0" layoutY="107.0" prefHeight="30.0" prefWidth="260.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="28.0" />
+            <Text layoutX="27.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính" AnchorPane.leftAnchor="27.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Text layoutX="56.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loại đào tạo">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Button fx:id="insertSinhVien" layoutX="403.0" layoutY="343.0" mnemonicParsing="false" onAction="#insertSinhVienOnClick" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Thêm sinh viên" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutX="451.0" layoutY="6.0" minHeight="0.0" minWidth="0.0" prefHeight="282.0" prefWidth="415.0">
+         <children>
+            <TextField fx:id="tfEmail" layoutX="127.0" layoutY="27.0" prefHeight="30.0" prefWidth="260.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="28.0" />
+            <Text layoutX="29.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" AnchorPane.leftAnchor="27.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfStatus1" layoutX="125.0" layoutY="147.0" prefHeight="30.0" prefWidth="260.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="28.0" />
+            <Text layoutX="44.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trạng thái" AnchorPane.leftAnchor="27.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfVaoTruong1" layoutX="125.0" layoutY="190.0" prefHeight="30.0" prefWidth="260.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="28.0" />
+            <Text layoutX="28.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày vào" AnchorPane.leftAnchor="27.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfPass" layoutX="125.0" layoutY="231.0" prefHeight="30.0" prefWidth="260.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="28.0" />
+            <Text layoutX="29.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pass SV" AnchorPane.leftAnchor="27.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfCCCD" layoutX="127.0" layoutY="66.0" prefHeight="30.0" prefWidth="260.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="28.0" />
+            <Text layoutX="27.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CCCD" AnchorPane.leftAnchor="27.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfClassQL1" layoutX="127.0" layoutY="107.0" prefHeight="30.0" prefWidth="260.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="28.0" />
+            <Text layoutX="27.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lớp" AnchorPane.leftAnchor="27.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Text layoutX="479.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chuyên ngành">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <MenuButton fx:id="menuLDT" layoutX="167.0" layoutY="286.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="247.0" />
+      <MenuButton fx:id="menuCN" layoutX="591.0" layoutY="285.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="247.0" />
+   </children>
+</AnchorPane>
