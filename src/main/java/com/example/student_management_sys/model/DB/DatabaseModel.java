@@ -371,7 +371,6 @@ public class DatabaseModel {
       }
     }
   }
-
   public String getHoTen(String MSSV){
     Student student = null;
     try {
@@ -396,7 +395,7 @@ public class DatabaseModel {
               "WHERE sv.Ma_SV = '" + maSV + "' AND hk.Ma_HK = '"+mahk+"';";
       statement = connection.createStatement();
       resultSet = statement.executeQuery(query);
-
+// kiem tra esultSet.next(), = true tức có ít nhất 1 bn ghi có kết quả
       if (resultSet.next()) {
         ObservableList<CourseData> courseDataList = FXCollections.observableArrayList();
         int index = 1;

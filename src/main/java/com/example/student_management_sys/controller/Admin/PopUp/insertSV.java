@@ -4,7 +4,6 @@ import com.example.student_management_sys.model.DB.AdminDatabase;
 import com.example.student_management_sys.model.StudentNew;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.time.LocalDate;
 
 public class insertSV {
@@ -462,8 +461,8 @@ public class insertSV {
         String trangThai1 = tfStatus1.getText();
         String ngayVao1 = tfVaoTruong1.getText();
         String Pass = tfPass.getText();
-        String maLoai =selectedLDT;
-        String maChuyenNganh=selectedCN;
+        String maLoai = selectedLDT;
+        String maChuyenNganh = selectedCN;
 
 
         if (MSSV1.isEmpty() || hoTen1.isEmpty() || gioiTinh1.isEmpty() || ngaySinh1.isEmpty()
@@ -491,11 +490,25 @@ public class insertSV {
         }
 
 
-        StudentNew studentNew = new StudentNew(MSSV1, hoTen1, gioiTinh1, ngaySinh1, queQuan1, soDienThoai1, email1, cccd, lop1,maLoai, maChuyenNganh, trangThai1, ngayVao1, Pass);
+        StudentNew studentNew = new StudentNew(MSSV1, hoTen1, gioiTinh1, ngaySinh1, queQuan1, soDienThoai1, email1, cccd, lop1, maLoai, maChuyenNganh, trangThai1, ngayVao1, Pass);
         AdminDatabase adminDatabase = new AdminDatabase();
-        adminDatabase.insertSinhVien(studentNew);
-    }
-
-
-
-}
+        try {
+            adminDatabase.insertSinhVien(studentNew);
+            // Hiển thị thông báo thành công
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Thành công");
+            alert.setHeaderText(null);
+            alert.setContentText("Thêm sinh viên thành công!");
+            alert.showAndWait();
+        } catch (AdminDatabase.DuplicateRecordException e) {
+            // Hiển thị thông báo lỗi đã tồn tại
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        } catch (Exception e) {
+            // Xử lý các ngoại lệ khác (nếu có)
+            e.printStackTrace();
+        }
+    }}

@@ -10,6 +10,7 @@ public class CourseData {
     private String loaiHP;
     private boolean trangThaiDangKi;
 
+
     public CourseData(String maMH, String nameMH, String soTin, String loaiHP) {
         int temp = Integer.parseInt(soTin);
         this.maMH = maMH;
@@ -25,6 +26,10 @@ public class CourseData {
         this.hocPhi = hocPhi;
         this.loaiHP = loaiHP;
         this.trangThaiDangKi = trangThaiDangKi;
+    }
+
+    public CourseData() {
+
     }
 
     public String getMaMH() {

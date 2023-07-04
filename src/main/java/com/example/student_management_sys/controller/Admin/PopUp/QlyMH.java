@@ -3,6 +3,7 @@ package com.example.student_management_sys.controller.Admin.PopUp;
 import com.example.student_management_sys.model.CourseData;
 import com.example.student_management_sys.model.DB.AdminDatabase;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 import javafx.scene.control.Alert;
@@ -17,21 +18,27 @@ public class QlyMH {
     @FXML
     private TextField soTC;
     @FXML
-    private TextField loaiHP;
+    private ComboBox loaiHP;
+//    init comboBox loaiHP has 2 options "Bắt buộc" and "Tự chọn"
+    @FXML
+    public void initialize() {
+        loaiHP.getItems().addAll("Bắt buộc", "Tự chọn");
+    }
 
-    public void setCourseData(CourseData courseData){
+    public void setCourseData(CourseData courseData, boolean isAdd){
         nameMH.setText(courseData.getNameMH());
         maMH.setText(courseData.getMaMH());
+        if (isAdd)
         maMH.setEditable(false);
         soTC.setText(String.valueOf(courseData.getSoTin()));
-        loaiHP.setText(courseData.getLoaiHP());
+        loaiHP.setValue(courseData.getLoaiHP());
     }
 
     public void Sua() {
         String name = nameMH.getText();
         String ma = maMH.getText();
         String soTin = soTC.getText();
-        String loai = loaiHP.getText();
+        String loai = loaiHP.getValue().toString();
 
         // Kiểm tra trường trống
         if (name.isEmpty() || ma.isEmpty() || soTin.isEmpty() || loai.isEmpty()) {

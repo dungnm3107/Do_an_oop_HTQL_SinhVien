@@ -20,12 +20,6 @@ public class RegisterCourseController extends Controller {
 
     private String selectedMAHK = "";
     @FXML
-    private TextField usernameTextField;
-    @FXML
-    private PasswordField passwordPasswordField;
-    @FXML
-    private Button homeButton;
-    @FXML
     private MenuItem exitButton;
     @FXML
     private MenuButton buttonAccount;
@@ -281,10 +275,10 @@ public class RegisterCourseController extends Controller {
 
                         if (item == null || empty) {
                             setText(null);
-                            setAlignment(Pos.CENTER); // Căn giữa nếu cell trống
+                            setAlignment(Pos.CENTER); // can giua cell trong
                         } else {
                             setText(decimalFormat.format(item));
-                            setAlignment(Pos.CENTER); // Căn giữa nội dung của cell
+                            setAlignment(Pos.CENTER); // can giua noi dung
                         }
                     }
                 };
@@ -302,10 +296,10 @@ public class RegisterCourseController extends Controller {
 
                         if (item == null || empty) {
                             setText(null);
-                            setAlignment(Pos.CENTER); // Căn giữa nếu cell trống
+                            setAlignment(Pos.CENTER);
                         } else {
                             setText(item);
-                            setAlignment(Pos.CENTER); // Căn giữa nội dung của cell
+                            setAlignment(Pos.CENTER);
                         }
                     }
                 };
