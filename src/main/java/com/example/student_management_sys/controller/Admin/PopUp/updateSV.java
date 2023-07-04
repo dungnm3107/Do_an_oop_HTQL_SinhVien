@@ -63,21 +63,6 @@ public class updateSV {
         tfSDT.setText(student.getSoDienThoai());
         tfVaoTruong.setText(student.getNgayVao());
     }
-
-    //    public void setSinhVienNew(StudentNew student) {
-//        tfMaSV1.setText(student.getMSSV());
-//        tfHoTen1.setText(student.getHoTen());
-//        tfGioiTinh1.setText(student.getGioiTinh());
-//        tfBirthDay1.setText(student.getNgaySinh());
-//        tfAdress1.setText(student.getQueQuan());
-//        tfSDT1.setText(student.getSoDienThoai());
-//        tfEmail.setText(student.getEmail());
-//        tfCCCD.setText(student.getCCCD());
-//        tfClassQL1.setText(student.getLop());
-//        tfStatus1.setText(student.getTrangThai());
-//        tfVaoTruong1.setText(student.getNgayVao());
-//        tfPass.setText(student.getPass());
-//    }
     @FXML
     public void upDateSV() {
         String MSSV = tfMaSV.getText();

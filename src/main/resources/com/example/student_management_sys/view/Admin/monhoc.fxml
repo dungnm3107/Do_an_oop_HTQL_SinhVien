@@ -66,31 +66,31 @@
             <TableView fx:id="table" layoutX="36.0" layoutY="16.0" prefHeight="646.0" prefWidth="1366.0" />
             </children>
         </AnchorPane>
-      <ButtonBar layoutX="-3.0" layoutY="76.0" prefHeight="40.0" prefWidth="803.0">
+      <ButtonBar layoutY="76.0" prefHeight="40.0" prefWidth="880.0" AnchorPane.bottomAnchor="634.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="540.0" AnchorPane.topAnchor="76.0">
          <buttons>
-            <Button fx:id="btn_Student" mnemonicParsing="false" onAction="#btn_StudentClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý sinh viên" textFill="WHITE">
+            <Button fx:id="btn_Student" mnemonicParsing="false" onAction="#btn_StudentClicked" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý sinh viên" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="Diem" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý điểm" textFill="WHITE">
+            <Button fx:id="btn_Diem" mnemonicParsing="false" onAction="#btn_DiemClicked" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý điểm" textFill="WHITE">
 
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="MonHoc" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý môn học" textFill="WHITE">
+            <Button fx:id="btn_Subjects" mnemonicParsing="false" onAction="#btn_SubjectsClicked" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý môn học" textFill="WHITE">
 
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btn_Teacher" mnemonicParsing="false" onAction="#btn_giaoVienClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý giáo viên" textFill="WHITE">
+            <Button fx:id="btn_Teacher" mnemonicParsing="false" onAction="#btn_TeacherClicked" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý giáo viên" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="themMH" mnemonicParsing="false" onAction="#them" prefHeight="40.0" prefWidth="152.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Thêm Môn học" textFill="WHITE">
+            <Button fx:id="themMH" mnemonicParsing="false" onAction="#them" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Thêm Môn học" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>

@@ -18,9 +18,7 @@ import javafx.stage.Stage;
 public class MonHoc extends ControllerAdmin {
 
     public Button SinhVien;
-    public Button Diem;
-    public Button MonHoc;
-    public Button GiaoVien;
+
     @FXML
     TableView table;
 
@@ -28,6 +26,7 @@ public class MonHoc extends ControllerAdmin {
     private TextField tfTimKiem;
     @FXML
     private Button btn_timKiem;
+
     @FXML
     private Button themMH;
     @FXML

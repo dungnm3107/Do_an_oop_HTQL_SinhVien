@@ -14,7 +14,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="750.0" prefWidth="1420.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_sys.controller.Admin.SinhVien">
 
     <children>
@@ -73,10 +72,10 @@
             </Button>
             </children>
         </AnchorPane>
-      <ButtonBar layoutX="-3.0" layoutY="76.0" prefHeight="40.0" prefWidth="643.0">
+      <ButtonBar layoutY="75.0" prefHeight="40.0" prefWidth="699.0" AnchorPane.bottomAnchor="635.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="721.0" AnchorPane.topAnchor="76.0">
          <buttons>
 
-            <Button fx:id="btn_Student" mnemonicParsing="false" onAction="#btn_StudentClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý sinh viên" textFill="WHITE">
+            <Button fx:id="btn_Student" mnemonicParsing="false" onAction="#btn_StudentClicked" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý sinh viên" textFill="WHITE">
 
                <font>
                   <Font size="16.0" />
@@ -84,21 +83,21 @@
             </Button>
 
 
-            <Button fx:id="btn_Diem" mnemonicParsing="false" onAction="#btn_DiemClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý điểm" textFill="WHITE">
+            <Button fx:id="btn_Diem" mnemonicParsing="false" onAction="#btn_DiemClicked" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý điểm" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
 
 
-            <Button fx:id="btn_Subjects" mnemonicParsing="false" onAction="#btn_SubjectsClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý môn học" textFill="WHITE">
+            <Button fx:id="btn_Subjects" mnemonicParsing="false" onAction="#btn_SubjectsClicked" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý môn học" textFill="WHITE">
 
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
 
-            <Button fx:id="btn_Teacher" mnemonicParsing="false" onAction="#btn_TeacherClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý giáo viên" textFill="WHITE">
+            <Button fx:id="btn_Teacher" mnemonicParsing="false" onAction="#btn_TeacherClicked" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý giáo viên" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>

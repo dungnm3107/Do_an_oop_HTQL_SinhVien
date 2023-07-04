@@ -58,7 +58,7 @@ public class AdminDatabase extends DatabaseModel {
         return listStudent;
     }
 
-    public ObservableList<CourseData> timKiemMonHoc(String queries){
+    public ObservableList<CourseData> timKiemMonHoc(String queries) {
         String query = "\n" +
                 "select * from(\n" +
                 "SELECT CONCAT_WS(';', \n" +
@@ -87,7 +87,6 @@ public class AdminDatabase extends DatabaseModel {
         }
         return listCourse;
     }
-
 
 
     public ObservableList<Teacher> getAllActiveTeachers() {
@@ -321,67 +320,71 @@ public class AdminDatabase extends DatabaseModel {
             alert.setContentText("Không thể cập nhật môn học này");
         }
     }
+    public class DuplicateRecordException extends Exception {
+        public DuplicateRecordException(String message) {
+            super(message);
+        }
+    }
 
-    public void insertSinhVien(StudentNew studentNew) {
+    public void insertSinhVien(StudentNew studentNew) throws DuplicateRecordException {
         String canhanSql = "INSERT INTO caNhan (CCCD, Name_CN, Email, Ngay_Sinh, Gender, Sdt_CN, Que_Quan) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
         String sinhvienSql = "INSERT INTO sinhVien (Ma_SV, CCCD, Pass_SV, Ma_Loai, Ma_ChuyenNganh, Name_Lop, TrangThai, NgayVao) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, CONVERT(date, ?, 23))";
-        String lopSql = "INSERT INTO lopHoc (Name_Lop) VALUES (?)";
-
 
         try (Connection databaseConnection = ConnectionDatabase.getConnection();
              PreparedStatement canhanStatement = databaseConnection.prepareStatement(canhanSql);
              PreparedStatement sinhvienStatement = databaseConnection.prepareStatement(sinhvienSql);
-             PreparedStatement lopStatement = databaseConnection.prepareStatement(lopSql)) {
-
+        ) {
             // Kiểm tra sự tồn tại của CCCD trong bảng caNhan
-            String checkExistenceSql = "SELECT CCCD FROM caNhan WHERE CCCD = ?";
-            try (PreparedStatement checkExistenceStatement = databaseConnection.prepareStatement(checkExistenceSql)) {
-                checkExistenceStatement.setString(1, studentNew.getCCCD());
-                ResultSet resultSet = checkExistenceStatement.executeQuery();
+            String checkCCCDExistenceSql = "SELECT CCCD FROM caNhan WHERE CCCD = ?";
+            try (PreparedStatement checkCCCDExistenceStatement = databaseConnection.prepareStatement(checkCCCDExistenceSql)) {
+                checkCCCDExistenceStatement.setString(1, studentNew.getCCCD());
+                ResultSet resultSet = checkCCCDExistenceStatement.executeQuery();
 
                 if (resultSet.next()) {
-                    //check CCCD đã tồn tại hay chưa
-                    System.out.println("CCCD already exists in caNhan table");
-                } else {
-                    canhanStatement.setString(1, studentNew.getCCCD());
-                    canhanStatement.setString(2, studentNew.getHoTen());
-                    canhanStatement.setString(3, studentNew.getEmail());
-                    canhanStatement.setString(4, studentNew.getNgaySinh());
-                    canhanStatement.setString(5, studentNew.getGioiTinh());
-                    canhanStatement.setString(6, studentNew.getSoDienThoai());
-                    canhanStatement.setString(7, studentNew.getQueQuan());
-
-                    canhanStatement.executeUpdate();
-
-                    lopStatement.setString(1, studentNew.getLop().toUpperCase());
-                    lopStatement.executeUpdate();
-
-                    sinhvienStatement.setString(1, studentNew.getMSSV());
-                    sinhvienStatement.setString(2, studentNew.getCCCD());
-                    sinhvienStatement.setString(3, studentNew.getPass());
-                    sinhvienStatement.setString(4, studentNew.getMa_Loai());
-                    sinhvienStatement.setString(5, studentNew.getMa_Chuyennganh());
-                    sinhvienStatement.setString(6, studentNew.getLop());
-                    sinhvienStatement.setString(7, studentNew.getTrangThai());
-                    sinhvienStatement.setString(8, studentNew.getNgayVao());
-
-
-                    sinhvienStatement.executeUpdate();
-
-                    System.out.println("Insert successful!");
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Thành công");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Thêm sinh viên thành công!");
-                    alert.showAndWait();
+                    throw new DuplicateRecordException("Sinh viên với CCCD đã tồn tại trong cơ sở dữ liệu");
                 }
             }
+
+            // Kiểm tra sự tồn tại của MSSV trong bảng sinhVien
+            String checkMSSVExistenceSql = "SELECT Ma_SV FROM sinhVien WHERE Ma_SV = ?";
+            try (PreparedStatement checkMSSVExistenceStatement = databaseConnection.prepareStatement(checkMSSVExistenceSql)) {
+                checkMSSVExistenceStatement.setString(1, studentNew.getMSSV());
+                ResultSet resultSet = checkMSSVExistenceStatement.executeQuery();
+
+                if (resultSet.next()) {
+                    throw new DuplicateRecordException("Sinh viên với MSSV đã tồn tại trong cơ sở dữ liệu");
+                }
+            }
+
+            // Thêm dữ liệu vào bảng caNhan
+            canhanStatement.setString(1, studentNew.getCCCD());
+            canhanStatement.setString(2, studentNew.getHoTen());
+            canhanStatement.setString(3, studentNew.getEmail());
+            canhanStatement.setString(4, studentNew.getNgaySinh());
+            canhanStatement.setString(5, studentNew.getGioiTinh());
+            canhanStatement.setString(6, studentNew.getSoDienThoai());
+            canhanStatement.setString(7, studentNew.getQueQuan());
+            canhanStatement.executeUpdate();
+
+            // Thêm dữ liệu vào bảng sinhVien
+            sinhvienStatement.setString(1, studentNew.getMSSV());
+            sinhvienStatement.setString(2, studentNew.getCCCD());
+            sinhvienStatement.setString(3, studentNew.getPass());
+            sinhvienStatement.setString(4, studentNew.getMa_Loai());
+            sinhvienStatement.setString(5, studentNew.getMa_Chuyennganh());
+            sinhvienStatement.setString(6, studentNew.getLop());
+            sinhvienStatement.setString(7, studentNew.getTrangThai());
+            sinhvienStatement.setString(8, studentNew.getNgayVao());
+            sinhvienStatement.executeUpdate();
+
+            System.out.println("Insert successful!");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 
     public void updateSinhVien(String maSV, Student student) {
         String updateSinhVienQuery = "UPDATE sinhVien " +
@@ -534,7 +537,8 @@ public class AdminDatabase extends DatabaseModel {
             throwables.printStackTrace();
         }
     }
-    public void themMH(String maMH, String tenMH, String soTin, String loaiHP){
+
+    public void themMH(String maMH, String tenMH, String soTin, String loaiHP) {
         String query = "INSERT INTO monHoc VALUES (?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, maMH);
@@ -544,7 +548,7 @@ public class AdminDatabase extends DatabaseModel {
             statement.executeUpdate();
         } catch (SQLException throwables) {
             String errorCode = throwables.getSQLState();
-            if (errorCode.equals("23000")){
+            if (errorCode.equals("23000")) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Mã môn học đã tồn tại");
                 alert.show();
@@ -555,7 +559,7 @@ public class AdminDatabase extends DatabaseModel {
         alert.setContentText("Thêm môn học thành công");
         alert.show();
     }
-  
+
 //     public ObservableList<GiaoVien> timGV(String queries){
 //         String query = "select * from (\n" +
 //                 "SELECT CONCAT_WS(';', \n" +

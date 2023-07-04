@@ -64,50 +64,50 @@
             </effect>
             <children>
                 <TableView fx:id="tableGV" layoutX="36.0" layoutY="65.0" prefHeight="600.0" prefWidth="1366.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="70.0" />
-            <ButtonBar layoutX="5.0" layoutY="14.0" prefHeight="40.0" prefWidth="501.0">
-               <buttons>
-                  <Button fx:id="btn_addNewTeacher" mnemonicParsing="false" onAction="#btn_addNewTeacherClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Thêm giáo viên..." textFill="WHITE">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btn_updateTeacher" mnemonicParsing="false" onAction="#btn_updateTeacherClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Sửa thông tin..." textFill="WHITE" visible="false">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btn_deleteTeacher" minWidth="73.0" mnemonicParsing="false" onAction="#btn_deleteTeacherClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Xóa giáo viên" textFill="WHITE" visible="false">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
-               </buttons>
-            </ButtonBar>
+                <ButtonBar layoutX="5.0" layoutY="14.0" prefHeight="40.0" prefWidth="501.0">
+                    <buttons>
+                        <Button fx:id="btn_addNewTeacher" mnemonicParsing="false" onAction="#btn_addNewTeacherClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Thêm giáo viên..." textFill="WHITE">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="btn_updateTeacher" mnemonicParsing="false" onAction="#btn_updateTeacherClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Sửa thông tin..." textFill="WHITE" visible="false">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="btn_deleteTeacher" minWidth="73.0" mnemonicParsing="false" onAction="#btn_deleteTeacherClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Xóa giáo viên" textFill="WHITE" visible="false">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Button>
+                    </buttons>
+                </ButtonBar>
             </children>
         </AnchorPane>
-        <ButtonBar layoutY="84.0" prefHeight="40.0" prefWidth="643.0">
-            <buttons>
-                <Button fx:id="btn_Student" mnemonicParsing="false" onAction="#btn_StudentClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý sinh viên" textFill="WHITE">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Button>
-                <Button fx:id="btn_Diem" mnemonicParsing="false" onAction="#btn_DiemClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý điểm" textFill="WHITE">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Button>
-                <Button fx:id="btn_Subjects" mnemonicParsing="false" onAction="#btn_SubjectsClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý môn học" textFill="WHITE">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Button>
-                <Button fx:id="btn_Teacher" mnemonicParsing="false" onAction="#btn_TeacherClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý giáo viên" textFill="WHITE">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Button>
-            </buttons>
-        </ButtonBar>
+      <ButtonBar layoutX="10.0" layoutY="85.0" prefHeight="40.0" prefWidth="699.0" AnchorPane.bottomAnchor="634.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="721.0" AnchorPane.topAnchor="76.0">
+         <buttons>
+            <Button fx:id="btn_Student" mnemonicParsing="false" onAction="#btn_StudentClicked" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý sinh viên" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_Diem" mnemonicParsing="false" onAction="#btn_DiemClicked" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý điểm" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_Subjects" mnemonicParsing="false" onAction="#btn_SubjectsClicked" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý môn học" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_Teacher" mnemonicParsing="false" onAction="#btn_TeacherClicked" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #3f998d; -fx-background-radius: 6 6 6 6;" text="Quản lý giáo viên" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </buttons>
+      </ButtonBar>
     </children>
 </AnchorPane>
